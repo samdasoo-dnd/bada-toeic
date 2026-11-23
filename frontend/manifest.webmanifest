@@ -1,0 +1,15 @@
+{
+  "name": "바다토익 (BADA TOEIC)",
+  "short_name": "바다토익",
+  "description": "AI가 약점을 찾아주는 토익 학습 웹앱 — 진단·약점 공략·LC 듣기·단어 시험·문법 강의",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#04121c",
+  "theme_color": "#061726",
+  "lang": "ko",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
