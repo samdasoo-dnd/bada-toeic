@@ -1,0 +1,399 @@
+{
+ "version": "1.0",
+ "title": "토익 핵심 문법 12강",
+ "total": 12,
+ "notes": [
+  {
+   "id": "g-pos",
+   "no": 1,
+   "title": "품사와 문장 성분",
+   "subtitle": "명사·형용사·부사 자리 구분",
+   "formula": [
+    "관사(a/the)·소유격 + ( ) + 명사 → 빈칸은 형용사",
+    "주어·목적어·전치사 뒤 → 빈칸은 명사",
+    "동사·형용사·문장 전체를 꾸미면 → 빈칸은 부사"
+   ],
+   "trap": "friendly, costly처럼 -ly로 끝나도 형용사인 단어가 있고, 명사가 명사를 꾸미는 복합명사(communication skills) 자리도 있다.",
+   "patterns": [
+    {
+     "en": "The company reported a significant increase in profits.",
+     "kr": "그 회사는 이익의 상당한 증가를 보고했다.",
+     "point": "a + significant(형용사) + increase(명사) 구조"
+    },
+    {
+     "en": "All equipment must be inspected regularly.",
+     "kr": "모든 장비는 정기적으로 점검되어야 한다.",
+     "point": "수동태 동사구를 꾸미는 regularly(부사)"
+    },
+    {
+     "en": "We are looking for a candidate with strong communication skills.",
+     "kr": "우리는 뛰어난 의사소통 능력을 갖춘 지원자를 찾고 있다.",
+     "point": "communication(명사)이 skills를 꾸미는 복합명사"
+    }
+   ],
+   "types": [
+    "문법-품사"
+   ]
+  },
+  {
+   "id": "g-agree",
+   "no": 2,
+   "title": "주어·동사 수일치",
+   "subtitle": "Each / The number of / neither A nor B",
+   "formula": [
+    "Each·Every·Either + 단수명사 → 단수 동사",
+    "The number of + 복수명사 → 단수 / A number of + 복수명사 → 복수",
+    "neither A nor B, either A or B → B(가까운 주어)에 일치"
+   ],
+   "trap": "주어와 동사 사이의 of ~ 전치사구에 끌려 are/were를 쓰는 실수가 가장 많다.",
+   "patterns": [
+    {
+     "en": "Each of the participants is required to bring a valid ID.",
+     "kr": "참가자 각각은 유효한 신분증을 가져와야 한다.",
+     "point": "Each of + 복수명사 → 단수 is"
+    },
+    {
+     "en": "The number of online orders has increased steadily.",
+     "kr": "온라인 주문 수는 꾸준히 증가해 왔다.",
+     "point": "The number of → 단수 has"
+    },
+    {
+     "en": "Neither the manager nor the employees were aware of the change.",
+     "kr": "매니저도 직원들도 변경을 몰랐다.",
+     "point": "nor 뒤 employees에 맞춰 were"
+    }
+   ],
+   "types": [
+    "문법-수일치"
+   ]
+  },
+  {
+   "id": "g-tense",
+   "no": 3,
+   "title": "시제와 수동태",
+   "subtitle": "미래완료·과거완료·수동태 시제",
+   "formula": [
+    "by the time + 현재시제 → 주절은 미래완료(will have p.p.)",
+    "before·when·if 절에서는 미래의 일도 현재시제",
+    "be + p.p. : 시제는 be동사가 담당, 행위자는 by"
+   ],
+   "trap": "since + 과거 시점 → 현재완료, 과거의 기준점보다 이전 일 → 과거완료(had p.p.).",
+   "patterns": [
+    {
+     "en": "By the time the client arrives, the team will have completed the report.",
+     "kr": "고객이 도착할 때쯤이면 팀은 보고서를 완성했을 것이다.",
+     "point": "by the time + 현재 → will have p.p."
+    },
+    {
+     "en": "The software has been downloaded more than 2,000 times since May.",
+     "kr": "그 소프트웨어는 5월 이후 2,000회 넘게 다운로드되었다.",
+     "point": "since + 현재완료 수동태"
+    },
+    {
+     "en": "Ms. Rivera had worked there for ten years when she was promoted.",
+     "kr": "리베라 씨는 승진했을 때 그곳에서 10년 일한 상태였다.",
+     "point": "과거 기준 이전 → had p.p."
+    }
+   ],
+   "types": [
+    "문법-시제"
+   ]
+  },
+  {
+   "id": "g-verbals",
+   "no": 4,
+   "title": "준동사 (to부정사·동명사)",
+   "subtitle": "전치사 뒤 -ing, 목적어 패턴",
+   "formula": [
+    "전치사 뒤 → 동명사(-ing)",
+    "목적어 to부정사: decide, plan, hope, refuse / 동명사: enjoy, avoid, consider",
+    "명사 뒤 to부정사 = 앞으로 할 일, 동명사 = 용도"
+   ],
+   "trap": "look forward to, be used to, in addition to의 to는 전치사이므로 뒤에 -ing가 온다.",
+   "patterns": [
+    {
+     "en": "We look forward to receiving your reply.",
+     "kr": "회신을 기다리겠습니다.",
+     "point": "look forward to + 동명사"
+    },
+    {
+     "en": "The company decided to expand its online business.",
+     "kr": "그 회사는 온라인 사업을 확장하기로 했다.",
+     "point": "decide + to부정사"
+    },
+    {
+     "en": "Please avoid making personal calls at work.",
+     "kr": "직장에서 사적인 통화는 피해 주세요.",
+     "point": "avoid + 동명사"
+    }
+   ],
+   "types": [
+    "문법-준동사"
+   ]
+  },
+  {
+   "id": "g-participle",
+   "no": 5,
+   "title": "분사 (현재분사 vs 과거분사)",
+   "subtitle": "-ing / -ed 선택 기준",
+   "formula": [
+    "감정을 '느끼는' 주체(사람) → -ed / 감정을 '일으키는' 대상 → -ing",
+    "명사 뒤 분사구: 능동 관계 → -ing, 수동 관계 → -ed",
+    "분사구문의 주어는 주절 주어와 같아야 한다"
+   ],
+   "trap": "I am interested(내가 흥미를 느낌) vs The movie is interesting(영화가 흥미를 줌).",
+   "patterns": [
+    {
+     "en": "The customers were satisfied with the new service.",
+     "kr": "고객들은 새 서비스에 만족했다.",
+     "point": "사람이 만족을 느낌 → satisfied"
+    },
+    {
+     "en": "The results were surprising to everyone.",
+     "kr": "그 결과는 모두를 놀라게 했다.",
+     "point": "결과가 놀라움을 일으킴 → surprising"
+    },
+    {
+     "en": "All items ordered online can be returned within 14 days.",
+     "kr": "온라인으로 주문된 모든 품목은 14일 내 반품 가능하다.",
+     "point": "items가 주문되는 대상 → 과거분사 ordered"
+    }
+   ],
+   "types": [
+    "문법-분사"
+   ]
+  },
+  {
+   "id": "g-relative",
+   "no": 6,
+   "title": "관계대명사 vs 관계부사",
+   "subtitle": "절이 완전한지 먼저 확인",
+   "formula": [
+    "관계사절이 불완전(주어·목적어 없음) → who/which/whom/whose",
+    "관계사절이 완전 → where/when/why",
+    "전치사 + 관계대명사(which/whom)는 가능, + that은 불가"
+   ],
+   "trap": "the place where는 뒤에 완전한 절, the place which는 뒤에 불완전한 절이 온다.",
+   "patterns": [
+    {
+     "en": "The consultant whom we hired last month improved our sales.",
+     "kr": "지난달 우리가 고용한 컨설턴트가 매출을 개선했다.",
+     "point": "hired의 목적어가 없음 → whom"
+    },
+    {
+     "en": "The company whose headquarters are in Busan opened a branch.",
+     "kr": "본사가 부산에 있는 회사가 지사를 열었다.",
+     "point": "소유 관계 → whose"
+    },
+    {
+     "en": "Please use the entrance which is next to the parking garage.",
+     "kr": "주차장 옆 출입구를 이용하세요.",
+     "point": "is의 주어가 없음 → which"
+    }
+   ],
+   "types": [
+    "문법-관계사"
+   ]
+  },
+  {
+   "id": "g-conj",
+   "no": 7,
+   "title": "접속사 vs 전치사",
+   "subtitle": "뒤에 절이 오는지, 명사구가 오는지",
+   "formula": [
+    "뒤에 주어+동사(절) → although / because / while",
+    "뒤에 명사구 → despite / because of / during",
+    "however·therefore는 접속부사 → 문장부호(세미콜론/마침표) 필요"
+   ],
+   "trap": "despite 뒤에 절이 그대로 오면 틀린다. 필요하면 despite the fact that을 쓴다.",
+   "patterns": [
+    {
+     "en": "Despite the heavy rain, the event proceeded as planned.",
+     "kr": "폭우에도 불구하고 행사는 예정대로 진행되었다.",
+     "point": "명사구 the heavy rain → Despite"
+    },
+    {
+     "en": "Although the price was high, the product sold well.",
+     "kr": "가격이 높았지만 제품은 잘 팔렸다.",
+     "point": "절 → Although"
+    },
+    {
+     "en": "In addition, we will offer free delivery.",
+     "kr": "또한 무료 배송을 제공합니다.",
+     "point": "접속부사 In addition + 문장"
+    }
+   ],
+   "types": [
+    "문법-전치사",
+    "장문빈칸-접속사"
+   ]
+  },
+  {
+   "id": "g-compare",
+   "no": 8,
+   "title": "비교급·최상급",
+   "subtitle": "than / in / of / the",
+   "formula": [
+    "비교급 + than, 최상급 + in(of) + 범위",
+    "the + 최상급 + 명사 (부사 최상급은 the 생략 가능)",
+    "as + 원급 + as, not as ~ as"
+   ],
+   "trap": "more + -er처럼 비교급을 두 번 쓰지 않는다. most와 almost를 혼동하지 않는다.",
+   "patterns": [
+    {
+     "en": "This model is more efficient than the previous one.",
+     "kr": "이 모델은 이전 모델보다 효율적이다.",
+     "point": "비교급 + than"
+    },
+    {
+     "en": "It was the most successful campaign of the year.",
+     "kr": "그것은 올해 가장 성공적인 캠페인이었다.",
+     "point": "the most + 최상급"
+    },
+    {
+     "en": "The new system is as reliable as the old one.",
+     "kr": "새 시스템은 예전 시스템만큼 신뢰할 만하다.",
+     "point": "as + 원급 + as"
+    }
+   ],
+   "types": [
+    "문법-비교"
+   ]
+  },
+  {
+   "id": "g-subjunctive",
+   "no": 9,
+   "title": "가정법·도치",
+   "subtitle": "If + had p.p. / 부정어 문두",
+   "formula": [
+    "If + 주어 + had p.p., 주어 + would have p.p. (가정법 과거완료)",
+    "Were it not for = If it were not for (~이 없다면)",
+    "부정어(Never, Hardly) 문두 → 조동사 도치 (Never have I seen...)"
+   ],
+   "trap": "가정법 과거완료의 주절에 would have p.p.를 빠뜨리거나 would p.p.로 쓰는 실수.",
+   "patterns": [
+    {
+     "en": "If we had booked earlier, we would have gotten a discount.",
+     "kr": "더 일찍 예약했다면 할인을 받았을 것이다.",
+     "point": "had p.p. ~ would have p.p."
+    },
+    {
+     "en": "Were it not for the traffic, we would arrive on time.",
+     "kr": "교통 체증이 없다면 제시간에 도착할 것이다.",
+     "point": "Were it not for = If it were not for"
+    },
+    {
+     "en": "Never have I seen such a well-organized event.",
+     "kr": "이렇게 잘 준비된 행사는 본 적이 없다.",
+     "point": "부정어 문두 → have I 도치"
+    }
+   ],
+   "types": [
+    "문법-가정법"
+   ]
+  },
+  {
+   "id": "g-pronoun",
+   "no": 10,
+   "title": "대명사 격·수",
+   "subtitle": "주격·목적격·소유격",
+   "formula": [
+    "동사·전치사 뒤 → 목적격(me/him/them)",
+    "명사 앞 → 소유격(my/its/their)",
+    "주어 자리 → 주격(I/he/they)"
+   ],
+   "trap": "회사·조직(the company, the team)은 단수 it/its로 받는 것이 토익 기준이다.",
+   "patterns": [
+    {
+     "en": "Please contact me if you have any questions.",
+     "kr": "질문이 있으면 저에게 연락해 주세요.",
+     "point": "contact의 목적어 → me"
+    },
+    {
+     "en": "The company moved its headquarters to Seoul.",
+     "kr": "그 회사는 본사를 서울로 옮겼다.",
+     "point": "단체 → its"
+    },
+    {
+     "en": "The documents were sent to them yesterday.",
+     "kr": "서류는 어제 그들에게 발송되었다.",
+     "point": "전치사 to 뒤 → them"
+    }
+   ],
+   "types": [
+    "문법-대명사"
+   ]
+  },
+  {
+   "id": "g-vocab",
+   "no": 11,
+   "title": "어휘·연어(짝 표현)",
+   "subtitle": "동사+전치사, 명사+전치사",
+   "formula": [
+    "동사+전치사: comply with, apply for, depend on, be responsible for",
+    "명사+전치사: access to, demand for, an increase in",
+    "빈칸 앞뒤 단어와 자연스럽게 붙는지로 판단"
+   ],
+   "trap": "raise(타동사: ~을 올리다) vs rise(자동사: 오르다), affect(동사) vs effect(명사).",
+   "patterns": [
+    {
+     "en": "All vendors must comply with the safety regulations.",
+     "kr": "모든 업체는 안전 규정을 준수해야 한다.",
+     "point": "comply with"
+    },
+    {
+     "en": "There was a significant increase in online sales.",
+     "kr": "온라인 매출이 크게 증가했다.",
+     "point": "an increase in"
+    },
+    {
+     "en": "She applied for a position in the marketing department.",
+     "kr": "그녀는 마케팅부서 직책에 지원했다.",
+     "point": "apply for"
+    }
+   ],
+   "types": [
+    "어휘",
+    "장문빈칸-어휘"
+   ]
+  },
+  {
+   "id": "g-evidence",
+   "no": 12,
+   "title": "독해·듣기 정답 근거 찾기",
+   "subtitle": "패러프레이징(같은 말 바꾸기)",
+   "formula": [
+    "질문의 키워드 → 지문에서 '다른 표현'으로 바뀐 곳을 찾는다",
+    "숫자·날짜·고유명사는 위치를 알려 주는 표지자",
+    "정답 근거는 대부분 한 문장 안에 있다"
+   ],
+   "trap": "지문에 그대로 나온 단어만 골라 고르면 함정인 경우가 많다. 표현이 바뀐 곳이 정답 근거다.",
+   "patterns": [
+    {
+     "en": "The meeting has been moved to Monday. / Q: When is the rescheduled meeting?",
+     "kr": "회의가 월요일로 옮겨졌다. / 질문: 일정이 변경된 회의는 언제인가?",
+     "point": "moved ↔ rescheduled"
+    },
+    {
+     "en": "Parking is available in the lot on Willow Avenue. / Q: Where can attendees park?",
+     "kr": "윌로우 애비뉴 주차장을 이용할 수 있다. / 질문: 참석자는 어디에 주차할 수 있나?",
+     "point": "available ↔ can park"
+    },
+    {
+     "en": "requires a separate fee of $45 / Q: What is required to attend the workshop?",
+     "kr": "45달러의 별도 요금이 필요하다. / 질문: 워크숍 참석에 무엇이 필요한가?",
+     "point": "separate fee ↔ additional charge"
+    }
+   ],
+   "types": [
+    "독해-세부사항",
+    "독해-의도파악",
+    "독해-추론",
+    "독해-주제",
+    "독해-이중지문",
+    "대화-추론",
+    "담화-세부사항"
+   ]
+  }
+ ]
+}

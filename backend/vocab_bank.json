@@ -1,0 +1,1413 @@
+{
+ "version": "1.0",
+ "title": "토익 필수 단어 130",
+ "total": 130,
+ "sets": [
+  {
+   "id": "day01",
+   "title": "인사·채용",
+   "title_en": "Recruitment",
+   "count": 10,
+   "word_ids": [
+    "v001",
+    "v002",
+    "v003",
+    "v004",
+    "v005",
+    "v006",
+    "v007",
+    "v008",
+    "v009",
+    "v010"
+   ]
+  },
+  {
+   "id": "day02",
+   "title": "사무·회의",
+   "title_en": "Office & Meetings",
+   "count": 10,
+   "word_ids": [
+    "v011",
+    "v012",
+    "v013",
+    "v014",
+    "v015",
+    "v016",
+    "v017",
+    "v018",
+    "v019",
+    "v020"
+   ]
+  },
+  {
+   "id": "day03",
+   "title": "계약·협상",
+   "title_en": "Contracts & Negotiation",
+   "count": 10,
+   "word_ids": [
+    "v021",
+    "v022",
+    "v023",
+    "v024",
+    "v025",
+    "v026",
+    "v027",
+    "v028",
+    "v029",
+    "v030"
+   ]
+  },
+  {
+   "id": "day04",
+   "title": "마케팅·광고",
+   "title_en": "Marketing & Advertising",
+   "count": 10,
+   "word_ids": [
+    "v031",
+    "v032",
+    "v033",
+    "v034",
+    "v035",
+    "v036",
+    "v037",
+    "v038",
+    "v039",
+    "v040"
+   ]
+  },
+  {
+   "id": "day05",
+   "title": "재무·회계",
+   "title_en": "Finance & Accounting",
+   "count": 10,
+   "word_ids": [
+    "v041",
+    "v042",
+    "v043",
+    "v044",
+    "v045",
+    "v046",
+    "v047",
+    "v048",
+    "v049",
+    "v050"
+   ]
+  },
+  {
+   "id": "day06",
+   "title": "제조·생산",
+   "title_en": "Manufacturing",
+   "count": 10,
+   "word_ids": [
+    "v051",
+    "v052",
+    "v053",
+    "v054",
+    "v055",
+    "v056",
+    "v057",
+    "v058",
+    "v059",
+    "v060"
+   ]
+  },
+  {
+   "id": "day07",
+   "title": "물류·배송",
+   "title_en": "Logistics & Delivery",
+   "count": 10,
+   "word_ids": [
+    "v061",
+    "v062",
+    "v063",
+    "v064",
+    "v065",
+    "v066",
+    "v067",
+    "v068",
+    "v069",
+    "v070"
+   ]
+  },
+  {
+   "id": "day08",
+   "title": "여행·출장",
+   "title_en": "Travel & Business Trips",
+   "count": 10,
+   "word_ids": [
+    "v071",
+    "v072",
+    "v073",
+    "v074",
+    "v075",
+    "v076",
+    "v077",
+    "v078",
+    "v079",
+    "v080"
+   ]
+  },
+  {
+   "id": "day09",
+   "title": "고객서비스",
+   "title_en": "Customer Service",
+   "count": 10,
+   "word_ids": [
+    "v081",
+    "v082",
+    "v083",
+    "v084",
+    "v085",
+    "v086",
+    "v087",
+    "v088",
+    "v089",
+    "v090"
+   ]
+  },
+  {
+   "id": "day10",
+   "title": "부동산·시설",
+   "title_en": "Property & Facilities",
+   "count": 10,
+   "word_ids": [
+    "v091",
+    "v092",
+    "v093",
+    "v094",
+    "v095",
+    "v096",
+    "v097",
+    "v098",
+    "v099",
+    "v100"
+   ]
+  },
+  {
+   "id": "day11",
+   "title": "기술·IT",
+   "title_en": "Technology & IT",
+   "count": 10,
+   "word_ids": [
+    "v101",
+    "v102",
+    "v103",
+    "v104",
+    "v105",
+    "v106",
+    "v107",
+    "v108",
+    "v109",
+    "v110"
+   ]
+  },
+  {
+   "id": "day12",
+   "title": "일반 비즈니스",
+   "title_en": "General Business",
+   "count": 10,
+   "word_ids": [
+    "v111",
+    "v112",
+    "v113",
+    "v114",
+    "v115",
+    "v116",
+    "v117",
+    "v118",
+    "v119",
+    "v120"
+   ]
+  },
+  {
+   "id": "day13",
+   "title": "혼동 어휘",
+   "title_en": "Easily Confused Words",
+   "count": 10,
+   "word_ids": [
+    "v121",
+    "v122",
+    "v123",
+    "v124",
+    "v125",
+    "v126",
+    "v127",
+    "v128",
+    "v129",
+    "v130"
+   ]
+  }
+ ],
+ "words": [
+  {
+   "id": "v001",
+   "word": "applicant",
+   "pos": "n.",
+   "meaning": "지원자",
+   "example": "The applicant submitted her resume online.",
+   "example_kr": "그 지원자는 온라인으로 이력서를 제출했다.",
+   "set": "day01"
+  },
+  {
+   "id": "v002",
+   "word": "recruit",
+   "pos": "v.",
+   "meaning": "모집하다, 채용하다",
+   "example": "We plan to recruit three engineers this year.",
+   "example_kr": "우리는 올해 엔지니어 세 명을 채용할 계획이다.",
+   "set": "day01"
+  },
+  {
+   "id": "v003",
+   "word": "qualified",
+   "pos": "adj.",
+   "meaning": "자격을 갖춘",
+   "example": "Only qualified candidates will be contacted.",
+   "example_kr": "자격을 갖춘 지원자에게만 연락드립니다.",
+   "set": "day01"
+  },
+  {
+   "id": "v004",
+   "word": "resume",
+   "pos": "n.",
+   "meaning": "이력서",
+   "example": "Please attach your resume to the application.",
+   "example_kr": "지원서에 이력서를 첨부해 주세요.",
+   "set": "day01"
+  },
+  {
+   "id": "v005",
+   "word": "interview",
+   "pos": "n.",
+   "meaning": "면접",
+   "example": "The interview will be held on Monday.",
+   "example_kr": "면접은 월요일에 진행됩니다.",
+   "set": "day01"
+  },
+  {
+   "id": "v006",
+   "word": "position",
+   "pos": "n.",
+   "meaning": "직책, 일자리",
+   "example": "She applied for a marketing position.",
+   "example_kr": "그녀는 마케팅 직책에 지원했다.",
+   "set": "day01"
+  },
+  {
+   "id": "v007",
+   "word": "candidate",
+   "pos": "n.",
+   "meaning": "후보자, 지원자",
+   "example": "The candidate has five years of experience.",
+   "example_kr": "그 지원자는 5년의 경력이 있다.",
+   "set": "day01"
+  },
+  {
+   "id": "v008",
+   "word": "reference",
+   "pos": "n.",
+   "meaning": "추천인, 참고",
+   "example": "Please provide two professional references.",
+   "example_kr": "직장 추천인 두 명을 제시해 주세요.",
+   "set": "day01"
+  },
+  {
+   "id": "v009",
+   "word": "orientation",
+   "pos": "n.",
+   "meaning": "오리엔테이션, 안내 교육",
+   "example": "New employees attend an orientation on their first day.",
+   "example_kr": "신입 사원은 첫날 오리엔테이션에 참석한다.",
+   "set": "day01"
+  },
+  {
+   "id": "v010",
+   "word": "promotion",
+   "pos": "n.",
+   "meaning": "승진",
+   "example": "He received a promotion last month.",
+   "example_kr": "그는 지난달 승진했다.",
+   "set": "day01"
+  },
+  {
+   "id": "v011",
+   "word": "agenda",
+   "pos": "n.",
+   "meaning": "안건, 의제",
+   "example": "The agenda was sent to all participants.",
+   "example_kr": "안건은 모든 참석자에게 발송되었다.",
+   "set": "day02"
+  },
+  {
+   "id": "v012",
+   "word": "minutes",
+   "pos": "n.",
+   "meaning": "회의록",
+   "example": "Could you take the minutes of today's meeting?",
+   "example_kr": "오늘 회의 회의록을 작성해 줄 수 있나요?",
+   "set": "day02"
+  },
+  {
+   "id": "v013",
+   "word": "deadline",
+   "pos": "n.",
+   "meaning": "마감 기한",
+   "example": "The deadline for the report is Friday.",
+   "example_kr": "보고서 마감은 금요일이다.",
+   "set": "day02"
+  },
+  {
+   "id": "v014",
+   "word": "reschedule",
+   "pos": "v.",
+   "meaning": "일정을 변경하다",
+   "example": "We had to reschedule the meeting.",
+   "example_kr": "우리는 회의 일정을 변경해야 했다.",
+   "set": "day02"
+  },
+  {
+   "id": "v015",
+   "word": "confirm",
+   "pos": "v.",
+   "meaning": "확인하다",
+   "example": "Please confirm your attendance by email.",
+   "example_kr": "이메일로 참석 여부를 확인해 주세요.",
+   "set": "day02"
+  },
+  {
+   "id": "v016",
+   "word": "attach",
+   "pos": "v.",
+   "meaning": "첨부하다",
+   "example": "Please attach the revised file to your message.",
+   "example_kr": "메시지에 수정된 파일을 첨부해 주세요.",
+   "set": "day02"
+  },
+  {
+   "id": "v017",
+   "word": "distribute",
+   "pos": "v.",
+   "meaning": "배포하다, 나누어 주다",
+   "example": "Please distribute the handouts before the presentation.",
+   "example_kr": "발표 전에 유인물을 배포해 주세요.",
+   "set": "day02"
+  },
+  {
+   "id": "v018",
+   "word": "postpone",
+   "pos": "v.",
+   "meaning": "연기하다",
+   "example": "They decided to postpone the seminar.",
+   "example_kr": "그들은 세미나를 연기하기로 했다.",
+   "set": "day02"
+  },
+  {
+   "id": "v019",
+   "word": "attend",
+   "pos": "v.",
+   "meaning": "참석하다",
+   "example": "All managers must attend the workshop.",
+   "example_kr": "모든 관리자는 워크숍에 참석해야 한다.",
+   "set": "day02"
+  },
+  {
+   "id": "v020",
+   "word": "document",
+   "pos": "n.",
+   "meaning": "서류, 문서",
+   "example": "Please sign the document and return it.",
+   "example_kr": "서류에 서명해서 돌려주세요.",
+   "set": "day02"
+  },
+  {
+   "id": "v021",
+   "word": "contract",
+   "pos": "n.",
+   "meaning": "계약(서)",
+   "example": "Both parties signed the contract yesterday.",
+   "example_kr": "양측은 어제 계약서에 서명했다.",
+   "set": "day03"
+  },
+  {
+   "id": "v022",
+   "word": "negotiate",
+   "pos": "v.",
+   "meaning": "협상하다",
+   "example": "We plan to negotiate the price with the supplier.",
+   "example_kr": "우리는 공급업체와 가격을 협상할 계획이다.",
+   "set": "day03"
+  },
+  {
+   "id": "v023",
+   "word": "agreement",
+   "pos": "n.",
+   "meaning": "합의, 계약",
+   "example": "The two companies reached an agreement.",
+   "example_kr": "두 회사는 합의에 도달했다.",
+   "set": "day03"
+  },
+  {
+   "id": "v024",
+   "word": "clause",
+   "pos": "n.",
+   "meaning": "조항",
+   "example": "Please review the payment clause carefully.",
+   "example_kr": "지급 조항을 주의 깊게 검토해 주세요.",
+   "set": "day03"
+  },
+  {
+   "id": "v025",
+   "word": "terminate",
+   "pos": "v.",
+   "meaning": "종료하다, 해지하다",
+   "example": "Either party may terminate the agreement with notice.",
+   "example_kr": "어느 쪽이든 사전 통지 후 계약을 해지할 수 있다.",
+   "set": "day03"
+  },
+  {
+   "id": "v026",
+   "word": "renew",
+   "pos": "v.",
+   "meaning": "갱신하다",
+   "example": "We decided to renew the lease for another year.",
+   "example_kr": "우리는 임대차 계약을 1년 더 갱신하기로 했다.",
+   "set": "day03"
+  },
+  {
+   "id": "v027",
+   "word": "obligation",
+   "pos": "n.",
+   "meaning": "의무",
+   "example": "The contract lists the obligations of each party.",
+   "example_kr": "계약서에는 각 당사자의 의무가 적혀 있다.",
+   "set": "day03"
+  },
+  {
+   "id": "v028",
+   "word": "comply",
+   "pos": "v.",
+   "meaning": "준수하다",
+   "example": "All vendors must comply with safety regulations.",
+   "example_kr": "모든 판매업체는 안전 규정을 준수해야 한다.",
+   "set": "day03"
+  },
+  {
+   "id": "v029",
+   "word": "proposal",
+   "pos": "n.",
+   "meaning": "제안서",
+   "example": "The client approved our proposal.",
+   "example_kr": "고객이 우리 제안서를 승인했다.",
+   "set": "day03"
+  },
+  {
+   "id": "v030",
+   "word": "terms",
+   "pos": "n.",
+   "meaning": "조건",
+   "example": "Please read the terms before signing.",
+   "example_kr": "서명 전에 조건을 읽어 보세요.",
+   "set": "day03"
+  },
+  {
+   "id": "v031",
+   "word": "campaign",
+   "pos": "n.",
+   "meaning": "캠페인",
+   "example": "The campaign increased sales by 20 percent.",
+   "example_kr": "그 캠페인으로 매출이 20퍼센트 증가했다.",
+   "set": "day04"
+  },
+  {
+   "id": "v032",
+   "word": "promote",
+   "pos": "v.",
+   "meaning": "홍보하다, 승진시키다",
+   "example": "The company will promote the product online.",
+   "example_kr": "회사는 그 제품을 온라인에서 홍보할 것이다.",
+   "set": "day04"
+  },
+  {
+   "id": "v033",
+   "word": "consumer",
+   "pos": "n.",
+   "meaning": "소비자",
+   "example": "Consumers are buying more eco-friendly products.",
+   "example_kr": "소비자들은 친환경 제품을 더 많이 사고 있다.",
+   "set": "day04"
+  },
+  {
+   "id": "v034",
+   "word": "launch",
+   "pos": "v.",
+   "meaning": "출시하다, 시작하다",
+   "example": "They will launch the new model in June.",
+   "example_kr": "그들은 6월에 신모델을 출시할 것이다.",
+   "set": "day04"
+  },
+  {
+   "id": "v035",
+   "word": "brand",
+   "pos": "n.",
+   "meaning": "브랜드",
+   "example": "The brand is popular among young customers.",
+   "example_kr": "그 브랜드는 젊은 고객에게 인기가 많다.",
+   "set": "day04"
+  },
+  {
+   "id": "v036",
+   "word": "advertise",
+   "pos": "v.",
+   "meaning": "광고하다",
+   "example": "We advertise on social media and television.",
+   "example_kr": "우리는 소셜 미디어와 TV에 광고한다.",
+   "set": "day04"
+  },
+  {
+   "id": "v037",
+   "word": "survey",
+   "pos": "n.",
+   "meaning": "설문 조사",
+   "example": "A recent survey showed strong demand.",
+   "example_kr": "최근 설문 조사는 높은 수요를 보여 주었다.",
+   "set": "day04"
+  },
+  {
+   "id": "v038",
+   "word": "target",
+   "pos": "v.",
+   "meaning": "겨냥하다, 목표로 하다",
+   "example": "The ad targets business travelers.",
+   "example_kr": "그 광고는 출장 여행자를 겨냥한다.",
+   "set": "day04"
+  },
+  {
+   "id": "v039",
+   "word": "feature",
+   "pos": "n.",
+   "meaning": "특징, 기능",
+   "example": "The phone's best feature is its battery.",
+   "example_kr": "그 휴대폰의 가장 큰 특징은 배터리다.",
+   "set": "day04"
+  },
+  {
+   "id": "v040",
+   "word": "revenue",
+   "pos": "n.",
+   "meaning": "수익, 매출",
+   "example": "Online sales generated record revenue.",
+   "example_kr": "온라인 판매가 기록적인 매출을 냈다.",
+   "set": "day04"
+  },
+  {
+   "id": "v041",
+   "word": "budget",
+   "pos": "n.",
+   "meaning": "예산",
+   "example": "The project stayed within the budget.",
+   "example_kr": "그 프로젝트는 예산 안에서 진행되었다.",
+   "set": "day05"
+  },
+  {
+   "id": "v042",
+   "word": "invoice",
+   "pos": "n.",
+   "meaning": "청구서",
+   "example": "Please pay the invoice within 30 days.",
+   "example_kr": "30일 이내에 청구서를 결제해 주세요.",
+   "set": "day05"
+  },
+  {
+   "id": "v043",
+   "word": "expense",
+   "pos": "n.",
+   "meaning": "비용, 경비",
+   "example": "Submit your travel expenses by Friday.",
+   "example_kr": "금요일까지 출장 경비를 제출하세요.",
+   "set": "day05"
+  },
+  {
+   "id": "v044",
+   "word": "profit",
+   "pos": "n.",
+   "meaning": "이익",
+   "example": "The company reported a small profit this quarter.",
+   "example_kr": "회사는 이번 분기 소폭의 이익을 보고했다.",
+   "set": "day05"
+  },
+  {
+   "id": "v045",
+   "word": "accounting",
+   "pos": "n.",
+   "meaning": "회계",
+   "example": "The accounting department handles tax reports.",
+   "example_kr": "회계부서가 세금 신고를 담당한다.",
+   "set": "day05"
+  },
+  {
+   "id": "v046",
+   "word": "deposit",
+   "pos": "n.",
+   "meaning": "보증금, 예금",
+   "example": "We paid a deposit for the venue.",
+   "example_kr": "우리는 행사장 보증금을 지불했다.",
+   "set": "day05"
+  },
+  {
+   "id": "v047",
+   "word": "reimbursement",
+   "pos": "n.",
+   "meaning": "환급, 상환",
+   "example": "Request reimbursement for your hotel stay.",
+   "example_kr": "숙박비 환급을 신청하세요.",
+   "set": "day05"
+  },
+  {
+   "id": "v048",
+   "word": "estimate",
+   "pos": "n.",
+   "meaning": "견적(서)",
+   "example": "The contractor sent an estimate for the repairs.",
+   "example_kr": "업체가 수리 견적서를 보냈다.",
+   "set": "day05"
+  },
+  {
+   "id": "v049",
+   "word": "audit",
+   "pos": "n.",
+   "meaning": "회계 감사",
+   "example": "The annual audit begins next week.",
+   "example_kr": "연례 감사가 다음 주에 시작된다.",
+   "set": "day05"
+  },
+  {
+   "id": "v050",
+   "word": "transaction",
+   "pos": "n.",
+   "meaning": "거래",
+   "example": "Each transaction is recorded automatically.",
+   "example_kr": "모든 거래는 자동으로 기록된다.",
+   "set": "day05"
+  },
+  {
+   "id": "v051",
+   "word": "manufacture",
+   "pos": "v.",
+   "meaning": "제조하다",
+   "example": "The factory can manufacture parts for electric cars.",
+   "example_kr": "그 공장은 전기차 부품을 제조할 수 있다.",
+   "set": "day06"
+  },
+  {
+   "id": "v052",
+   "word": "production",
+   "pos": "n.",
+   "meaning": "생산",
+   "example": "Production increased after the upgrade.",
+   "example_kr": "설비 개선 후 생산량이 늘었다.",
+   "set": "day06"
+  },
+  {
+   "id": "v053",
+   "word": "equipment",
+   "pos": "n.",
+   "meaning": "장비",
+   "example": "All equipment must be inspected regularly.",
+   "example_kr": "모든 장비는 정기적으로 점검되어야 한다.",
+   "set": "day06"
+  },
+  {
+   "id": "v054",
+   "word": "facility",
+   "pos": "n.",
+   "meaning": "시설",
+   "example": "The new facility opens in March.",
+   "example_kr": "새 시설은 3월에 문을 연다.",
+   "set": "day06"
+  },
+  {
+   "id": "v055",
+   "word": "inspection",
+   "pos": "n.",
+   "meaning": "점검",
+   "example": "The inspection found no safety problems.",
+   "example_kr": "점검 결과 안전 문제는 없었다.",
+   "set": "day06"
+  },
+  {
+   "id": "v056",
+   "word": "assemble",
+   "pos": "v.",
+   "meaning": "조립하다",
+   "example": "Workers assemble the devices by hand.",
+   "example_kr": "작업자들이 기기를 손으로 조립한다.",
+   "set": "day06"
+  },
+  {
+   "id": "v057",
+   "word": "defect",
+   "pos": "n.",
+   "meaning": "결함",
+   "example": "Every defect is reported to the manager.",
+   "example_kr": "모든 결함은 관리자에게 보고된다.",
+   "set": "day06"
+  },
+  {
+   "id": "v058",
+   "word": "maintenance",
+   "pos": "n.",
+   "meaning": "유지 보수",
+   "example": "Regular maintenance extends the machine's life.",
+   "example_kr": "정기적인 유지 보수는 기계 수명을 늘린다.",
+   "set": "day06"
+  },
+  {
+   "id": "v059",
+   "word": "capacity",
+   "pos": "n.",
+   "meaning": "생산 능력, 수용력",
+   "example": "The plant has a capacity of 500 units a day.",
+   "example_kr": "그 공장은 하루 500개를 생산할 수 있다.",
+   "set": "day06"
+  },
+  {
+   "id": "v060",
+   "word": "durable",
+   "pos": "adj.",
+   "meaning": "내구성 있는",
+   "example": "These shoes are durable and lightweight.",
+   "example_kr": "이 신발은 내구성이 좋고 가볍다.",
+   "set": "day06"
+  },
+  {
+   "id": "v061",
+   "word": "shipment",
+   "pos": "n.",
+   "meaning": "배송품, 화물",
+   "example": "The shipment arrived two days late.",
+   "example_kr": "배송품이 이틀 늦게 도착했다.",
+   "set": "day07"
+  },
+  {
+   "id": "v062",
+   "word": "deliver",
+   "pos": "v.",
+   "meaning": "배달하다",
+   "example": "We deliver orders within 24 hours.",
+   "example_kr": "우리는 24시간 이내에 주문을 배달한다.",
+   "set": "day07"
+  },
+  {
+   "id": "v063",
+   "word": "warehouse",
+   "pos": "n.",
+   "meaning": "창고",
+   "example": "The goods are stored in the warehouse.",
+   "example_kr": "상품은 창고에 보관되어 있다.",
+   "set": "day07"
+  },
+  {
+   "id": "v064",
+   "word": "inventory",
+   "pos": "n.",
+   "meaning": "재고",
+   "example": "We check the inventory every month.",
+   "example_kr": "우리는 매달 재고를 확인한다.",
+   "set": "day07"
+  },
+  {
+   "id": "v065",
+   "word": "courier",
+   "pos": "n.",
+   "meaning": "택배 기사, 배송업체",
+   "example": "A courier picked up the package this morning.",
+   "example_kr": "택배 기사가 오늘 아침 소포를 수거했다.",
+   "set": "day07"
+  },
+  {
+   "id": "v066",
+   "word": "freight",
+   "pos": "n.",
+   "meaning": "화물, 운송비",
+   "example": "Freight costs have risen this year.",
+   "example_kr": "올해 운송비가 올랐다.",
+   "set": "day07"
+  },
+  {
+   "id": "v067",
+   "word": "tracking",
+   "pos": "n.",
+   "meaning": "추적",
+   "example": "Check the tracking number on our website.",
+   "example_kr": "저희 웹사이트에서 운송장 번호를 확인하세요.",
+   "set": "day07"
+  },
+  {
+   "id": "v068",
+   "word": "dispatch",
+   "pos": "v.",
+   "meaning": "발송하다",
+   "example": "We dispatch orders before noon.",
+   "example_kr": "우리는 정오 전에 주문을 발송한다.",
+   "set": "day07"
+  },
+  {
+   "id": "v069",
+   "word": "cargo",
+   "pos": "n.",
+   "meaning": "화물",
+   "example": "The cargo was loaded onto the ship.",
+   "example_kr": "화물이 배에 실렸다.",
+   "set": "day07"
+  },
+  {
+   "id": "v070",
+   "word": "delay",
+   "pos": "n.",
+   "meaning": "지연",
+   "example": "Heavy snow caused a delay in delivery.",
+   "example_kr": "폭설로 배송이 지연되었다.",
+   "set": "day07"
+  },
+  {
+   "id": "v071",
+   "word": "itinerary",
+   "pos": "n.",
+   "meaning": "여행 일정표",
+   "example": "The itinerary includes three cities in five days.",
+   "example_kr": "일정표에는 5일 동안 세 도시가 포함되어 있다.",
+   "set": "day08"
+  },
+  {
+   "id": "v072",
+   "word": "reservation",
+   "pos": "n.",
+   "meaning": "예약",
+   "example": "I made a reservation for two nights.",
+   "example_kr": "2박 예약을 했다.",
+   "set": "day08"
+  },
+  {
+   "id": "v073",
+   "word": "accommodation",
+   "pos": "n.",
+   "meaning": "숙박 시설",
+   "example": "The company provides accommodation for staff.",
+   "example_kr": "회사가 직원에게 숙소를 제공한다.",
+   "set": "day08"
+  },
+  {
+   "id": "v074",
+   "word": "boarding pass",
+   "pos": "n.",
+   "meaning": "탑승권",
+   "example": "Please show your boarding pass at the gate.",
+   "example_kr": "탑승구에서 탑승권을 보여 주세요.",
+   "set": "day08"
+  },
+  {
+   "id": "v075",
+   "word": "departure",
+   "pos": "n.",
+   "meaning": "출발",
+   "example": "The departure time was changed to 3 p.m.",
+   "example_kr": "출발 시간이 오후 3시로 변경되었다.",
+   "set": "day08"
+  },
+  {
+   "id": "v076",
+   "word": "conference",
+   "pos": "n.",
+   "meaning": "회의, 학회",
+   "example": "She is attending a conference in Berlin.",
+   "example_kr": "그녀는 베를린에서 열리는 학회에 참석 중이다.",
+   "set": "day08"
+  },
+  {
+   "id": "v077",
+   "word": "commute",
+   "pos": "v.",
+   "meaning": "통근하다",
+   "example": "Many employees commute by subway every day.",
+   "example_kr": "많은 직원이 매일 지하철로 통근한다.",
+   "set": "day08"
+  },
+  {
+   "id": "v078",
+   "word": "luggage",
+   "pos": "n.",
+   "meaning": "수하물, 짐",
+   "example": "You can leave your luggage at the front desk.",
+   "example_kr": "짐은 프런트에 맡길 수 있습니다.",
+   "set": "day08"
+  },
+  {
+   "id": "v079",
+   "word": "destination",
+   "pos": "n.",
+   "meaning": "목적지",
+   "example": "The train's final destination is Busan.",
+   "example_kr": "기차의 종착역은 부산이다.",
+   "set": "day08"
+  },
+  {
+   "id": "v080",
+   "word": "book",
+   "pos": "v.",
+   "meaning": "예약하다",
+   "example": "You can book a flight for Monday morning online.",
+   "example_kr": "월요일 아침 항공편을 온라인으로 예약할 수 있다.",
+   "set": "day08"
+  },
+  {
+   "id": "v081",
+   "word": "complaint",
+   "pos": "n.",
+   "meaning": "불만, 항의",
+   "example": "The customer filed a complaint about the noise.",
+   "example_kr": "고객이 소음에 대해 불만을 제기했다.",
+   "set": "day09"
+  },
+  {
+   "id": "v082",
+   "word": "refund",
+   "pos": "n.",
+   "meaning": "환불",
+   "example": "You can request a refund within 14 days.",
+   "example_kr": "14일 이내에 환불을 요청할 수 있다.",
+   "set": "day09"
+  },
+  {
+   "id": "v083",
+   "word": "warranty",
+   "pos": "n.",
+   "meaning": "보증(서)",
+   "example": "The product comes with a two-year warranty.",
+   "example_kr": "그 제품은 2년 보증이 제공된다.",
+   "set": "day09"
+  },
+  {
+   "id": "v084",
+   "word": "exchange",
+   "pos": "v.",
+   "meaning": "교환하다",
+   "example": "Can I exchange this shirt for a larger size?",
+   "example_kr": "이 셔츠를 더 큰 사이즈로 교환할 수 있나요?",
+   "set": "day09"
+  },
+  {
+   "id": "v085",
+   "word": "satisfaction",
+   "pos": "n.",
+   "meaning": "만족",
+   "example": "Customer satisfaction is our top priority.",
+   "example_kr": "고객 만족이 우리의 최우선 과제다.",
+   "set": "day09"
+  },
+  {
+   "id": "v086",
+   "word": "inquiry",
+   "pos": "n.",
+   "meaning": "문의",
+   "example": "Please direct all inquiries to the front desk.",
+   "example_kr": "모든 문의는 프런트로 해 주세요.",
+   "set": "day09"
+  },
+  {
+   "id": "v087",
+   "word": "respond",
+   "pos": "v.",
+   "meaning": "응답하다",
+   "example": "We respond to every email within one day.",
+   "example_kr": "우리는 모든 이메일에 하루 안에 답한다.",
+   "set": "day09"
+  },
+  {
+   "id": "v088",
+   "word": "policy",
+   "pos": "n.",
+   "meaning": "정책, 규정",
+   "example": "The return policy is printed on the receipt.",
+   "example_kr": "반품 규정은 영수증에 인쇄되어 있다.",
+   "set": "day09"
+  },
+  {
+   "id": "v089",
+   "word": "complimentary",
+   "pos": "adj.",
+   "meaning": "무료의",
+   "example": "Guests receive a complimentary breakfast.",
+   "example_kr": "투숙객에게 무료 조식이 제공된다.",
+   "set": "day09"
+  },
+  {
+   "id": "v090",
+   "word": "representative",
+   "pos": "n.",
+   "meaning": "담당자, 대표",
+   "example": "A customer service representative will call you.",
+   "example_kr": "고객 서비스 담당자가 전화드릴 것입니다.",
+   "set": "day09"
+  },
+  {
+   "id": "v091",
+   "word": "lease",
+   "pos": "n.",
+   "meaning": "임대차 계약",
+   "example": "The lease runs for two years.",
+   "example_kr": "임대차 계약은 2년간 유효하다.",
+   "set": "day10"
+  },
+  {
+   "id": "v092",
+   "word": "tenant",
+   "pos": "n.",
+   "meaning": "세입자",
+   "example": "The tenant reported a broken heater.",
+   "example_kr": "세입자가 고장 난 난방기를 신고했다.",
+   "set": "day10"
+  },
+  {
+   "id": "v093",
+   "word": "property",
+   "pos": "n.",
+   "meaning": "부동산, 재산",
+   "example": "The property is located near the station.",
+   "example_kr": "그 부동산은 역 근처에 있다.",
+   "set": "day10"
+  },
+  {
+   "id": "v094",
+   "word": "renovate",
+   "pos": "v.",
+   "meaning": "개조하다, 보수하다",
+   "example": "They plan to renovate the lobby this summer.",
+   "example_kr": "그들은 이번 여름 로비를 보수할 계획이다.",
+   "set": "day10"
+  },
+  {
+   "id": "v095",
+   "word": "occupancy",
+   "pos": "n.",
+   "meaning": "입주, 점유",
+   "example": "The new building has an occupancy limit of 200.",
+   "example_kr": "새 건물의 수용 인원은 200명이다.",
+   "set": "day10"
+  },
+  {
+   "id": "v096",
+   "word": "landlord",
+   "pos": "n.",
+   "meaning": "임대인, 집주인",
+   "example": "The landlord raised the rent last year.",
+   "example_kr": "집주인이 작년에 월세를 올렸다.",
+   "set": "day10"
+  },
+  {
+   "id": "v097",
+   "word": "utility",
+   "pos": "n.",
+   "meaning": "공공요금",
+   "example": "Utilities are included in the monthly rent.",
+   "example_kr": "공공요금은 월세에 포함되어 있다.",
+   "set": "day10"
+  },
+  {
+   "id": "v098",
+   "word": "relocate",
+   "pos": "v.",
+   "meaning": "이전하다",
+   "example": "The office will relocate to the suburbs.",
+   "example_kr": "사무실이 교외로 이전할 것이다.",
+   "set": "day10"
+  },
+  {
+   "id": "v099",
+   "word": "spacious",
+   "pos": "adj.",
+   "meaning": "넓은",
+   "example": "The apartment is bright and spacious.",
+   "example_kr": "그 아파트는 밝고 넓다.",
+   "set": "day10"
+  },
+  {
+   "id": "v100",
+   "word": "vacant",
+   "pos": "adj.",
+   "meaning": "비어 있는",
+   "example": "The fifth floor is still vacant.",
+   "example_kr": "5층은 아직 비어 있다.",
+   "set": "day10"
+  },
+  {
+   "id": "v101",
+   "word": "software",
+   "pos": "n.",
+   "meaning": "소프트웨어",
+   "example": "The software updates automatically.",
+   "example_kr": "그 소프트웨어는 자동으로 업데이트된다.",
+   "set": "day11"
+  },
+  {
+   "id": "v102",
+   "word": "network",
+   "pos": "n.",
+   "meaning": "네트워크",
+   "example": "The network was down for an hour.",
+   "example_kr": "네트워크가 한 시간 동안 끊겼다.",
+   "set": "day11"
+  },
+  {
+   "id": "v103",
+   "word": "install",
+   "pos": "v.",
+   "meaning": "설치하다",
+   "example": "Please install the latest version.",
+   "example_kr": "최신 버전을 설치해 주세요.",
+   "set": "day11"
+  },
+  {
+   "id": "v104",
+   "word": "device",
+   "pos": "n.",
+   "meaning": "기기",
+   "example": "All devices must be registered first.",
+   "example_kr": "모든 기기는 먼저 등록되어야 한다.",
+   "set": "day11"
+  },
+  {
+   "id": "v105",
+   "word": "security",
+   "pos": "n.",
+   "meaning": "보안",
+   "example": "The company upgraded its data security.",
+   "example_kr": "회사는 데이터 보안을 강화했다.",
+   "set": "day11"
+  },
+  {
+   "id": "v106",
+   "word": "download",
+   "pos": "v.",
+   "meaning": "다운로드하다",
+   "example": "You can download the file for free.",
+   "example_kr": "그 파일을 무료로 다운로드할 수 있다.",
+   "set": "day11"
+  },
+  {
+   "id": "v107",
+   "word": "upgrade",
+   "pos": "v.",
+   "meaning": "업그레이드하다",
+   "example": "We plan to upgrade the servers.",
+   "example_kr": "우리는 서버를 업그레이드할 계획이다.",
+   "set": "day11"
+  },
+  {
+   "id": "v108",
+   "word": "access",
+   "pos": "v.",
+   "meaning": "접근하다, 이용하다",
+   "example": "Employees can access the system remotely.",
+   "example_kr": "직원들은 원격으로 시스템에 접속할 수 있다.",
+   "set": "day11"
+  },
+  {
+   "id": "v109",
+   "word": "backup",
+   "pos": "n.",
+   "meaning": "백업",
+   "example": "Make a backup before installing the update.",
+   "example_kr": "업데이트 전에 백업하세요.",
+   "set": "day11"
+  },
+  {
+   "id": "v110",
+   "word": "troubleshoot",
+   "pos": "v.",
+   "meaning": "문제를 해결하다",
+   "example": "The IT team will troubleshoot the issue.",
+   "example_kr": "IT팀이 그 문제를 해결할 것이다.",
+   "set": "day11"
+  },
+  {
+   "id": "v111",
+   "word": "efficient",
+   "pos": "adj.",
+   "meaning": "효율적인",
+   "example": "The new process is more efficient.",
+   "example_kr": "새 공정은 더 효율적이다.",
+   "set": "day12"
+  },
+  {
+   "id": "v112",
+   "word": "significant",
+   "pos": "adj.",
+   "meaning": "상당한, 중요한",
+   "example": "There was a significant increase in sales.",
+   "example_kr": "매출이 상당히 증가했다.",
+   "set": "day12"
+  },
+  {
+   "id": "v113",
+   "word": "available",
+   "pos": "adj.",
+   "meaning": "이용 가능한",
+   "example": "The meeting room is available after 2 p.m.",
+   "example_kr": "회의실은 오후 2시 이후에 이용 가능하다.",
+   "set": "day12"
+  },
+  {
+   "id": "v114",
+   "word": "require",
+   "pos": "v.",
+   "meaning": "요구하다, 필요로 하다",
+   "example": "The job will require excellent communication skills.",
+   "example_kr": "그 일자리는 뛰어난 의사소통 능력을 요구할 것이다.",
+   "set": "day12"
+  },
+  {
+   "id": "v115",
+   "word": "provide",
+   "pos": "v.",
+   "meaning": "제공하다",
+   "example": "The hotel provides free Wi-Fi.",
+   "example_kr": "그 호텔은 무료 와이파이를 제공한다.",
+   "set": "day12"
+  },
+  {
+   "id": "v116",
+   "word": "approximately",
+   "pos": "adv.",
+   "meaning": "대략",
+   "example": "The trip takes approximately two hours.",
+   "example_kr": "그 여행은 대략 두 시간 걸린다.",
+   "set": "day12"
+  },
+  {
+   "id": "v117",
+   "word": "sufficient",
+   "pos": "adj.",
+   "meaning": "충분한",
+   "example": "We have sufficient time to prepare.",
+   "example_kr": "우리는 준비할 충분한 시간이 있다.",
+   "set": "day12"
+  },
+  {
+   "id": "v118",
+   "word": "competitive",
+   "pos": "adj.",
+   "meaning": "경쟁력 있는",
+   "example": "Our prices are very competitive.",
+   "example_kr": "우리 가격은 매우 경쟁력이 있다.",
+   "set": "day12"
+  },
+  {
+   "id": "v119",
+   "word": "expand",
+   "pos": "v.",
+   "meaning": "확장하다",
+   "example": "The company plans to expand overseas.",
+   "example_kr": "회사는 해외로 확장할 계획이다.",
+   "set": "day12"
+  },
+  {
+   "id": "v120",
+   "word": "recommend",
+   "pos": "v.",
+   "meaning": "추천하다",
+   "example": "I recommend booking in advance.",
+   "example_kr": "미리 예약하는 것을 추천합니다.",
+   "set": "day12"
+  },
+  {
+   "id": "v121",
+   "word": "affect",
+   "pos": "v.",
+   "meaning": "영향을 미치다",
+   "example": "The delay will affect the schedule.",
+   "example_kr": "그 지연은 일정에 영향을 미칠 것이다.",
+   "set": "day13"
+  },
+  {
+   "id": "v122",
+   "word": "effect",
+   "pos": "n.",
+   "meaning": "영향, 결과",
+   "example": "The new policy had a positive effect.",
+   "example_kr": "새 정책은 긍정적인 효과가 있었다.",
+   "set": "day13"
+  },
+  {
+   "id": "v123",
+   "word": "accept",
+   "pos": "v.",
+   "meaning": "받아들이다, 수락하다",
+   "example": "We accept credit cards.",
+   "example_kr": "저희는 신용카드를 받습니다.",
+   "set": "day13"
+  },
+  {
+   "id": "v124",
+   "word": "except",
+   "pos": "prep.",
+   "meaning": "~을 제외하고",
+   "example": "The office is open every day except Sunday.",
+   "example_kr": "사무실은 일요일을 제외하고 매일 문을 연다.",
+   "set": "day13"
+  },
+  {
+   "id": "v125",
+   "word": "personal",
+   "pos": "adj.",
+   "meaning": "개인의",
+   "example": "Please do not use the office phone for personal calls.",
+   "example_kr": "업무용 전화로 개인 통화는 하지 마세요.",
+   "set": "day13"
+  },
+  {
+   "id": "v126",
+   "word": "personnel",
+   "pos": "n.",
+   "meaning": "직원, 인사",
+   "example": "All personnel must wear ID badges.",
+   "example_kr": "모든 직원은 사원증을 착용해야 한다.",
+   "set": "day13"
+  },
+  {
+   "id": "v127",
+   "word": "economic",
+   "pos": "adj.",
+   "meaning": "경제의",
+   "example": "The country's economic growth slowed.",
+   "example_kr": "그 나라의 경제 성장이 둔화되었다.",
+   "set": "day13"
+  },
+  {
+   "id": "v128",
+   "word": "economical",
+   "pos": "adj.",
+   "meaning": "경제적인, 절약되는",
+   "example": "This car is economical on fuel.",
+   "example_kr": "이 차는 연료가 절약된다.",
+   "set": "day13"
+  },
+  {
+   "id": "v129",
+   "word": "assist",
+   "pos": "v.",
+   "meaning": "돕다",
+   "example": "A staff member will assist you.",
+   "example_kr": "직원이 도와드릴 것입니다.",
+   "set": "day13"
+  },
+  {
+   "id": "v130",
+   "word": "consist",
+   "pos": "v.",
+   "meaning": "구성되다",
+   "example": "The package will consist of three parts.",
+   "example_kr": "그 패키지는 세 부분으로 구성될 것이다.",
+   "set": "day13"
+  }
+ ]
+}

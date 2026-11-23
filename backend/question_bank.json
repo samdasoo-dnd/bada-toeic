@@ -1,0 +1,3073 @@
+{
+ "version": "1.0",
+ "title": "바다토익 내장 문제은행",
+ "parts": {
+  "1": {
+   "name": "사진 묘사",
+   "count": 8
+  },
+  "2": {
+   "name": "질의응답",
+   "count": 12
+  },
+  "3": {
+   "name": "대화",
+   "count": 12
+  },
+  "4": {
+   "name": "담화",
+   "count": 9
+  },
+  "5": {
+   "name": "단문 빈칸",
+   "count": 24
+  },
+  "6": {
+   "name": "장문 빈칸",
+   "count": 6
+  },
+  "7": {
+   "name": "독해",
+   "count": 15
+  }
+ },
+ "total": 86,
+ "passages": {
+  "g1-01": {
+   "kind": "photo_script",
+   "text": "N: He is typing on a laptop.\nN: He is repairing a chair.\nN: He is opening a window.\nN: He is watering a plant.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-02": {
+   "kind": "photo_script",
+   "text": "N: They are shaking hands.\nN: They are waiting for an elevator.\nN: They are carrying boxes.\nN: They are painting a wall.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-03": {
+   "kind": "photo_script",
+   "text": "N: He is loading boxes into a truck.\nN: He is washing a truck.\nN: He is repairing a bicycle.\nN: He is cleaning the windows.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-04": {
+   "kind": "photo_script",
+   "text": "N: They are seated around a conference table.\nN: They are standing in line.\nN: They are setting up a projector.\nN: They are leaving the room.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-05": {
+   "kind": "photo_script",
+   "text": "N: He is carrying a tray.\nN: He is paying the bill.\nN: He is cooking in the kitchen.\nN: He is wiping the table.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-06": {
+   "kind": "photo_script",
+   "text": "N: A train has pulled into the station.\nN: The platform is completely empty.\nN: People are boarding a bus.\nN: The station is closed for repairs.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-07": {
+   "kind": "photo_script",
+   "text": "N: She is looking at a bulletin board.\nN: She is mailing a letter.\nN: She is taking a photograph.\nN: She is walking down the stairs.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g1-08": {
+   "kind": "photo_script",
+   "text": "N: He is putting a bag in the trunk of a car.\nN: He is driving a car.\nN: He is filling the car with gas.\nN: He is washing the car.",
+   "translation": "",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-01": {
+   "kind": "question_response",
+   "text": "W: When will the shipment arrive?\nM: It should be delivered by Thursday.\nM: At the post office.\nM: Yes, I ordered it.",
+   "translation": "여: 배송은 언제 도착하나요? / A: 목요일까지 배송될 겁니다. / B: 우체국에서요. / C: 네, 제가 주문했어요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-02": {
+   "kind": "question_response",
+   "text": "M: Could you send me the revised schedule by this afternoon?\nM: Sure, I'll email it right away.\nM: The schedule was canceled.\nM: I sent it to the printer.",
+   "translation": "남: 오늘 오후까지 수정된 일정표를 보내 주시겠어요? / A: 물론이죠, 바로 이메일로 보낼게요. / B: 그 일정은 취소됐어요. / C: 프린터로 보냈어요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-03": {
+   "kind": "question_response",
+   "text": "W: How long does the training session last?\nM: About three hours.\nM: Yes, it was long.\nM: In the conference room.",
+   "translation": "여: 교육 세션은 얼마나 길어요? / A: 약 3시간입니다. / B: 네, 길었어요. / C: 회의실에서요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-04": {
+   "kind": "question_response",
+   "text": "M: Did you finish the inventory report?\nM: Not yet, I'm still working on it.\nM: At the warehouse.\nM: It's due on Tuesday.",
+   "translation": "남: 재고 보고서 다 끝냈어요? / A: 아직요, 계속 작업 중이에요. / B: 창고에서요. / C: 화요일이 마감이에요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-05": {
+   "kind": "question_response",
+   "text": "W: Why was the meeting postponed?\nM: Because the director is out of town.\nM: In the main hall.\nM: For about two hours.",
+   "translation": "여: 회의가 왜 연기됐나요? / A: 이사가 다른 도시에 출장 중이어서요. / B: 대강당에서요. / C: 약 두 시간 동안요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-06": {
+   "kind": "question_response",
+   "text": "M: Would you like to join us for lunch?\nM: I'd love to, but I have a deadline today.\nM: Yes, it was delicious.\nM: The lunch box is on the table.",
+   "translation": "남: 점심 같이 하실래요? / A: 그러고 싶지만 오늘 마감이 있어요. / B: 네, 맛있었어요. / C: 도시락은 탁자 위에 있어요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-07": {
+   "kind": "question_response",
+   "text": "W: Who is in charge of the marketing budget?\nM: Ms. Chen is.\nM: About fifty thousand dollars.\nM: At the end of the month.",
+   "translation": "여: 마케팅 예산은 누가 담당하나요? / A: 첸 씨가 담당합니다. / B: 약 5만 달러요. / C: 월말에요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-08": {
+   "kind": "question_response",
+   "text": "M: Should we take a taxi or walk to the station?\nM: Let's take a taxi. We're running late.\nM: Yes, we should.\nM: It's a very nice station.",
+   "translation": "남: 역까지 택시를 탈까요, 걸어갈까요? / A: 택시를 탑시다. 우리 시간이 촉박해요. / B: 네, 그래야겠네요. / C: 아주 좋은 역이에요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-09": {
+   "kind": "question_response",
+   "text": "W: How often do you visit the branch office?\nM: Twice a month.\nM: For about an hour.\nM: Yes, I do.",
+   "translation": "여: 지사에는 얼마나 자주 가세요? / A: 한 달에 두 번요. / B: 한 시간 정도요. / C: 네, 그래요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-10": {
+   "kind": "question_response",
+   "text": "M: Have you seen the new catalog?\nM: Yes, I looked at it this morning.\nM: At the copy center.\nM: It costs five dollars.",
+   "translation": "남: 새 카탈로그 봤어요? / A: 네, 오늘 아침에 봤어요. / B: 복사실에서요. / C: 5달러예요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-11": {
+   "kind": "question_response",
+   "text": "W: Could you tell me where the HR office is?\nM: It's on the second floor.\nM: Yes, I could.\nM: No, I didn't.",
+   "translation": "여: 인사팀 사무실이 어디인지 알려 주시겠어요? / A: 2층에 있어요. / B: 네, 그럴 수 있어요. / C: 아니요, 안 했어요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g2-12": {
+   "kind": "question_response",
+   "text": "M: The printer is out of paper again.\nM: I'll ask the supply room for more.\nM: Yes, it's a good printer.\nM: The paper was delivered yesterday.",
+   "translation": "남: 프린터에 또 용지가 떨어졌네요. / A: 비품실에 더 달라고 할게요. / B: 네, 좋은 프린터예요. / C: 용지는 어제 배송됐어요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g3-01": {
+   "kind": "conversation",
+   "text": "W: Kevin, have you heard from the client about tomorrow's presentation?\nM: Yes, Ms. Park just called. Her flight was delayed, so she won't arrive until noon.\nW: That's a problem. The presentation is scheduled for ten.\nM: I know. I was thinking we could move it to two o'clock and have lunch with her first.\nW: Good idea. Could you let the sales team know about the change?\nM: Sure. I'll send them an email right after I update the conference room booking.",
+   "translation": "여: 케빈, 내일 발표 건으로 고객사에서 연락 왔어요?\n남: 네, 박 씨가 방금 전화했어요. 비행기가 지연돼서 정오가 되어야 도착한대요.\n여: 문제네요. 발표는 10시로 잡혀 있는데요.\n남: 알아요. 2시로 옮기고 그 전에 점심을 같이 하면 어떨까 생각했어요.\n여: 좋은 생각이에요. 영업팀에도 변경된 사실을 알려 줄래요?\n남: 물론이죠. 회의실 예약을 수정한 직후에 메일을 보낼게요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g3-02": {
+   "kind": "conversation",
+   "text": "M: Hello, this is Dan from Harbor Electronics. How can I help you?\nW: Hi, I bought a coffee maker from your store last week, but it stops working after a few minutes.\nM: I'm sorry about that. Do you have the receipt?\nW: Yes, I have it here. Can I exchange it for a different model?\nM: Of course. Bring it in before Friday and we'll take care of it.\nW: Great. I'll stop by on my way home from work.",
+   "translation": "남: 안녕하세요, 하버 전자기기의 댄입니다. 무엇을 도와드릴까요?\n여: 안녕하세요, 지난주에 매장에서 커피머신을 샀는데 몇 분 쓰면 작동을 멈춰요.\n남: 죄송합니다. 영수증 있으신가요?\n여: 네, 여기 있어요. 다른 모델로 교환할 수 있을까요?\n남: 물론이죠. 금요일 전에 가져오시면 처리해 드릴게요.\n여: 좋아요. 퇴근길에 들를게요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g3-03": {
+   "kind": "conversation",
+   "text": "W: Good evening, this is the front desk. This is a reminder that the airport shuttle leaves at 6:30 tomorrow morning.\nM: Thanks. Is there another shuttle after that?\nW: Yes, the next one is at 8:00, but it stops at Terminal 1 before Terminal 2.\nM: I'm flying out of Terminal 2, so I'd better take the early one.\nW: I'll reserve a seat for you. Please be in the lobby ten minutes early.\nM: Will do. Thank you.",
+   "translation": "여: 안녕하세요, 프런트입니다. 내일 아침 6시 30분에 공항 셔틀이 출발한다는 안내 말씀드립니다.\n남: 고맙습니다. 그 뒤에 다른 셔틀도 있나요?\n여: 네, 다음 차는 8시인데 2터미널보다 1터미널에 먼저 정차합니다.\n남: 저는 2터미널에서 출발하니까 이른 차를 타는 게 낫겠네요.\n여: 자리를 예약해 드릴게요. 10분 일찍 로비에 와 주세요.\n남: 그렇게 할게요. 고맙습니다.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g3-04": {
+   "kind": "conversation",
+   "text": "M: Sara, the ad campaign for the new sunscreen is supposed to launch next Monday, but the photos aren't ready.\nW: I heard. The photographer said the final images will be sent tomorrow afternoon.\nM: That's cutting it close. We still need two days to design the online banners.\nW: Then let's push the launch to Thursday and use the extra time to test the landing page.\nM: All right. I'll inform the regional managers.\nW: Thanks. I'll ask the design team to prepare a second banner size.",
+   "translation": "남: 사라, 새 자외선 차단제 광고 캠페인이 다음 주 월요일에 시작될 예정인데 사진이 아직 준비가 안 됐어요.\n여: 들었어요. 사진작가가 최종 이미지는 내일 오후에 보낸다고 했어요.\n남: 시간이 빠듯하네요. 온라인 배너 디자인에 이틀은 더 필요해요.\n여: 그럼 론칭을 목요일로 미루고 남는 시간에 랜딩 페이지를 테스트해요.\n남: 좋아요. 지역 매니저들에게 알릴게요.\n여: 고마워요. 디자인팀에는 두 번째 배너 사이즈를 준비해 달라고 할게요.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g4-01": {
+   "kind": "announcement",
+   "text": "N: Attention, passengers on flight 802 to Seattle. Due to a mechanical inspection, the departure gate has been changed from Gate 14 to Gate 22. Boarding will begin at 3:15, fifteen minutes later than originally scheduled. Passengers traveling with small children may board first. We apologize for the inconvenience and appreciate your patience.",
+   "translation": "안내 방송: 시애틀행 802편 승객 여러분께 알려 드립니다. 기계 점검으로 인해 탑승구가 14번에서 22번으로 변경되었습니다. 탑승은 원래 예정보다 15분 늦은 3시 15분에 시작됩니다. 어린아이와 함께 여행하는 승객은 먼저 탑승하실 수 있습니다. 불편을 드려 죄송하며 양해해 주셔서 감사합니다.",
+   "speakers": [
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g4-02": {
+   "kind": "tour_guide",
+   "text": "W: Welcome to the Riverside Art Museum. Before we begin the tour, let me go over a few rules. Photography is allowed in most galleries, but please turn off the flash. Food and drinks must stay in the café on the first floor. The special exhibition on the third floor closes at five, so we will visit it first. At the end of the tour, you will receive a 10 percent discount coupon for the gift shop.",
+   "translation": "여: 리버사이드 미술관에 오신 것을 환영합니다. 투어를 시작하기 전에 몇 가지 규칙을 안내해 드릴게요. 대부분의 전시실에서 사진 촬영이 가능하지만 플래시는 꺼 주세요. 음식과 음료는 1층 카페에서만 드실 수 있습니다. 3층 특별전은 5시에 닫기 때문에 먼저 관람하겠습니다. 투어가 끝나면 기념품점에서 사용할 수 있는 10% 할인 쿠폰을 드립니다.",
+   "speakers": [
+    {
+     "id": "W"
+    }
+   ],
+   "meta": {}
+  },
+  "g4-03": {
+   "kind": "radio",
+   "text": "M: Good morning, this is River City Radio with your weekend traffic update. The annual City Marathon will take place this Sunday from 7 a.m. to noon. Several downtown streets, including Main Street and Park Avenue, will be closed to traffic during the event. Drivers heading to the central station should use the Route 9 bypass instead. Bus routes 12 and 15 will run on a modified schedule. For a full list of road closures, visit our website.",
+   "translation": "남: 안녕하세요, 리버시티 라디오의 주말 교통 정보입니다. 연례 시티 마라톤이 이번 일요일 오전 7시부터 정오까지 열립니다. 메인 스트리트와 파크 애비뉴를 포함한 시내 여러 도로가 행사 동안 통제됩니다. 중앙역으로 가는 운전자는 9번 우회도로를 이용하시기 바랍니다. 12번과 15번 버스 노선은 변경된 시간표로 운행합니다. 전체 도로 통제 목록은 웹사이트에서 확인하실 수 있습니다.",
+   "speakers": [
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g6-01": {
+   "kind": "email",
+   "text": "Subject: Office Relocation Update\n\nDear Team,\n\nAs you know, our department will move to the newly renovated building on Elm Street next month. The move was originally planned for June, but it has been (1) until July 8 because the elevators need additional inspections.\n\nPlease pack your personal belongings by July 3. Boxes and tape can be (2) from the supply room on the second floor. The IT team will disconnect computers on July 5 and reconnect them at the new location.\n\n(3) We will hold a short orientation session at 9 a.m. on July 8 to explain the new security system.\n\nThank you,\nDiana Park\nFacilities Coordinator",
+   "translation": "제목: 사무실 이전 안내\n\n팀 여러분,\n\n아시다시피 우리 부서는 다음 달 엘름 스트리트의 새로 단장한 건물로 이전합니다. 원래 6월로 예정되어 있었지만 엘리베이터 추가 점검이 필요해 7월 8일로 연기되었습니다.\n\n7월 3일까지 개인 소지품을 포장해 주세요. 상자와 테이프는 2층 비품실에서 받을 수 있습니다. IT팀은 7월 5일 컴퓨터 연결을 해제하고 새 위치에서 다시 연결할 것입니다.\n\n또한 7월 8일 오전 9시에 새 보안 시스템을 설명하는 짧은 오리엔테이션을 진행합니다.\n\n감사합니다.\n다이애나 박\n시설 담당자",
+   "speakers": [
+    {
+     "id": "W"
+    }
+   ],
+   "meta": {}
+  },
+  "g6-02": {
+   "kind": "advertisement",
+   "text": "Join Harbor Fitness Today!\n\nAre you looking for a way to stay (1) ? Harbor Fitness offers state-of-the-art equipment, group classes, and personal training. Members can (2) unlimited access to all facilities, including the swimming pool and sauna.\n\nFor a limited time, new members who sign up before May 31 will receive a 20 percent discount on their first three months. (3)\n\nVisit our website or stop by the front desk for more details.",
+   "translation": "오늘 하버 피트니스에 가입하세요!\n\n건강을 유지할 방법을 찾고 계신가요? 하버 피트니스는 최신 장비, 그룹 클래스, 개인 트레이닝을 제공합니다. 회원은 수영장과 사우나를 포함한 모든 시설을 무제한으로 이용할 수 있습니다.\n\n기간 한정으로 5월 31일 전에 가입하는 신규 회원에게는 첫 3개월 20% 할인을 제공합니다. 좌석이 한정되어 있으니 오늘 바로 등록하세요.\n\n자세한 내용은 웹사이트를 방문하거나 프런트에 문의하세요.",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g7-01": {
+   "kind": "email",
+   "text": "To: All Staff\nFrom: Operations Department\nDate: April 12\nSubject: Parking Lot Maintenance\n\nThe employee parking lot behind Building B will be closed from April 20 to April 22 for repaving. During this period, staff are asked to park in the public garage on Third Street. Please keep the receipt from the garage and submit it to the accounting office by April 30 for reimbursement.\n\nEmployees who carpool will be given priority for the temporary spaces in front of Building A. If you plan to carpool, send the names of your group members to operations@brightoncorp.com by April 17.\n\nWe appreciate your cooperation.",
+   "translation": "받는 사람: 전 직원\n보낸 사람: 운영부서\n날짜: 4월 12일\n제목: 주차장 정비\n\nB동 뒤 직원 주차장이 재포장 공사로 4월 20일부터 22일까지 폐쇄됩니다. 이 기간에는 3번가 공영 주차장에 주차해 주시기 바랍니다. 주차 영수증을 보관하시어 4월 30일까지 회계부서에 제출하시면 환급해 드립니다.\n\n카풀하는 직원에게는 A동 앞 임시 주차 공간이 우선 배정됩니다. 카풀을 계획 중이라면 4월 17일까지 operations@brightoncorp.com으로 그룹 구성원 이름을 보내 주세요.\n\n협조해 주셔서 감사합니다.",
+   "speakers": [
+    {
+     "id": "W"
+    }
+   ],
+   "meta": {}
+  },
+  "g7-02": {
+   "kind": "chat",
+   "text": "[10:02] Jenna: Hi Marco, did you get the client's feedback on the logo designs?\n[10:04] Marco: Yes, they liked option 2 but asked for a darker blue.\n[10:06] Jenna: OK. I can revise it this afternoon. Do we still need to present it at Friday's meeting?\n[10:07] Marco: Actually, the meeting has been moved to Monday at 11.\n[10:09] Jenna: Good, that gives me more time. I'll also add the version with the tagline.\n[10:10] Marco: Perfect. Could you send me the file by Sunday evening so I can review it?\n[10:11] Jenna: Sure, I'll upload it to the shared folder.",
+   "translation": "[10:02] 제나: 안녕 마르코, 로고 시안에 대한 고객 피드백 받았어?\n[10:04] 마르코: 응, 2번 시안을 좋아했는데 파란색을 더 진하게 해 달래.\n[10:06] 제나: 알았어. 오늘 오후에 수정할 수 있어. 금요일 회의에서 발표해야 하는 건 그대로지?\n[10:07] 마르코: 사실 회의가 월요일 11시로 옮겨졌어.\n[10:09] 제나: 잘됐다, 시간이 더 있네. 태그라인이 들어간 버전도 추가할게.\n[10:10] 마르코: 좋아. 일요일 저녁까지 파일을 보내 줄 수 있어? 내가 검토하게.\n[10:11] 제나: 물론이지. 공유 폴더에 올릴게.",
+   "speakers": [
+    {
+     "id": "W"
+    },
+    {
+     "id": "M"
+    }
+   ],
+   "meta": {}
+  },
+  "g7-03": {
+   "kind": "notice",
+   "text": "NOTICE — Riverside Community Center\n\nThe community center will hold its annual Job Fair on Saturday, September 14, from 10 a.m. to 4 p.m. in the main hall. More than forty local companies will be attending, including retailers, hospitals, and technology firms.\n\nJob seekers are encouraged to bring several copies of their resumes. Free workshops on interview skills will be offered at 11 a.m. and 2 p.m. in Room 205. Advance registration for the workshops is required, and space is limited to thirty participants per session.\n\nParking is available in the lot on Willow Avenue. For more information, call 555-0142.",
+   "translation": "안내 — 리버사이드 커뮤니티 센터\n\n커뮤니티 센터는 9월 14일 토요일 오전 10시부터 오후 4시까지 대강당에서 연례 취업 박람회를 개최합니다. 소매업체, 병원, 기술 기업 등 40개 이상의 지역 기업이 참가합니다.\n\n구직자는 이력서를 여러 부 준비하시기 바랍니다. 면접 기술 무료 워크숍이 오전 11시와 오후 2시에 205호에서 진행됩니다. 워크숍은 사전 등록이 필요하며, 회차당 정원은 30명입니다.\n\n주차는 윌로우 애비뉴 주차장을 이용하실 수 있습니다. 자세한 문의는 555-0142로 전화하세요.",
+   "speakers": [
+    {
+     "id": "N"
+    }
+   ],
+   "meta": {}
+  },
+  "g7-04": {
+   "kind": "article",
+   "text": "Harbor Bakery to Open Second Location\n\nHarbor Bakery, a family-owned business that has served the coastal district for nearly thirty years, announced plans to open a second location in the Northgate shopping complex next spring. Owner Mina Seo said the new store will focus on wholesale orders for local cafés and hotels, while the original shop will continue to serve walk-in customers.\n\nThe expansion became possible after the bakery secured a small-business loan from Coastal Bank last month. According to Seo, the company also plans to hire about fifteen additional employees, including bakers and delivery drivers.\n\n\"We want to keep the quality our customers expect while reaching new markets,\" Seo said.",
+   "translation": "하버 베이커리, 두 번째 매장 개설\n\n해안 지역에서 30년 가까이 운영되어 온 가족 경영 빵집 하버 베이커리가 내년 봄 노스게이트 쇼핑 단지에 두 번째 매장을 열 계획이라고 발표했다. 대표 미나 서는 새 매장은 지역 카페와 호텔을 대상으로 한 도매 주문에 집중하고, 기존 매장은 계속해서 일반 고객을 응대할 것이라고 말했다.\n\n이번 확장은 지난달 해안 은행에서 소상공인 대출을 받은 뒤 가능해졌다. 서 대표에 따르면 회사는 제빵사와 배달 기사를 포함해 약 15명을 추가로 고용할 계획이다.\n\n서 대표는 \"고객이 기대하는 품질을 유지하면서 새로운 시장에 다가가고 싶다\"고 말했다.",
+   "speakers": [
+    {
+     "id": "W"
+    }
+   ],
+   "meta": {}
+  },
+  "g7-05": {
+   "kind": "double",
+   "text": "── Passage A (email) ──\nFrom: registrar@techforum.org\nTo: Daniel Cho\nSubject: Your Tech Forum Registration\n\nDear Mr. Cho,\n\nThank you for registering for the Tech Forum on October 10. Your registration includes access to all keynote sessions and the exhibition hall. Please note that the hands-on workshop \"Data Visualization Basics\" requires a separate fee of $45. If you wish to attend, reply to this email by October 3.\n\nThe opening keynote begins at 9 a.m. in Hall A. Registration opens at 8 a.m. in the lobby.\n\nSincerely,\nTech Forum Registration Team\n\n── Passage B (schedule) ──\nTech Forum Schedule — October 10\n8:00  Registration (Lobby)\n9:00  Opening Keynote — \"The Future of AI\" (Hall A)\n10:30 Session 1: Cloud Security (Room 201) / Data Visualization Basics (Room 305, $45)\n12:00 Lunch (Terrace)\n1:30  Session 2: Product Design Trends (Hall B)\n3:00  Closing Panel (Hall A)",
+   "translation": "── 지문 A (이메일) ──\n보낸 사람: registrar@techforum.org\n받는 사람: 다니엘 조\n제목: 테크 포럼 등록 안내\n\n조 씨께,\n\n10월 10일 테크 포럼에 등록해 주셔서 감사합니다. 등록비에는 모든 기조 강연과 전시장 입장이 포함됩니다. 실습 워크숍 \"데이터 시각화 기초\"는 별도로 45달러가 필요합니다. 참석을 원하시면 10월 3일까지 이 메일에 회신해 주세요.\n\n개회 기조 강연은 오전 9시 A홀에서 시작하며, 등록은 오전 8시 로비에서 진행됩니다.\n\n테크 포럼 등록팀\n\n── 지문 B (일정표) ──\n10월 10일 테크 포럼 일정\n8:00 등록 (로비)\n9:00 개회 기조 강연 — \"AI의 미래\" (A홀)\n10:30 세션 1: 클라우드 보안 (201호) / 데이터 시각화 기초 (305호, 45달러)\n12:00 점심 (테라스)\n1:30 세션 2: 제품 디자인 트렌드 (B홀)\n3:00 폐회 패널 (A홀)",
+   "speakers": [
+    {
+     "id": "W"
+    }
+   ],
+   "meta": {}
+  }
+ },
+ "questions": [
+  {
+   "id": "p1-01",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 1,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "He is typing on a laptop.",
+    "He is repairing a chair.",
+    "He is opening a window.",
+    "He is watering a plant."
+   ],
+   "answer": 0,
+   "explanation": "남자가 책상 앞에서 노트북 자판을 두드리고 있으므로 'typing on a laptop'이 정답입니다. 'repair(수리하다)', 'water(물을 주다)' 같은 동작은 사진에 없습니다.",
+   "translation": "A. 그는 노트북으로 타이핑하고 있다. / B. 그는 의자를 수리하고 있다. / C. 그는 창문을 열고 있다. / D. 그는 식물에 물을 주고 있다.",
+   "vocabulary": [
+    {
+     "word": "type",
+     "meaning": "타자를 치다",
+     "example": "She is typing a report."
+    },
+    {
+     "word": "repair",
+     "meaning": "수리하다",
+     "example": "The technician repaired the printer."
+    },
+    {
+     "word": "water",
+     "meaning": "물을 주다",
+     "example": "Please water the plants every morning."
+    }
+   ],
+   "group_id": "g1-01",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"196\" width=\"420\" height=\"84\" fill=\"#d7e3ea\"/><rect x=\"40\" y=\"50\" width=\"130\" height=\"92\" rx=\"6\" fill=\"#cfe6f1\"/><line x1=\"105\" y1=\"50\" x2=\"105\" y2=\"142\" stroke=\"#eef4f8\" stroke-width=\"4\"/><line x1=\"40\" y1=\"96\" x2=\"170\" y2=\"96\" stroke=\"#eef4f8\" stroke-width=\"4\"/><rect x=\"52\" y=\"130\" width=\"106\" height=\"8\" rx=\"4\" fill=\"#b9cfda\"/><rect x=\"150\" y=\"196\" width=\"230\" height=\"14\" rx=\"4\" fill=\"#a9866b\"/><rect x=\"160\" y=\"210\" width=\"12\" height=\"58\" fill=\"#8a6a52\"/><rect x=\"356\" y=\"210\" width=\"12\" height=\"58\" fill=\"#8a6a52\"/><rect x=\"196\" y=\"150\" width=\"58\" height=\"74\" rx=\"10\" fill=\"#41566a\"/><circle cx=\"236\" cy=\"120\" r=\"16\" fill=\"#f1c9a5\"/><path d=\"M214 136 q22 -12 44 0 l6 46 q-28 12 -56 0 z\" fill=\"#2f6f8f\"/><path d=\"M268 158 q22 6 32 14\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M204 158 q26 8 34 16\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M262 168 h76 l-10 34 h-76 z\" fill=\"#3b444d\"/><rect x=\"252\" y=\"200\" width=\"96\" height=\"8\" rx=\"3\" fill=\"#5a6570\"/><rect x=\"170\" y=\"182\" width=\"46\" height=\"14\" rx=\"2\" fill=\"#ffffff\" transform=\"rotate(-6 193 189)\"/><rect x=\"334\" y=\"176\" width=\"26\" height=\"22\" rx=\"3\" fill=\"#c0785a\"/><path d=\"M347 176 q-16 -16 -6 -34 q14 10 6 34\" fill=\"#4f9a63\"/></svg>"
+  },
+  {
+   "id": "p1-02",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 2,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "They are shaking hands.",
+    "They are waiting for an elevator.",
+    "They are carrying boxes.",
+    "They are painting a wall."
+   ],
+   "answer": 0,
+   "explanation": "두 사람이 마주 보고 한 손을 맞잡고 있으므로 'shake hands(악수하다)'가 정답입니다. 엘리베이터, 상자, 벽 페인트와 관련된 사물은 그림에 없습니다.",
+   "translation": "A. 그들은 악수를 하고 있다. / B. 그들은 엘리베이터를 기다리고 있다. / C. 그들은 상자를 나르고 있다. / D. 그들은 벽에 페인트를 칠하고 있다.",
+   "vocabulary": [
+    {
+     "word": "shake hands",
+     "meaning": "악수하다",
+     "example": "They shook hands after the meeting."
+    },
+    {
+     "word": "elevator",
+     "meaning": "엘리베이터",
+     "example": "The elevator is out of order."
+    }
+   ],
+   "group_id": "g1-02",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"204\" width=\"420\" height=\"76\" fill=\"#dbe7ee\"/><rect x=\"0\" y=\"0\" width=\"420\" height=\"12\" fill=\"#c6d7e1\"/><rect x=\"286\" y=\"120\" width=\"128\" height=\"86\" rx=\"6\" fill=\"#a9866b\"/><rect x=\"300\" y=\"94\" width=\"52\" height=\"26\" rx=\"3\" fill=\"#ffffff\"/><rect x=\"306\" y=\"124\" width=\"40\" height=\"6\" rx=\"3\" fill=\"#8a6a52\"/><circle cx=\"150\" cy=\"104\" r=\"15\" fill=\"#f1c9a5\"/><path d=\"M133 100 q17 -22 34 0 q0 -28 -17 -28 q-17 0 -17 28\" fill=\"#33404d\"/><path d=\"M130 122 q20 -10 40 0 l8 78 q-28 10 -56 0 z\" fill=\"#2f6f8f\"/><rect x=\"140\" y=\"198\" width=\"12\" height=\"36\" fill=\"#33404d\"/><rect x=\"158\" y=\"198\" width=\"12\" height=\"36\" fill=\"#33404d\"/><path d=\"M170 138 q28 6 42 22\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><circle cx=\"262\" cy=\"104\" r=\"15\" fill=\"#e9bd98\"/><path d=\"M245 100 q17 -24 34 0 q2 -28 -17 -28 q-19 0 -17 28\" fill=\"#4a3728\"/><path d=\"M242 122 q20 -10 40 0 l8 78 q-28 10 -56 0 z\" fill=\"#8a3b52\"/><rect x=\"252\" y=\"198\" width=\"12\" height=\"36\" fill=\"#33404d\"/><rect x=\"270\" y=\"198\" width=\"12\" height=\"36\" fill=\"#33404d\"/><path d=\"M242 138 q-28 6 -42 22\" stroke=\"#e9bd98\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/></svg>"
+  },
+  {
+   "id": "p1-03",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 1,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "He is loading boxes into a truck.",
+    "He is washing a truck.",
+    "He is repairing a bicycle.",
+    "He is cleaning the windows."
+   ],
+   "answer": 0,
+   "explanation": "남자가 상자를 들고 트럭 뒤쪽으로 옮기고 있으므로 'load A into B(A를 B에 싣다)'가 정답입니다. 씻기, 수리, 청소 동작은 그림에 나타나지 않습니다.",
+   "translation": "A. 그는 트럭에 상자를 싣고 있다. / B. 그는 트럭을 씻고 있다. / C. 그는 자전거를 수리하고 있다. / D. 그는 창문을 청소하고 있다.",
+   "vocabulary": [
+    {
+     "word": "load",
+     "meaning": "싣다, 적재하다",
+     "example": "Workers loaded the boxes into the truck."
+    },
+    {
+     "word": "repair",
+     "meaning": "수리하다",
+     "example": "He repaired the bicycle in ten minutes."
+    }
+   ],
+   "group_id": "g1-03",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"206\" width=\"420\" height=\"74\" fill=\"#dbe7ee\"/><rect x=\"210\" y=\"84\" width=\"184\" height=\"98\" rx=\"8\" fill=\"#eef2f5\"/><rect x=\"216\" y=\"94\" width=\"172\" height=\"12\" fill=\"#23a6c8\"/><rect x=\"248\" y=\"182\" width=\"34\" height=\"28\" rx=\"8\" fill=\"#33404d\"/><rect x=\"340\" y=\"182\" width=\"34\" height=\"28\" rx=\"8\" fill=\"#33404d\"/><path d=\"M210 184 h184\" stroke=\"#c3d0d8\" stroke-width=\"4\"/><rect x=\"96\" y=\"150\" width=\"46\" height=\"40\" rx=\"3\" fill=\"#d2a06a\"/><rect x=\"98\" y=\"168\" width=\"42\" height=\"4\" fill=\"#b8834f\"/><rect x=\"146\" y=\"158\" width=\"40\" height=\"34\" rx=\"3\" fill=\"#c89358\"/><circle cx=\"86\" cy=\"98\" r=\"14\" fill=\"#f1c9a5\"/><path d=\"M72 94 q14 -20 28 0 q0 -24 -14 -24 q-14 0 -14 24\" fill=\"#33404d\"/><path d=\"M70 114 q16 -8 32 0 l6 50 q-22 8 -44 0 z\" fill=\"#23a6c8\"/><rect x=\"78\" y=\"164\" width=\"10\" height=\"44\" fill=\"#33404d\"/><rect x=\"94\" y=\"164\" width=\"10\" height=\"44\" fill=\"#33404d\"/><path d=\"M102 126 q18 8 22 22\" stroke=\"#f1c9a5\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"/></svg>"
+  },
+  {
+   "id": "p1-04",
+   "part": 1,
+   "type": "사진묘사-상태",
+   "difficulty": 2,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "They are seated around a conference table.",
+    "They are standing in line.",
+    "They are setting up a projector.",
+    "They are leaving the room."
+   ],
+   "answer": 0,
+   "explanation": "여러 사람이 회의용 탁자에 둘러앉아 노트북을 보고 있으므로 'be seated around a conference table'이 정답입니다. 서 있거나, 나가거나, 프로젝터를 설치하는 모습은 아닙니다.",
+   "translation": "A. 그들은 회의 탁자 둘레에 앉아 있다. / B. 그들은 줄을 서 있다. / C. 그들은 프로젝터를 설치하고 있다. / D. 그들은 방을 나가고 있다.",
+   "vocabulary": [
+    {
+     "word": "be seated",
+     "meaning": "앉아 있다",
+     "example": "All the guests were seated by noon."
+    },
+    {
+     "word": "conference table",
+     "meaning": "회의용 탁자",
+     "example": "The files are on the conference table."
+    }
+   ],
+   "group_id": "g1-04",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"204\" width=\"420\" height=\"76\" fill=\"#dbe7ee\"/><rect x=\"146\" y=\"34\" width=\"128\" height=\"74\" rx=\"4\" fill=\"#cfe6f1\"/><rect x=\"168\" y=\"50\" width=\"80\" height=\"6\" fill=\"#9ec6d6\"/><rect x=\"168\" y=\"66\" width=\"54\" height=\"6\" fill=\"#9ec6d6\"/><circle cx=\"120\" cy=\"112\" r=\"14\" fill=\"#f1c9a5\"/><path d=\"M104 128 q16 -10 32 0 l4 56 q-20 8 -40 0 z\" fill=\"#2f6f8f\"/><circle cx=\"210\" cy=\"104\" r=\"14\" fill=\"#e9bd98\"/><path d=\"M194 120 q16 -10 32 0 l4 64 q-20 8 -40 0 z\" fill=\"#41566a\"/><circle cx=\"300\" cy=\"112\" r=\"14\" fill=\"#f1c9a5\"/><path d=\"M284 128 q16 -10 32 0 l4 56 q-20 8 -40 0 z\" fill=\"#8a3b52\"/><ellipse cx=\"210\" cy=\"196\" rx=\"176\" ry=\"34\" fill=\"#a9866b\"/><rect x=\"34\" y=\"200\" width=\"352\" height=\"12\" rx=\"4\" fill=\"#8a6a52\"/><rect x=\"96\" y=\"172\" width=\"46\" height=\"26\" rx=\"3\" fill=\"#3b444d\" transform=\"rotate(-4 119 185)\"/><rect x=\"188\" y=\"168\" width=\"46\" height=\"26\" rx=\"3\" fill=\"#3b444d\"/><rect x=\"278\" y=\"172\" width=\"46\" height=\"26\" rx=\"3\" fill=\"#3b444d\" transform=\"rotate(4 301 185)\"/><rect x=\"196\" y=\"198\" width=\"28\" height=\"4\" rx=\"2\" fill=\"#e8eef2\"/></svg>"
+  },
+  {
+   "id": "p1-05",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 2,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "He is carrying a tray.",
+    "He is paying the bill.",
+    "He is cooking in the kitchen.",
+    "He is wiping the table."
+   ],
+   "answer": 0,
+   "explanation": "웨이터가 어깨 높이로 쟁반을 들고 있으므로 'carry a tray'가 정답입니다. 'pay the bill(계산하다)', 'cook(요리하다)', 'wipe(닦다)'는 그림에서 확인되지 않습니다.",
+   "translation": "A. 그는 쟁반을 들고 있다. / B. 그는 계산을 하고 있다. / C. 그는 주방에서 요리하고 있다. / D. 그는 탁자를 닦고 있다.",
+   "vocabulary": [
+    {
+     "word": "tray",
+     "meaning": "쟁반",
+     "example": "The server brought the drinks on a tray."
+    },
+    {
+     "word": "wipe",
+     "meaning": "닦다",
+     "example": "Please wipe the table before the guests arrive."
+    }
+   ],
+   "group_id": "g1-05",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"208\" width=\"420\" height=\"72\" fill=\"#e3ecef\"/><rect x=\"0\" y=\"0\" width=\"420\" height=\"10\" fill=\"#cbd9e2\"/><rect x=\"18\" y=\"150\" width=\"150\" height=\"14\" rx=\"4\" fill=\"#a9866b\"/><rect x=\"30\" y=\"164\" width=\"10\" height=\"48\" fill=\"#8a6a52\"/><rect x=\"146\" y=\"164\" width=\"10\" height=\"48\" fill=\"#8a6a52\"/><rect x=\"44\" y=\"136\" width=\"14\" height=\"14\" rx=\"3\" fill=\"#cfe6f1\"/><rect x=\"70\" y=\"138\" width=\"14\" height=\"12\" rx=\"3\" fill=\"#cfe6f1\"/><circle cx=\"252\" cy=\"104\" r=\"15\" fill=\"#f1c9a5\"/><path d=\"M235 100 q17 -22 34 0 q0 -26 -17 -26 q-17 0 -17 26\" fill=\"#33404d\"/><path d=\"M232 122 q20 -10 40 0 l8 84 q-28 8 -56 0 z\" fill=\"#ffffff\" stroke=\"#c8d5de\" stroke-width=\"2\"/><path d=\"M246 140 h12 l-4 56 h-4 z\" fill=\"#c8d5de\"/><rect x=\"240\" y=\"206\" width=\"12\" height=\"36\" fill=\"#33404d\"/><rect x=\"262\" y=\"206\" width=\"12\" height=\"36\" fill=\"#33404d\"/><path d=\"M232 132 q-14 -18 4 -26\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><path d=\"M232 106 h-58\" stroke=\"#f1c9a5\" stroke-width=\"9\" stroke-linecap=\"round\" fill=\"none\"/><rect x=\"150\" y=\"96\" width=\"72\" height=\"8\" rx=\"4\" fill=\"#9aa7b1\"/><path d=\"M158 96 v-12 h56 v12\" fill=\"none\" stroke=\"#9aa7b1\" stroke-width=\"4\"/><rect x=\"166\" y=\"72\" width=\"10\" height=\"14\" rx=\"2\" fill=\"#cfe6f1\"/><rect x=\"186\" y=\"74\" width=\"10\" height=\"12\" rx=\"2\" fill=\"#cfe6f1\"/></svg>"
+  },
+  {
+   "id": "p1-06",
+   "part": 1,
+   "type": "사진묘사-상태",
+   "difficulty": 3,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "A train has pulled into the station.",
+    "The platform is completely empty.",
+    "People are boarding a bus.",
+    "The station is closed for repairs."
+   ],
+   "answer": 0,
+   "explanation": "승강장 옆으로 기차가 들어와 서 있고 사람들이 기다리고 있으므로 'A train has pulled into the station'이 정답입니다. 승강장은 비어 있지 않고, 버스나 공사 장면도 없습니다.",
+   "translation": "A. 기차가 역에 들어와 멈췄다. / B. 승강장은 완전히 비어 있다. / C. 사람들이 버스에 타고 있다. / D. 역은 보수 공사로 문을 닫았다.",
+   "vocabulary": [
+    {
+     "word": "pull into",
+     "meaning": "(역에) 들어와 멈추다",
+     "example": "The train pulled into the station at nine."
+    },
+    {
+     "word": "platform",
+     "meaning": "승강장",
+     "example": "Passengers waited on the platform."
+    },
+    {
+     "word": "board",
+     "meaning": "탑승하다",
+     "example": "They boarded the bus at the terminal."
+    }
+   ],
+   "group_id": "g1-06",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect width=\"420\" height=\"280\" fill=\"#dfeaf1\"/><rect y=\"196\" width=\"420\" height=\"84\" fill=\"#c9d6de\"/><rect x=\"0\" y=\"150\" width=\"420\" height=\"10\" fill=\"#b7c6d0\"/><rect x=\"20\" y=\"60\" width=\"300\" height=\"90\" rx=\"10\" fill=\"#eef4f8\"/><rect x=\"20\" y=\"96\" width=\"300\" height=\"14\" fill=\"#23a6c8\"/><rect x=\"52\" y=\"66\" width=\"48\" height=\"26\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"120\" y=\"66\" width=\"48\" height=\"26\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"188\" y=\"66\" width=\"48\" height=\"26\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"256\" y=\"66\" width=\"48\" height=\"26\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"60\" y=\"140\" width=\"26\" height=\"14\" rx=\"6\" fill=\"#33404d\"/><rect x=\"248\" y=\"140\" width=\"26\" height=\"14\" rx=\"6\" fill=\"#33404d\"/><circle cx=\"330\" cy=\"120\" r=\"12\" fill=\"#f1c9a5\"/><path d=\"M318 132 q12 -8 24 0 l4 44 q-16 6 -32 0 z\" fill=\"#2f6f8f\"/><rect x=\"322\" y=\"176\" width=\"8\" height=\"26\" fill=\"#33404d\"/><rect x=\"334\" y=\"176\" width=\"8\" height=\"26\" fill=\"#33404d\"/><circle cx=\"372\" cy=\"128\" r=\"12\" fill=\"#e9bd98\"/><path d=\"M360 140 q12 -8 24 0 l4 40 q-16 6 -32 0 z\" fill=\"#8a3b52\"/><rect x=\"364\" y=\"180\" width=\"8\" height=\"24\" fill=\"#33404d\"/><rect x=\"376\" y=\"180\" width=\"8\" height=\"24\" fill=\"#33404d\"/><rect x=\"300\" y=\"168\" width=\"70\" height=\"12\" rx=\"4\" fill=\"#9aa7b1\"/></svg>"
+  },
+  {
+   "id": "p1-07",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 2,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "She is looking at a bulletin board.",
+    "She is mailing a letter.",
+    "She is taking a photograph.",
+    "She is walking down the stairs."
+   ],
+   "answer": 0,
+   "explanation": "여성이 벽에 붙은 게시판 앞에 서서 서류를 들여다보고 있으므로 'look at a bulletin board'가 정답입니다. 편지, 사진 촬영, 계단과 관련된 모습은 없습니다.",
+   "translation": "A. 그녀는 게시판을 보고 있다. / B. 그녀는 편지를 부치고 있다. / C. 그녀는 사진을 찍고 있다. / D. 그녀는 계단을 내려가고 있다.",
+   "vocabulary": [
+    {
+     "word": "bulletin board",
+     "meaning": "게시판",
+     "example": "The schedule is posted on the bulletin board."
+    },
+    {
+     "word": "look at",
+     "meaning": "~을 보다",
+     "example": "She is looking at the notice."
+    }
+   ],
+   "group_id": "g1-07",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"206\" width=\"420\" height=\"74\" fill=\"#dbe7ee\"/><rect x=\"120\" y=\"42\" width=\"180\" height=\"112\" rx=\"6\" fill=\"#b98c66\"/><rect x=\"132\" y=\"54\" width=\"70\" height=\"42\" rx=\"2\" fill=\"#ffffff\"/><rect x=\"212\" y=\"54\" width=\"76\" height=\"12\" rx=\"2\" fill=\"#f4f1e4\"/><rect x=\"212\" y=\"72\" width=\"60\" height=\"24\" rx=\"2\" fill=\"#f4f1e4\"/><rect x=\"132\" y=\"104\" width=\"86\" height=\"38\" rx=\"2\" fill=\"#ffffff\"/><rect x=\"226\" y=\"104\" width=\"62\" height=\"38\" rx=\"2\" fill=\"#e7f1f6\"/><circle cx=\"318\" cy=\"112\" r=\"15\" fill=\"#f1c9a5\"/><path d=\"M301 108 q17 -24 34 0 q2 -28 -17 -28 q-19 0 -17 28\" fill=\"#33404d\"/><path d=\"M298 130 q20 -10 40 0 l8 78 q-28 10 -56 0 z\" fill=\"#23a6c8\"/><rect x=\"308\" y=\"204\" width=\"12\" height=\"38\" fill=\"#33404d\"/><rect x=\"326\" y=\"204\" width=\"12\" height=\"38\" fill=\"#33404d\"/><path d=\"M300 142 q-14 6 -20 18\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><rect x=\"268\" y=\"158\" width=\"22\" height=\"30\" rx=\"2\" fill=\"#ffffff\" transform=\"rotate(-12 279 173)\"/><circle cx=\"346\" cy=\"218\" r=\"0\" fill=\"none\"/></svg>"
+  },
+  {
+   "id": "p1-08",
+   "part": 1,
+   "type": "사진묘사-동작",
+   "difficulty": 3,
+   "prompt": "사진을 가장 잘 묘사한 문장을 고르세요.",
+   "choices": [
+    "He is putting a bag in the trunk of a car.",
+    "He is driving a car.",
+    "He is filling the car with gas.",
+    "He is washing the car."
+   ],
+   "answer": 0,
+   "explanation": "차의 트렁크가 열려 있고 남자가 가방을 넣고 있으므로 정답은 A입니다. 운전, 주유, 세차를 하고 있는 모습은 그림에 없습니다.",
+   "translation": "A. 그는 차 트렁크에 가방을 넣고 있다. / B. 그는 차를 운전하고 있다. / C. 그는 차에 기름을 넣고 있다. / D. 그는 차를 씻고 있다.",
+   "vocabulary": [
+    {
+     "word": "trunk",
+     "meaning": "(자동차) 트렁크",
+     "example": "Put the luggage in the trunk."
+    },
+    {
+     "word": "fill A with B",
+     "meaning": "A에 B를 채우다",
+     "example": "He filled the tank with gas."
+    }
+   ],
+   "group_id": "g1-08",
+   "hidden_choices": true,
+   "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 420 280\" width=\"420\" height=\"280\" role=\"img\" aria-label=\"토익 Part 1 일러스트\"><rect width=\"420\" height=\"280\" fill=\"#f2f7fa\"/><rect y=\"204\" width=\"420\" height=\"76\" fill=\"#dbe7ee\"/><path d=\"M60 168 l34 -44 h150 l40 44 z\" fill=\"#eef2f5\" stroke=\"#c3d0d8\" stroke-width=\"2\"/><rect x=\"60\" y=\"166\" width=\"224\" height=\"34\" rx=\"8\" fill=\"#eef2f5\" stroke=\"#c3d0d8\" stroke-width=\"2\"/><rect x=\"96\" y=\"132\" width=\"52\" height=\"30\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"158\" y=\"132\" width=\"52\" height=\"30\" rx=\"4\" fill=\"#bfe0ea\"/><rect x=\"52\" y=\"182\" width=\"20\" height=\"14\" rx=\"4\" fill=\"#c8d5de\"/><rect x=\"52\" y=\"150\" width=\"10\" height=\"46\" rx=\"3\" fill=\"#c8d5de\"/><circle cx=\"104\" cy=\"200\" r=\"18\" fill=\"#33404d\"/><circle cx=\"104\" cy=\"200\" r=\"7\" fill=\"#c8d5de\"/><circle cx=\"252\" cy=\"200\" r=\"18\" fill=\"#33404d\"/><circle cx=\"252\" cy=\"200\" r=\"7\" fill=\"#c8d5de\"/><circle cx=\"330\" cy=\"118\" r=\"14\" fill=\"#f1c9a5\"/><path d=\"M316 114 q14 -20 28 0 q0 -24 -14 -24 q-14 0 -14 24\" fill=\"#33404d\"/><path d=\"M314 134 q16 -8 32 0 l6 62 q-22 8 -44 0 z\" fill=\"#2f6f8f\"/><rect x=\"322\" y=\"192\" width=\"10\" height=\"36\" fill=\"#33404d\"/><rect x=\"338\" y=\"192\" width=\"10\" height=\"36\" fill=\"#33404d\"/><path d=\"M314 146 q-18 4 -26 14\" stroke=\"#f1c9a5\" stroke-width=\"10\" stroke-linecap=\"round\" fill=\"none\"/><rect x=\"272\" y=\"152\" width=\"34\" height=\"26\" rx=\"4\" fill=\"#c89358\"/><path d=\"M280 152 v-8 h18 v8\" fill=\"none\" stroke=\"#a06f3c\" stroke-width=\"3\"/></svg>"
+  },
+  {
+   "id": "p2-01",
+   "part": 2,
+   "type": "응답-의문사",
+   "difficulty": 1,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "It should be delivered by Thursday.",
+    "At the post office.",
+    "Yes, I ordered it."
+   ],
+   "answer": 0,
+   "explanation": "When은 '언제'를 묻는 의문사이므로 시간을 나타내는 'by Thursday'가 들어간 응답이 정답입니다. 장소를 답하는 B와 Yes/No로 답하는 C는 어울리지 않습니다.",
+   "translation": "여: 배송은 언제 도착하나요? / A: 목요일까지 배송될 겁니다. / B: 우체국에서요. / C: 네, 제가 주문했어요.",
+   "vocabulary": [
+    {
+     "word": "shipment",
+     "meaning": "배송품, 화물",
+     "example": "The shipment left the warehouse today."
+    },
+    {
+     "word": "by Thursday",
+     "meaning": "목요일까지",
+     "example": "Please reply by Thursday."
+    }
+   ],
+   "group_id": "g2-01",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-02",
+   "part": 2,
+   "type": "응답-요청",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Sure, I'll email it right away.",
+    "The schedule was canceled.",
+    "I sent it to the printer."
+   ],
+   "answer": 0,
+   "explanation": "Could you ~?는 정중한 요청이므로 'Sure, I'll email it right away'처럼 수락하는 응답이 자연스럽습니다. B는 요청과 무관한 진술이고, C는 '프린터로 보냈다'는 엉뚱한 대상입니다.",
+   "translation": "남: 오늘 오후까지 수정된 일정표를 보내 주시겠어요? / A: 물론이죠, 바로 이메일로 보낼게요. / B: 그 일정은 취소됐어요. / C: 프린터로 보냈어요.",
+   "vocabulary": [
+    {
+     "word": "revised",
+     "meaning": "수정된",
+     "example": "Here is the revised plan."
+    },
+    {
+     "word": "right away",
+     "meaning": "즉시",
+     "example": "I'll call you right away."
+    }
+   ],
+   "group_id": "g2-02",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-03",
+   "part": 2,
+   "type": "응답-의문사",
+   "difficulty": 1,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "About three hours.",
+    "Yes, it was long.",
+    "In the conference room."
+   ],
+   "answer": 0,
+   "explanation": "How long은 '얼마나 오래' 기간을 묻습니다. 'About three hours'가 기간을 나타내므로 정답입니다. B는 Yes/No 응답이고, C는 장소를 답하고 있습니다.",
+   "translation": "여: 교육 세션은 얼마나 길어요? / A: 약 3시간입니다. / B: 네, 길었어요. / C: 회의실에서요.",
+   "vocabulary": [
+    {
+     "word": "session",
+     "meaning": "세션, 교육 과정",
+     "example": "The morning session starts at nine."
+    },
+    {
+     "word": "last",
+     "meaning": "지속되다",
+     "example": "The meeting lasted two hours."
+    }
+   ],
+   "group_id": "g2-03",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-04",
+   "part": 2,
+   "type": "응답-Yes/No",
+   "difficulty": 1,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Not yet, I'm still working on it.",
+    "At the warehouse.",
+    "It's due on Tuesday."
+   ],
+   "answer": 0,
+   "explanation": "Did you ~?로 시작하는 과거시제 Yes/No 질문에는 'Not yet, I'm still working on it'처럼 완료 여부를 답하는 응답이 맞습니다. B는 장소, C는 기한을 말하므로 질문에 대한 답이 되지 않습니다.",
+   "translation": "남: 재고 보고서 다 끝냈어요? / A: 아직요, 계속 작업 중이에요. / B: 창고에서요. / C: 화요일이 마감이에요.",
+   "vocabulary": [
+    {
+     "word": "inventory",
+     "meaning": "재고",
+     "example": "We check the inventory every month."
+    },
+    {
+     "word": "work on",
+     "meaning": "~을 작업하다",
+     "example": "She is working on the design."
+    }
+   ],
+   "group_id": "g2-04",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-05",
+   "part": 2,
+   "type": "응답-의문사",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Because the director is out of town.",
+    "In the main hall.",
+    "For about two hours."
+   ],
+   "answer": 0,
+   "explanation": "Why는 이유를 묻습니다. 'Because ~'로 이유를 밝히는 A가 정답입니다. B는 장소, C는 소요 시간에 대한 답입니다.",
+   "translation": "여: 회의가 왜 연기됐나요? / A: 이사가 다른 도시에 출장 중이어서요. / B: 대강당에서요. / C: 약 두 시간 동안요.",
+   "vocabulary": [
+    {
+     "word": "postpone",
+     "meaning": "연기하다",
+     "example": "The event was postponed until June."
+    },
+    {
+     "word": "out of town",
+     "meaning": "출장 중인, 시외에 있는",
+     "example": "The manager is out of town this week."
+    }
+   ],
+   "group_id": "g2-05",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-06",
+   "part": 2,
+   "type": "응답-제안",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "I'd love to, but I have a deadline today.",
+    "Yes, it was delicious.",
+    "The lunch box is on the table."
+   ],
+   "answer": 0,
+   "explanation": "Would you like to ~?는 제안이므로 'I'd love to, but ~'처럼 수락·거절을 표현하는 응답이 적절합니다. B는 이미 먹은 뒤의 감상이고, C는 제안에 대한 답이 아닙니다.",
+   "translation": "남: 점심 같이 하실래요? / A: 그러고 싶지만 오늘 마감이 있어요. / B: 네, 맛있었어요. / C: 도시락은 탁자 위에 있어요.",
+   "vocabulary": [
+    {
+     "word": "join",
+     "meaning": "함께하다, 참여하다",
+     "example": "Would you join our team?"
+    },
+    {
+     "word": "deadline",
+     "meaning": "마감 기한",
+     "example": "The deadline is Friday."
+    }
+   ],
+   "group_id": "g2-06",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-07",
+   "part": 2,
+   "type": "응답-의문사",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Ms. Chen is.",
+    "About fifty thousand dollars.",
+    "At the end of the month."
+   ],
+   "answer": 0,
+   "explanation": "Who는 사람을 묻습니다. 담당자를 밝히는 'Ms. Chen is.'가 정답입니다. B는 금액, C는 시기를 답하고 있어 질문과 맞지 않습니다.",
+   "translation": "여: 마케팅 예산은 누가 담당하나요? / A: 첸 씨가 담당합니다. / B: 약 5만 달러요. / C: 월말에요.",
+   "vocabulary": [
+    {
+     "word": "be in charge of",
+     "meaning": "~을 담당하다",
+     "example": "He is in charge of the project."
+    },
+    {
+     "word": "budget",
+     "meaning": "예산",
+     "example": "We stayed within the budget."
+    }
+   ],
+   "group_id": "g2-07",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-08",
+   "part": 2,
+   "type": "응답-선택의문",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Let's take a taxi. We're running late.",
+    "Yes, we should.",
+    "It's a very nice station."
+   ],
+   "answer": 0,
+   "explanation": "A or B 형태의 선택 의문문에는 둘 중 하나를 고르는 응답이 와야 합니다. 'Let's take a taxi'가 선택을 나타내며, Yes/No로 답하는 B는 어색합니다.",
+   "translation": "남: 역까지 택시를 탈까요, 걸어갈까요? / A: 택시를 탑시다. 우리 시간이 촉박해요. / B: 네, 그래야겠네요. / C: 아주 좋은 역이에요.",
+   "vocabulary": [
+    {
+     "word": "run late",
+     "meaning": "늦어지다, 시간이 촉박하다",
+     "example": "I'm running late for the meeting."
+    },
+    {
+     "word": "take a taxi",
+     "meaning": "택시를 타다",
+     "example": "Let's take a taxi to the airport."
+    }
+   ],
+   "group_id": "g2-08",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-09",
+   "part": 2,
+   "type": "응답-의문사",
+   "difficulty": 1,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Twice a month.",
+    "For about an hour.",
+    "Yes, I do."
+   ],
+   "answer": 0,
+   "explanation": "How often은 빈도를 묻습니다. 'Twice a month(한 달에 두 번)'가 정답입니다. B는 소요 시간, C는 Yes/No 응답이라 맞지 않습니다.",
+   "translation": "여: 지사에는 얼마나 자주 가세요? / A: 한 달에 두 번요. / B: 한 시간 정도요. / C: 네, 그래요.",
+   "vocabulary": [
+    {
+     "word": "branch office",
+     "meaning": "지사",
+     "example": "The branch office opens at nine."
+    },
+    {
+     "word": "how often",
+     "meaning": "얼마나 자주",
+     "example": "How often do you travel for work?"
+    }
+   ],
+   "group_id": "g2-09",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-10",
+   "part": 2,
+   "type": "응답-Yes/No",
+   "difficulty": 2,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "Yes, I looked at it this morning.",
+    "At the copy center.",
+    "It costs five dollars."
+   ],
+   "answer": 0,
+   "explanation": "Have you ~?는 경험·완료를 묻는 Yes/No 질문입니다. 'Yes, I looked at it this morning'이 자연스러운 답입니다. B는 장소, C는 가격을 말하고 있어 질문과 연결되지 않습니다.",
+   "translation": "남: 새 카탈로그 봤어요? / A: 네, 오늘 아침에 봤어요. / B: 복사실에서요. / C: 5달러예요.",
+   "vocabulary": [
+    {
+     "word": "catalog",
+     "meaning": "카탈로그",
+     "example": "The new catalog includes our winter items."
+    },
+    {
+     "word": "look at",
+     "meaning": "~을 보다",
+     "example": "Take a look at the sample."
+    }
+   ],
+   "group_id": "g2-10",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-11",
+   "part": 2,
+   "type": "응답-요청",
+   "difficulty": 3,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "It's on the second floor.",
+    "Yes, I could.",
+    "No, I didn't."
+   ],
+   "answer": 0,
+   "explanation": "where로 시작하는 간접의문문이 포함된 요청이므로 장소를 알려 주는 응답이 필요합니다. 'Yes, I could'는 문법적으로 가능해 보이지만 실제 대화에서는 장소를 알려 주지 않아 부적절합니다.",
+   "translation": "여: 인사팀 사무실이 어디인지 알려 주시겠어요? / A: 2층에 있어요. / B: 네, 그럴 수 있어요. / C: 아니요, 안 했어요.",
+   "vocabulary": [
+    {
+     "word": "HR",
+     "meaning": "인사(팀)",
+     "example": "Contact HR for the paperwork."
+    },
+    {
+     "word": "on the second floor",
+     "meaning": "2층에",
+     "example": "The lab is on the second floor."
+    }
+   ],
+   "group_id": "g2-11",
+   "hidden_choices": true
+  },
+  {
+   "id": "p2-12",
+   "part": 2,
+   "type": "응답-상황",
+   "difficulty": 3,
+   "prompt": "음성을 듣고 질문에 알맞은 응답을 고르세요.",
+   "choices": [
+    "I'll ask the supply room for more.",
+    "Yes, it's a good printer.",
+    "The paper was delivered yesterday."
+   ],
+   "answer": 0,
+   "explanation": "상대가 문제 상황(용지 부족)을 알렸으므로 해결책을 제시하는 응답이 자연스럽습니다. 'I'll ask the supply room for more'가 그 역할을 하며, B와 C는 상황에 대한 대응이 되지 않습니다.",
+   "translation": "남: 프린터에 또 용지가 떨어졌네요. / A: 비품실에 더 달라고 할게요. / B: 네, 좋은 프린터예요. / C: 용지는 어제 배송됐어요.",
+   "vocabulary": [
+    {
+     "word": "be out of",
+     "meaning": "~이 떨어지다",
+     "example": "We are out of coffee."
+    },
+    {
+     "word": "supply room",
+     "meaning": "비품실",
+     "example": "Extra pens are in the supply room."
+    }
+   ],
+   "group_id": "g2-12",
+   "hidden_choices": true
+  },
+  {
+   "id": "p3-01",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 1,
+   "prompt": "What problem does the woman mention?",
+   "choices": [
+    "The client will arrive later than planned.",
+    "The conference room is already booked.",
+    "The sales team forgot to send an email.",
+    "The presentation file is missing."
+   ],
+   "answer": 0,
+   "explanation": "여자가 \"That's a problem. The presentation is scheduled for ten\"이라고 말한 이유는 고객사 담당자의 비행기가 지연되어 정오에나 도착하기 때문입니다. 회의실, 이메일, 파일 문제는 언급되지 않았습니다.",
+   "translation": "여자가 언급한 문제는 무엇인가? / A. 고객이 예정보다 늦게 도착할 것이다. / B. 회의실이 이미 예약되어 있다. / C. 영업팀이 이메일 보내는 것을 잊었다. / D. 발표 파일이 없다.",
+   "vocabulary": [
+    {
+     "word": "delay",
+     "meaning": "지연시키다",
+     "example": "The flight was delayed by an hour."
+    },
+    {
+     "word": "be scheduled for",
+     "meaning": "~으로 예정되어 있다",
+     "example": "The event is scheduled for May 5."
+    }
+   ],
+   "group_id": "g3-01"
+  },
+  {
+   "id": "p3-02",
+   "part": 3,
+   "type": "대화-추론",
+   "difficulty": 2,
+   "prompt": "What does the man suggest?",
+   "choices": [
+    "Moving the presentation to the afternoon.",
+    "Canceling the meeting with the client.",
+    "Inviting the sales team to lunch.",
+    "Preparing the slides at home."
+   ],
+   "answer": 0,
+   "explanation": "\"we could move it to two o'clock and have lunch with her first\"에서 발표를 오후 2시로 미루자고 제안했음을 알 수 있습니다. 취소나 자료 준비에 대한 제안은 없습니다.",
+   "translation": "남자는 무엇을 제안하는가? / A. 발표를 오후로 옮기는 것 / B. 고객과의 회의를 취소하는 것 / C. 영업팀을 점심에 초대하는 것 / D. 집에서 슬라이드를 준비하는 것",
+   "vocabulary": [
+    {
+     "word": "suggest",
+     "meaning": "제안하다",
+     "example": "She suggested a short break."
+    },
+    {
+     "word": "move",
+     "meaning": "옮기다",
+     "example": "We moved the meeting to Friday."
+    }
+   ],
+   "group_id": "g3-01"
+  },
+  {
+   "id": "p3-03",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 2,
+   "prompt": "What will the man do next?",
+   "choices": [
+    "Update the conference room reservation.",
+    "Call Ms. Park again.",
+    "Print the presentation materials.",
+    "Meet the sales team at noon."
+   ],
+   "answer": 0,
+   "explanation": "남자는 \"I'll send them an email right after I update the conference room booking\"이라고 말했습니다. 따라서 가장 먼저 할 일은 회의실 예약 수정입니다.",
+   "translation": "남자는 다음에 무엇을 할 것인가? / A. 회의실 예약을 수정한다. / B. 박 씨에게 다시 전화한다. / C. 발표 자료를 인쇄한다. / D. 정오에 영업팀을 만난다.",
+   "vocabulary": [
+    {
+     "word": "update",
+     "meaning": "갱신하다, 수정하다",
+     "example": "Please update your address."
+    },
+    {
+     "word": "booking",
+     "meaning": "예약",
+     "example": "We have a booking for six people."
+    }
+   ],
+   "group_id": "g3-01"
+  },
+  {
+   "id": "p3-04",
+   "part": 3,
+   "type": "대화-의도파악",
+   "difficulty": 1,
+   "prompt": "Why is the woman calling?",
+   "choices": [
+    "To report a problem with a product.",
+    "To ask about a job opening.",
+    "To check the store's opening hours.",
+    "To order a new coffee machine."
+   ],
+   "answer": 0,
+   "explanation": "여자는 커피머신이 몇 분 만에 작동을 멈춘다며 문제를 알리기 위해 전화했습니다. 구매나 채용, 영업시간 문의는 대화에 없습니다.",
+   "translation": "여자는 왜 전화했는가? / A. 제품 문제를 알리기 위해 / B. 채용 공고를 문의하기 위해 / C. 매장 영업시간을 확인하기 위해 / D. 새 커피머신을 주문하기 위해",
+   "vocabulary": [
+    {
+     "word": "report",
+     "meaning": "알리다, 보고하다",
+     "example": "Please report the issue to the manager."
+    },
+    {
+     "word": "stop working",
+     "meaning": "작동을 멈추다",
+     "example": "The machine stopped working."
+    }
+   ],
+   "group_id": "g3-02"
+  },
+  {
+   "id": "p3-05",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 2,
+   "prompt": "What does the woman ask about?",
+   "choices": [
+    "Exchanging the item for another model.",
+    "Getting a full refund in cash.",
+    "Extending the warranty period.",
+    "Repairing the item at her home."
+   ],
+   "answer": 0,
+   "explanation": "\"Can I exchange it for a different model?\"에서 다른 모델로 교환할 수 있는지 묻고 있습니다. 환불이나 보증 연장, 방문 수리는 언급되지 않았습니다.",
+   "translation": "여자는 무엇을 묻는가? / A. 다른 모델로 교환하는 것 / B. 현금으로 전액 환불받는 것 / C. 보증 기간을 연장하는 것 / D. 집에서 제품을 수리받는 것",
+   "vocabulary": [
+    {
+     "word": "exchange A for B",
+     "meaning": "A를 B로 교환하다",
+     "example": "Can I exchange this for a larger size?"
+    },
+    {
+     "word": "refund",
+     "meaning": "환불",
+     "example": "She asked for a refund."
+    }
+   ],
+   "group_id": "g3-02"
+  },
+  {
+   "id": "p3-06",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 1,
+   "prompt": "What does the man ask the woman to do?",
+   "choices": [
+    "Visit the store with the receipt.",
+    "Send the product by mail.",
+    "Complete an online survey.",
+    "Call the manufacturer directly."
+   ],
+   "answer": 0,
+   "explanation": "남자는 \"Bring it in before Friday and we'll take care of it\"이라며 영수증을 가지고 금요일 전에 매장에 오라고 요청했습니다.",
+   "translation": "남자는 여자에게 무엇을 요청하는가? / A. 영수증을 가지고 매장에 오는 것 / B. 제품을 우편으로 보내는 것 / C. 온라인 설문을 작성하는 것 / D. 제조사에 직접 전화하는 것",
+   "vocabulary": [
+    {
+     "word": "bring in",
+     "meaning": "가져오다",
+     "example": "Bring in the broken part."
+    },
+    {
+     "word": "take care of",
+     "meaning": "처리하다",
+     "example": "We'll take care of the paperwork."
+    }
+   ],
+   "group_id": "g3-02"
+  },
+  {
+   "id": "p3-07",
+   "part": 3,
+   "type": "대화-의도파악",
+   "difficulty": 1,
+   "prompt": "What is the purpose of the call?",
+   "choices": [
+    "To remind the guest about a shuttle schedule.",
+    "To confirm a room reservation.",
+    "To report a flight delay.",
+    "To ask for payment information."
+   ],
+   "answer": 0,
+   "explanation": "여자는 프런트 직원으로서 다음 날 아침 셔틀 출발 시간을 알려 주고 있습니다. 객실 예약 확인이나 결제 정보 요청은 없습니다.",
+   "translation": "이 전화의 목적은 무엇인가? / A. 셔틀 시간을 안내하기 위해 / B. 객실 예약을 확인하기 위해 / C. 항공편 지연을 알리기 위해 / D. 결제 정보를 요청하기 위해",
+   "vocabulary": [
+    {
+     "word": "front desk",
+     "meaning": "(호텔) 프런트",
+     "example": "Please leave the key at the front desk."
+    },
+    {
+     "word": "reminder",
+     "meaning": "안내, 상기시키는 것",
+     "example": "This is a reminder about your appointment."
+    }
+   ],
+   "group_id": "g3-03"
+  },
+  {
+   "id": "p3-08",
+   "part": 3,
+   "type": "대화-추론",
+   "difficulty": 2,
+   "prompt": "What does the man decide to do?",
+   "choices": [
+    "Take the earlier shuttle.",
+    "Change his flight to Terminal 1.",
+    "Rent a car at the airport.",
+    "Leave the hotel tonight."
+   ],
+   "answer": 0,
+   "explanation": "남자는 2터미널에서 출발하는데 8시 셔틀은 1터미널을 먼저 들르기 때문에 \"I'd better take the early one\"이라며 이른 셔틀을 선택했습니다.",
+   "translation": "남자는 무엇을 하기로 결정했는가? / A. 더 이른 셔틀을 탄다. / B. 항공편을 1터미널로 바꾼다. / C. 공항에서 렌터카를 빌린다. / D. 오늘 밤 호텔을 떠난다.",
+   "vocabulary": [
+    {
+     "word": "fly out of",
+     "meaning": "~에서 출발하다",
+     "example": "She flies out of Incheon tomorrow."
+    },
+    {
+     "word": "had better",
+     "meaning": "~하는 게 좋겠다",
+     "example": "You'd better leave now."
+    }
+   ],
+   "group_id": "g3-03"
+  },
+  {
+   "id": "p3-09",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 1,
+   "prompt": "What does the woman ask the man to do?",
+   "choices": [
+    "Come to the lobby early.",
+    "Pay for the shuttle in advance.",
+    "Show his passport at the desk.",
+    "Call the airline before 8:00."
+   ],
+   "answer": 0,
+   "explanation": "\"Please be in the lobby ten minutes early\"라고 하며 로비에 10분 일찍 와 달라고 요청했습니다.",
+   "translation": "여자는 남자에게 무엇을 요청하는가? / A. 로비에 일찍 오는 것 / B. 셔틀 요금을 미리 내는 것 / C. 프런트에서 여권을 보여 주는 것 / D. 8시 전에 항공사에 전화하는 것",
+   "vocabulary": [
+    {
+     "word": "in advance",
+     "meaning": "미리",
+     "example": "Please book in advance."
+    },
+    {
+     "word": "lobby",
+     "meaning": "로비",
+     "example": "I'll meet you in the lobby."
+    }
+   ],
+   "group_id": "g3-03"
+  },
+  {
+   "id": "p3-10",
+   "part": 3,
+   "type": "대화-추론",
+   "difficulty": 2,
+   "prompt": "What are the speakers mainly discussing?",
+   "choices": [
+    "A change to a marketing campaign schedule.",
+    "The budget for a new product.",
+    "Hiring a new photographer.",
+    "A problem with the company website."
+   ],
+   "answer": 0,
+   "explanation": "사진이 늦어져 광고 캠페인 일정을 조정하는 내용이 중심입니다. 예산, 채용, 웹사이트 장애는 다루지 않습니다.",
+   "translation": "두 사람은 주로 무엇을 논의하는가? / A. 마케팅 캠페인 일정 변경 / B. 신제품 예산 / C. 새 사진작가 채용 / D. 회사 웹사이트 문제",
+   "vocabulary": [
+    {
+     "word": "campaign",
+     "meaning": "캠페인",
+     "example": "The campaign starts in May."
+    },
+    {
+     "word": "launch",
+     "meaning": "출시하다, 시작하다",
+     "example": "They launched the product in June."
+    }
+   ],
+   "group_id": "g3-04"
+  },
+  {
+   "id": "p3-11",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 1,
+   "prompt": "What does the woman suggest?",
+   "choices": [
+    "Postponing the launch until Thursday.",
+    "Hiring a different photographer.",
+    "Using photos from the last campaign.",
+    "Moving the launch to next month."
+   ],
+   "answer": 0,
+   "explanation": "\"let's push the launch to Thursday\"에서 론칭을 목요일로 미루자고 제안했습니다. 사진작가 교체나 기존 사진 사용은 언급되지 않았습니다.",
+   "translation": "여자는 무엇을 제안하는가? / A. 론칭을 목요일로 미루는 것 / B. 다른 사진작가를 고용하는 것 / C. 지난 캠페인 사진을 사용하는 것 / D. 론칭을 다음 달로 옮기는 것",
+   "vocabulary": [
+    {
+     "word": "postpone",
+     "meaning": "연기하다",
+     "example": "They postponed the launch."
+    },
+    {
+     "word": "push",
+     "meaning": "미루다, 밀어붙이다",
+     "example": "Let's push the deadline back."
+    }
+   ],
+   "group_id": "g3-04"
+  },
+  {
+   "id": "p3-12",
+   "part": 3,
+   "type": "대화-세부사항",
+   "difficulty": 2,
+   "prompt": "What will the man do?",
+   "choices": [
+    "Notify the regional managers.",
+    "Contact the photographer.",
+    "Design the online banners.",
+    "Book a meeting room."
+   ],
+   "answer": 0,
+   "explanation": "\"I'll inform the regional managers\"라고 했으므로 지역 매니저들에게 알릴 것입니다. 사진작가 연락은 여자가 이미 했고, 배너 디자인은 디자인팀 일입니다.",
+   "translation": "남자는 무엇을 할 것인가? / A. 지역 매니저들에게 알린다. / B. 사진작가에게 연락한다. / C. 온라인 배너를 디자인한다. / D. 회의실을 예약한다.",
+   "vocabulary": [
+    {
+     "word": "inform",
+     "meaning": "알리다",
+     "example": "Please inform the staff of the change."
+    },
+    {
+     "word": "regional",
+     "meaning": "지역의",
+     "example": "She manages the regional office."
+    }
+   ],
+   "group_id": "g3-04"
+  },
+  {
+   "id": "p4-01",
+   "part": 4,
+   "type": "담화-주제",
+   "difficulty": 1,
+   "prompt": "What is the announcement mainly about?",
+   "choices": [
+    "A change to a flight's departure gate and boarding time.",
+    "A delay caused by bad weather.",
+    "A new baggage policy at the airport.",
+    "A canceled flight to Seattle."
+   ],
+   "answer": 0,
+   "explanation": "탑승구 변경(14번→22번)과 탑승 시간 변경(3시 15분)을 알리는 방송입니다. 날씨, 수하물 규정, 결항은 언급되지 않습니다.",
+   "translation": "이 안내 방송의 주된 내용은 무엇인가? / A. 항공편 탑승구와 탑승 시간 변경 / B. 악천후로 인한 지연 / C. 공항의 새 수하물 규정 / D. 시애틀행 항공편 결항",
+   "vocabulary": [
+    {
+     "word": "departure gate",
+     "meaning": "탑승구",
+     "example": "The departure gate is on the second floor."
+    },
+    {
+     "word": "boarding",
+     "meaning": "탑승",
+     "example": "Boarding starts in ten minutes."
+    }
+   ],
+   "group_id": "g4-01"
+  },
+  {
+   "id": "p4-02",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 1,
+   "prompt": "What is the reason for the change?",
+   "choices": [
+    "A mechanical inspection.",
+    "Heavy snow.",
+    "A shortage of staff.",
+    "A security alert."
+   ],
+   "answer": 0,
+   "explanation": "\"Due to a mechanical inspection\"에서 기계 점검이 원인임을 알 수 있습니다.",
+   "translation": "변경의 이유는 무엇인가? / A. 기계 점검 / B. 폭설 / C. 인력 부족 / D. 보안 경보",
+   "vocabulary": [
+    {
+     "word": "mechanical",
+     "meaning": "기계의",
+     "example": "The mechanical problem was fixed."
+    },
+    {
+     "word": "due to",
+     "meaning": "~ 때문에",
+     "example": "The flight was delayed due to fog."
+    }
+   ],
+   "group_id": "g4-01"
+  },
+  {
+   "id": "p4-03",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 1,
+   "prompt": "Who may board first?",
+   "choices": [
+    "Passengers traveling with small children.",
+    "Passengers in first class only.",
+    "Members of the frequent flyer program.",
+    "Passengers with large suitcases."
+   ],
+   "answer": 0,
+   "explanation": "\"Passengers traveling with small children may board first\"라고 안내했습니다.",
+   "translation": "누가 먼저 탑승할 수 있는가? / A. 어린아이와 함께 여행하는 승객 / B. 일등석 승객만 / C. 상용고객 우대 프로그램 회원 / D. 큰 여행 가방을 가진 승객",
+   "vocabulary": [
+    {
+     "word": "travel with",
+     "meaning": "~와 함께 여행하다",
+     "example": "She travels with her son."
+    },
+    {
+     "word": "board",
+     "meaning": "탑승하다",
+     "example": "We will board at gate 22."
+    }
+   ],
+   "group_id": "g4-01"
+  },
+  {
+   "id": "p4-04",
+   "part": 4,
+   "type": "담화-주제",
+   "difficulty": 1,
+   "prompt": "Where does the talk most likely take place?",
+   "choices": [
+    "At a museum.",
+    "At a train station.",
+    "At a shopping mall.",
+    "At a university library."
+   ],
+   "answer": 0,
+   "explanation": "미술관에 온 방문객에게 전시 관람 규칙과 투어 순서를 안내하고 있으므로 미술관이 가장 적절합니다.",
+   "translation": "이 담화는 어디에서 이루어지는가? / A. 미술관 / B. 기차역 / C. 쇼핑몰 / D. 대학 도서관",
+   "vocabulary": [
+    {
+     "word": "gallery",
+     "meaning": "전시실, 갤러리",
+     "example": "The gallery opens at ten."
+    },
+    {
+     "word": "exhibition",
+     "meaning": "전시회",
+     "example": "The exhibition runs until June."
+    }
+   ],
+   "group_id": "g4-02"
+  },
+  {
+   "id": "p4-05",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 2,
+   "prompt": "What are listeners asked to do?",
+   "choices": [
+    "Turn off the flash on their cameras.",
+    "Leave their bags at the entrance.",
+    "Pay an extra fee for the special exhibition.",
+    "Finish their drinks before entering."
+   ],
+   "answer": 0,
+   "explanation": "\"Photography is allowed in most galleries, but please turn off the flash\"라고 하며 플래시를 꺼 달라고 요청했습니다. 음식·음료는 1층 카페에 두어야 한다고 했지만, 입장 전에 마셔야 한다는 말은 없습니다.",
+   "translation": "청취자들은 무엇을 하라는 요청을 받는가? / A. 카메라 플래시를 끈다. / B. 가방을 입구에 맡긴다. / C. 특별전 추가 요금을 낸다. / D. 입장 전에 음료를 다 마신다.",
+   "vocabulary": [
+    {
+     "word": "flash",
+     "meaning": "(카메라) 플래시",
+     "example": "Turn off the flash indoors."
+    },
+    {
+     "word": "be allowed",
+     "meaning": "허용되다",
+     "example": "Pets are not allowed here."
+    }
+   ],
+   "group_id": "g4-02"
+  },
+  {
+   "id": "p4-06",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 1,
+   "prompt": "What will listeners receive at the end of the tour?",
+   "choices": [
+    "A discount coupon for the gift shop.",
+    "A free exhibition catalog.",
+    "A membership card.",
+    "A guided tour of the café."
+   ],
+   "answer": 0,
+   "explanation": "\"you will receive a 10 percent discount coupon for the gift shop\"에서 기념품점 할인 쿠폰을 받는다고 했습니다.",
+   "translation": "청취자들은 투어가 끝날 때 무엇을 받는가? / A. 기념품점 할인 쿠폰 / B. 무료 전시 도록 / C. 멤버십 카드 / D. 카페 안내 투어",
+   "vocabulary": [
+    {
+     "word": "discount coupon",
+     "meaning": "할인 쿠폰",
+     "example": "The coupon is valid for one month."
+    },
+    {
+     "word": "gift shop",
+     "meaning": "기념품점",
+     "example": "The gift shop is next to the exit."
+    }
+   ],
+   "group_id": "g4-02"
+  },
+  {
+   "id": "p4-07",
+   "part": 4,
+   "type": "담화-주제",
+   "difficulty": 1,
+   "prompt": "What is the purpose of the talk?",
+   "choices": [
+    "To inform listeners about road closures for an event.",
+    "To advertise a sporting goods store.",
+    "To report on a traffic accident.",
+    "To announce a new bus route."
+   ],
+   "answer": 0,
+   "explanation": "마라톤으로 인한 도로 통제와 우회 경로를 안내하는 교통 정보 방송입니다. 사고 보도나 신규 노선 개설이 아닙니다.",
+   "translation": "이 담화의 목적은 무엇인가? / A. 행사로 인한 도로 통제를 알리기 위해 / B. 스포츠용품점을 홍보하기 위해 / C. 교통사고를 보도하기 위해 / D. 새 버스 노선을 알리기 위해",
+   "vocabulary": [
+    {
+     "word": "closure",
+     "meaning": "폐쇄, 통제",
+     "example": "The road closure lasts all day."
+    },
+    {
+     "word": "take place",
+     "meaning": "열리다, 일어나다",
+     "example": "The festival takes place in May."
+    }
+   ],
+   "group_id": "g4-03"
+  },
+  {
+   "id": "p4-08",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 2,
+   "prompt": "What should drivers going to the central station do?",
+   "choices": [
+    "Use the Route 9 bypass.",
+    "Park near Park Avenue.",
+    "Take a different bus route.",
+    "Leave before 7 a.m."
+   ],
+   "answer": 0,
+   "explanation": "\"Drivers heading to the central station should use the Route 9 bypass instead\"라고 안내했습니다.",
+   "translation": "중앙역으로 가는 운전자는 무엇을 해야 하는가? / A. 9번 우회도로를 이용한다. / B. 파크 애비뉴 근처에 주차한다. / C. 다른 버스 노선을 이용한다. / D. 오전 7시 전에 출발한다.",
+   "vocabulary": [
+    {
+     "word": "head to",
+     "meaning": "~로 향하다",
+     "example": "We are heading to the airport."
+    },
+    {
+     "word": "bypass",
+     "meaning": "우회도로",
+     "example": "Take the bypass to avoid traffic."
+    }
+   ],
+   "group_id": "g4-03"
+  },
+  {
+   "id": "p4-09",
+   "part": 4,
+   "type": "담화-세부사항",
+   "difficulty": 2,
+   "prompt": "What is mentioned about bus routes 12 and 15?",
+   "choices": [
+    "They will follow a modified schedule.",
+    "They will stop running on Sunday.",
+    "They will add extra downtown stops.",
+    "They will be replaced by shuttle buses."
+   ],
+   "answer": 0,
+   "explanation": "\"Bus routes 12 and 15 will run on a modified schedule\"라고 했으므로 변경된 시간표로 운행합니다. 운행 중단이나 셔틀버스 대체는 언급되지 않았습니다.",
+   "translation": "12번과 15번 버스 노선에 대해 언급된 내용은? / A. 변경된 시간표로 운행한다. / B. 일요일에는 운행하지 않는다. / C. 시내 정류장을 추가한다. / D. 셔틀버스로 대체된다.",
+   "vocabulary": [
+    {
+     "word": "modified",
+     "meaning": "변경된",
+     "example": "The plan was slightly modified."
+    },
+    {
+     "word": "schedule",
+     "meaning": "시간표, 일정",
+     "example": "Check the bus schedule."
+    }
+   ],
+   "group_id": "g4-03"
+  },
+  {
+   "id": "p5-01",
+   "part": 5,
+   "type": "문법-시제",
+   "difficulty": 3,
+   "prompt": "By the time the client arrives tomorrow, the marketing team ___ the final presentation.",
+   "choices": [
+    "will have completed",
+    "completes",
+    "completed",
+    "has completed"
+   ],
+   "answer": 0,
+   "explanation": "By the time + 현재시제는 '미래의 어느 시점까지'를 나타내므로 주절에는 미래완료(will have completed)가 와야 합니다. 내일 고객이 도착할 때쯤이면 발표 자료는 이미 완성되어 있을 것이기 때문입니다.",
+   "translation": "내일 고객이 도착할 때쯤이면 마케팅팀은 최종 발표 자료를 완성했을 것이다.",
+   "vocabulary": [
+    {
+     "word": "by the time",
+     "meaning": "~할 때쯤이면",
+     "example": "By the time you arrive, dinner will be ready."
+    },
+    {
+     "word": "complete",
+     "meaning": "완성하다",
+     "example": "She completed the report early."
+    }
+   ]
+  },
+  {
+   "id": "p5-02",
+   "part": 5,
+   "type": "문법-시제",
+   "difficulty": 2,
+   "prompt": "Ms. Rivera ___ for the company for over ten years when she was promoted to manager.",
+   "choices": [
+    "had worked",
+    "works",
+    "has worked",
+    "will work"
+   ],
+   "answer": 0,
+   "explanation": "과거의 기준 시점(when she was promoted)보다 더 이전의 일을 표현하므로 과거완료(had worked)가 맞습니다. 현재완료(has worked)는 현재와 연결되므로 과거 사건인 승진의 기준점과 어울리지 않습니다.",
+   "translation": "리베라 씨는 매니저로 승진했을 때 그 회사에서 10년 넘게 일한 상태였다.",
+   "vocabulary": [
+    {
+     "word": "promote",
+     "meaning": "승진시키다",
+     "example": "He was promoted to director."
+    },
+    {
+     "word": "for over",
+     "meaning": "~ 이상 동안",
+     "example": "She has lived here for over a year."
+    }
+   ]
+  },
+  {
+   "id": "p5-03",
+   "part": 5,
+   "type": "문법-시제",
+   "difficulty": 2,
+   "prompt": "All employees must submit their expense reports before the accounting department ___ the monthly budget.",
+   "choices": [
+    "closes",
+    "will close",
+    "closed",
+    "closing"
+   ],
+   "answer": 0,
+   "explanation": "before, when, if 등 시간·조건의 접속사가 이끄는 부사절에서는 미래의 일이라도 현재시제를 씁니다. 따라서 will close가 아니라 closes가 정답입니다.",
+   "translation": "모든 직원은 회계부서가 월 예산을 마감하기 전에 경비 보고서를 제출해야 한다.",
+   "vocabulary": [
+    {
+     "word": "expense report",
+     "meaning": "경비 보고서",
+     "example": "Submit your expense reports by Friday."
+    },
+    {
+     "word": "accounting department",
+     "meaning": "회계부서",
+     "example": "The accounting department is on the third floor."
+    }
+   ]
+  },
+  {
+   "id": "p5-04",
+   "part": 5,
+   "type": "문법-시제",
+   "difficulty": 2,
+   "prompt": "The new software ___ by more than 2,000 users since it was released last month.",
+   "choices": [
+    "has been downloaded",
+    "was downloaded",
+    "is downloading",
+    "downloads"
+   ],
+   "answer": 0,
+   "explanation": "since it was released(출시된 이후 지금까지)와 함께 쓰여 현재까지 이어지는 결과를 나타내므로 현재완료 수동태(has been downloaded)가 맞습니다. 주어 The new software는 '다운로드되는' 대상이므로 수동태가 필요합니다.",
+   "translation": "그 새 소프트웨어는 지난달 출시된 이후 2,000명이 넘는 사용자에게 다운로드되었다.",
+   "vocabulary": [
+    {
+     "word": "release",
+     "meaning": "출시하다",
+     "example": "The app was released in May."
+    },
+    {
+     "word": "download",
+     "meaning": "다운로드하다",
+     "example": "You can download the file for free."
+    }
+   ]
+  },
+  {
+   "id": "p5-05",
+   "part": 5,
+   "type": "문법-관계사",
+   "difficulty": 2,
+   "prompt": "The consultant ___ we hired last month has already improved our sales process.",
+   "choices": [
+    "whom",
+    "which",
+    "whose",
+    "what"
+   ],
+   "answer": 0,
+   "explanation": "선행사가 사람(the consultant)이고 관계사절에서 목적어 역할을 하므로 목적격 관계대명사 whom이 맞습니다. which는 사물, whose는 소유격, what은 선행사를 포함하므로 쓸 수 없습니다.",
+   "translation": "지난달 우리가 고용한 컨설턴트는 이미 우리의 영업 프로세스를 개선했다.",
+   "vocabulary": [
+    {
+     "word": "consultant",
+     "meaning": "컨설턴트, 자문역",
+     "example": "They hired a marketing consultant."
+    },
+    {
+     "word": "hire",
+     "meaning": "고용하다",
+     "example": "We hired two new engineers."
+    }
+   ]
+  },
+  {
+   "id": "p5-06",
+   "part": 5,
+   "type": "문법-관계사",
+   "difficulty": 1,
+   "prompt": "Please use the entrance ___ is located next to the parking garage.",
+   "choices": [
+    "which",
+    "where",
+    "what",
+    "who"
+   ],
+   "answer": 0,
+   "explanation": "선행사가 사물(the entrance)이고 관계사절에서 주어 역할을 하므로 주격 관계대명사 which가 필요합니다. where는 뒤에 완전한 문장이 와야 하고, who는 사람에만 씁니다.",
+   "translation": "주차장 옆에 있는 출입구를 이용해 주세요.",
+   "vocabulary": [
+    {
+     "word": "entrance",
+     "meaning": "출입구",
+     "example": "Use the side entrance after 6 p.m."
+    },
+    {
+     "word": "be located",
+     "meaning": "위치하다",
+     "example": "The office is located downtown."
+    }
+   ]
+  },
+  {
+   "id": "p5-07",
+   "part": 5,
+   "type": "문법-관계사",
+   "difficulty": 3,
+   "prompt": "The company ___ headquarters are in Busan plans to open a branch in Singapore.",
+   "choices": [
+    "whose",
+    "which",
+    "who",
+    "where"
+   ],
+   "answer": 0,
+   "explanation": "뒤에 명사(headquarters)가 이어지고 '그 회사의 본사'라는 소유 관계를 나타내므로 소유격 관계대명사 whose가 정답입니다. which나 where 뒤에는 바로 명사가 올 수 없습니다.",
+   "translation": "본사가 부산에 있는 그 회사는 싱가포르에 지사를 열 계획이다.",
+   "vocabulary": [
+    {
+     "word": "headquarters",
+     "meaning": "본사",
+     "example": "The company's headquarters are in Seoul."
+    },
+    {
+     "word": "branch",
+     "meaning": "지사, 지점",
+     "example": "They opened a branch in Tokyo."
+    }
+   ]
+  },
+  {
+   "id": "p5-08",
+   "part": 5,
+   "type": "문법-전치사",
+   "difficulty": 1,
+   "prompt": "The seminar will be held ___ March 15 at the convention center.",
+   "choices": [
+    "on",
+    "in",
+    "at",
+    "by"
+   ],
+   "answer": 0,
+   "explanation": "특정 날짜 앞에는 on을 씁니다. in은 월·연도, at은 시각·지점, by는 '~까지'라는 기한을 나타냅니다.",
+   "translation": "세미나는 3월 15일 컨벤션 센터에서 열릴 것이다.",
+   "vocabulary": [
+    {
+     "word": "seminar",
+     "meaning": "세미나",
+     "example": "The seminar starts at ten."
+    },
+    {
+     "word": "be held",
+     "meaning": "열리다",
+     "example": "The event will be held in June."
+    }
+   ]
+  },
+  {
+   "id": "p5-09",
+   "part": 5,
+   "type": "문법-전치사",
+   "difficulty": 2,
+   "prompt": "All applications must be received ___ Friday, May 3.",
+   "choices": [
+    "by",
+    "until",
+    "since",
+    "during"
+   ],
+   "answer": 0,
+   "explanation": "'~까지 (제출)'이라는 마감 시점을 나타내므로 by가 맞습니다. until은 동작이 계속되는 기간의 끝, since는 시작점, during은 '~동안'입니다.",
+   "translation": "모든 지원서는 5월 3일 금요일까지 접수되어야 한다.",
+   "vocabulary": [
+    {
+     "word": "application",
+     "meaning": "지원서, 신청서",
+     "example": "Send your application by email."
+    },
+    {
+     "word": "receive",
+     "meaning": "받다, 접수하다",
+     "example": "We received your order."
+    }
+   ]
+  },
+  {
+   "id": "p5-10",
+   "part": 5,
+   "type": "문법-전치사",
+   "difficulty": 2,
+   "prompt": "The manager was pleased ___ the team's performance last quarter.",
+   "choices": [
+    "with",
+    "of",
+    "for",
+    "to"
+   ],
+   "answer": 0,
+   "explanation": "be pleased with ~는 '~에 만족하다'라는 고정 표현입니다. pleased about도 가능하지만 보기 중에는 with만 적절합니다.",
+   "translation": "매니저는 지난 분기 팀의 성과에 만족했다.",
+   "vocabulary": [
+    {
+     "word": "be pleased with",
+     "meaning": "~에 만족하다",
+     "example": "The client was pleased with the result."
+    },
+    {
+     "word": "performance",
+     "meaning": "성과, 실적",
+     "example": "Her performance improved this year."
+    }
+   ]
+  },
+  {
+   "id": "p5-11",
+   "part": 5,
+   "type": "문법-전치사",
+   "difficulty": 3,
+   "prompt": "___ the heavy rain, the outdoor event proceeded as planned.",
+   "choices": [
+    "Despite",
+    "Although",
+    "Because",
+    "However"
+   ],
+   "answer": 0,
+   "explanation": "뒤에 명사구(the heavy rain)가 오므로 전치사 Despite가 필요합니다. Although와 Because는 절을 이끌고, However는 접속부사입니다.",
+   "translation": "폭우에도 불구하고 야외 행사는 예정대로 진행되었다.",
+   "vocabulary": [
+    {
+     "word": "despite",
+     "meaning": "~에도 불구하고",
+     "example": "Despite the delay, we finished on time."
+    },
+    {
+     "word": "proceed",
+     "meaning": "진행되다",
+     "example": "The meeting proceeded smoothly."
+    }
+   ]
+  },
+  {
+   "id": "p5-12",
+   "part": 5,
+   "type": "문법-품사",
+   "difficulty": 1,
+   "prompt": "The company reported a significant ___ in profits this year.",
+   "choices": [
+    "increase",
+    "increased",
+    "increasing",
+    "increasingly"
+   ],
+   "answer": 0,
+   "explanation": "관사 a와 형용사 significant 뒤에는 명사가 와야 하므로 명사형 increase가 정답입니다. increased와 increasing은 형용사·분사, increasingly는 부사입니다.",
+   "translation": "그 회사는 올해 이익이 크게 증가했다고 보고했다.",
+   "vocabulary": [
+    {
+     "word": "significant",
+     "meaning": "상당한, 중요한",
+     "example": "There was a significant change."
+    },
+    {
+     "word": "profit",
+     "meaning": "이익",
+     "example": "Profits rose by ten percent."
+    }
+   ]
+  },
+  {
+   "id": "p5-13",
+   "part": 5,
+   "type": "문법-품사",
+   "difficulty": 2,
+   "prompt": "All equipment must be inspected ___ before use.",
+   "choices": [
+    "regularly",
+    "regular",
+    "regulate",
+    "regularity"
+   ],
+   "answer": 0,
+   "explanation": "동사구 be inspected를 수식하는 부사가 필요하므로 regularly가 맞습니다. regular는 형용사, regulate는 동사, regularity는 명사입니다.",
+   "translation": "모든 장비는 사용 전에 정기적으로 점검되어야 한다.",
+   "vocabulary": [
+    {
+     "word": "inspect",
+     "meaning": "점검하다",
+     "example": "The machines are inspected weekly."
+    },
+    {
+     "word": "regularly",
+     "meaning": "정기적으로",
+     "example": "Update your password regularly."
+    }
+   ]
+  },
+  {
+   "id": "p5-14",
+   "part": 5,
+   "type": "문법-품사",
+   "difficulty": 2,
+   "prompt": "The manager spoke ___ about the upcoming changes.",
+   "choices": [
+    "briefly",
+    "brief",
+    "briefness",
+    "briefed"
+   ],
+   "answer": 0,
+   "explanation": "동사 spoke를 수식하려면 부사가 필요하므로 briefly가 정답입니다. brief는 형용사·명사, briefness는 명사, briefed는 동사입니다.",
+   "translation": "매니저는 다가올 변화에 대해 간단히 말했다.",
+   "vocabulary": [
+    {
+     "word": "briefly",
+     "meaning": "간단히",
+     "example": "He briefly explained the plan."
+    },
+    {
+     "word": "upcoming",
+     "meaning": "다가오는",
+     "example": "The upcoming holiday is next week."
+    }
+   ]
+  },
+  {
+   "id": "p5-15",
+   "part": 5,
+   "type": "문법-품사",
+   "difficulty": 2,
+   "prompt": "We are looking for a candidate with strong ___ skills.",
+   "choices": [
+    "communication",
+    "communicate",
+    "communicative",
+    "communicator"
+   ],
+   "answer": 0,
+   "explanation": "명사 skills를 수식하는 명사(복합명사) 자리이므로 communication이 맞습니다. 'communication skills'는 '의사소통 능력'이라는 굳어진 표현입니다.",
+   "translation": "우리는 뛰어난 의사소통 능력을 갖춘 지원자를 찾고 있다.",
+   "vocabulary": [
+    {
+     "word": "candidate",
+     "meaning": "지원자, 후보자",
+     "example": "We interviewed five candidates."
+    },
+    {
+     "word": "communication skills",
+     "meaning": "의사소통 능력",
+     "example": "Good communication skills are essential."
+    }
+   ]
+  },
+  {
+   "id": "p5-16",
+   "part": 5,
+   "type": "문법-품사",
+   "difficulty": 1,
+   "prompt": "The report provides a ___ analysis of the market.",
+   "choices": [
+    "detailed",
+    "detail",
+    "details",
+    "detailing"
+   ],
+   "answer": 0,
+   "explanation": "관사 a와 명사 analysis 사이에는 형용사가 필요하므로 detailed(상세한)가 정답입니다.",
+   "translation": "그 보고서는 시장에 대한 상세한 분석을 제공한다.",
+   "vocabulary": [
+    {
+     "word": "detailed",
+     "meaning": "상세한",
+     "example": "She gave a detailed explanation."
+    },
+    {
+     "word": "analysis",
+     "meaning": "분석",
+     "example": "The analysis showed a clear trend."
+    }
+   ]
+  },
+  {
+   "id": "p5-17",
+   "part": 5,
+   "type": "문법-수일치",
+   "difficulty": 1,
+   "prompt": "Each of the participants ___ required to bring a valid ID.",
+   "choices": [
+    "is",
+    "are",
+    "were",
+    "be"
+   ],
+   "answer": 0,
+   "explanation": "Each of + 복수명사는 단수로 취급하므로 is가 맞습니다. of 뒤의 복수명사에 끌려 are를 쓰지 않도록 주의해야 합니다.",
+   "translation": "참가자 각각은 유효한 신분증을 가져와야 한다.",
+   "vocabulary": [
+    {
+     "word": "each of",
+     "meaning": "~ 각각",
+     "example": "Each of the rooms has a view."
+    },
+    {
+     "word": "valid",
+     "meaning": "유효한",
+     "example": "Your ticket is valid for one day."
+    }
+   ]
+  },
+  {
+   "id": "p5-18",
+   "part": 5,
+   "type": "문법-수일치",
+   "difficulty": 2,
+   "prompt": "The number of online orders ___ steadily since January.",
+   "choices": [
+    "has increased",
+    "have increased",
+    "are increasing",
+    "increase"
+   ],
+   "answer": 0,
+   "explanation": "The number of ~는 '~의 수'라는 단수 주어이므로 단수 동사 has increased가 맞습니다. A number of(~의 많은)라면 복수 취급합니다.",
+   "translation": "온라인 주문 수는 1월 이후 꾸준히 증가해 왔다.",
+   "vocabulary": [
+    {
+     "word": "the number of",
+     "meaning": "~의 수",
+     "example": "The number of students has grown."
+    },
+    {
+     "word": "steadily",
+     "meaning": "꾸준히",
+     "example": "Sales increased steadily."
+    }
+   ]
+  },
+  {
+   "id": "p5-19",
+   "part": 5,
+   "type": "문법-수일치",
+   "difficulty": 3,
+   "prompt": "Neither the manager nor the employees ___ aware of the schedule change.",
+   "choices": [
+    "were",
+    "was",
+    "is",
+    "has been"
+   ],
+   "answer": 0,
+   "explanation": "neither A nor B 구문에서는 동사가 B(가까운 주어)에 일치합니다. employees가 복수이므로 were가 맞습니다.",
+   "translation": "매니저도 직원들도 일정 변경을 알지 못했다.",
+   "vocabulary": [
+    {
+     "word": "neither A nor B",
+     "meaning": "A도 B도 아닌",
+     "example": "Neither he nor I was informed."
+    },
+    {
+     "word": "be aware of",
+     "meaning": "~을 인지하다",
+     "example": "Are you aware of the new policy?"
+    }
+   ]
+  },
+  {
+   "id": "p5-20",
+   "part": 5,
+   "type": "문법-대명사",
+   "difficulty": 1,
+   "prompt": "The company moved ___ headquarters to Seoul last year.",
+   "choices": [
+    "its",
+    "their",
+    "it",
+    "they"
+   ],
+   "answer": 0,
+   "explanation": "단체로서의 회사(the company)를 가리키는 소유격은 its입니다. their은 복수 명사, it은 주격·목적격, they는 주격입니다.",
+   "translation": "그 회사는 작년에 본사를 서울로 옮겼다.",
+   "vocabulary": [
+    {
+     "word": "headquarters",
+     "meaning": "본사",
+     "example": "The headquarters moved downtown."
+    },
+    {
+     "word": "move",
+     "meaning": "옮기다",
+     "example": "They moved the office to Busan."
+    }
+   ]
+  },
+  {
+   "id": "p5-21",
+   "part": 5,
+   "type": "문법-대명사",
+   "difficulty": 1,
+   "prompt": "If you have any questions about the tour, please contact ___ at the front desk.",
+   "choices": [
+    "me",
+    "my",
+    "mine",
+    "myself"
+   ],
+   "answer": 0,
+   "explanation": "동사 contact의 목적어 자리이므로 목적격 me가 필요합니다. my는 소유격, mine은 소유대명사, myself는 재귀대명사입니다.",
+   "translation": "투어에 대해 궁금한 점이 있으면 프런트의 저에게 연락해 주세요.",
+   "vocabulary": [
+    {
+     "word": "contact",
+     "meaning": "연락하다",
+     "example": "Contact us by phone."
+    },
+    {
+     "word": "front desk",
+     "meaning": "프런트",
+     "example": "Ask at the front desk for a map."
+    }
+   ]
+  },
+  {
+   "id": "p5-22",
+   "part": 5,
+   "type": "어휘",
+   "difficulty": 1,
+   "prompt": "The flight was ___ because of heavy fog.",
+   "choices": [
+    "delayed",
+    "refused",
+    "denied",
+    "ignored"
+   ],
+   "answer": 0,
+   "explanation": "짙은 안개로 항공편이 '지연되었다'는 의미이므로 delayed가 맞습니다. refused(거절했다), denied(부인했다), ignored(무시했다)는 문맥에 맞지 않습니다.",
+   "translation": "그 항공편은 짙은 안개 때문에 지연되었다.",
+   "vocabulary": [
+    {
+     "word": "delay",
+     "meaning": "지연시키다",
+     "example": "The train was delayed by an hour."
+    },
+    {
+     "word": "fog",
+     "meaning": "안개",
+     "example": "Heavy fog covered the city."
+    }
+   ]
+  },
+  {
+   "id": "p5-23",
+   "part": 5,
+   "type": "어휘",
+   "difficulty": 2,
+   "prompt": "Customers can ___ their orders online up to 24 hours before delivery.",
+   "choices": [
+    "cancel",
+    "decline",
+    "reject",
+    "refuse"
+   ],
+   "answer": 0,
+   "explanation": "주문을 '취소하다'는 의미에는 cancel을 씁니다. decline(정중히 거절하다), reject(거부하다), refuse(거절하다)는 주문에 쓰이지 않습니다.",
+   "translation": "고객은 배송 24시간 전까지 온라인으로 주문을 취소할 수 있다.",
+   "vocabulary": [
+    {
+     "word": "cancel",
+     "meaning": "취소하다",
+     "example": "She canceled the reservation."
+    },
+    {
+     "word": "delivery",
+     "meaning": "배송",
+     "example": "Delivery takes two days."
+    }
+   ]
+  },
+  {
+   "id": "p5-24",
+   "part": 5,
+   "type": "어휘",
+   "difficulty": 2,
+   "prompt": "The new branch will ___ customers in the northern part of the city.",
+   "choices": [
+    "serve",
+    "apply",
+    "attend",
+    "present"
+   ],
+   "answer": 0,
+   "explanation": "지역의 고객에게 서비스를 제공한다는 의미로 serve가 맞습니다. apply(신청하다), attend(참석하다), present(제시하다)는 문맥에 어울리지 않습니다.",
+   "translation": "새 지점은 도시 북부 지역의 고객을 담당하게 될 것이다.",
+   "vocabulary": [
+    {
+     "word": "serve",
+     "meaning": "서비스를 제공하다",
+     "example": "The shop serves coffee and snacks."
+    },
+    {
+     "word": "branch",
+     "meaning": "지점",
+     "example": "The bank opened a new branch."
+    }
+   ]
+  },
+  {
+   "id": "p6-01",
+   "part": 6,
+   "type": "장문빈칸-문법",
+   "difficulty": 2,
+   "prompt": "빈칸 (1)에 들어갈 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "postponed",
+    "postponing",
+    "postponement",
+    "postpone"
+   ],
+   "answer": 0,
+   "explanation": "has been 뒤에는 과거분사가 와야 하는 수동태 자리이므로 postponed가 정답입니다. 이전 일정이 '연기된' 대상이므로 수동태가 필요합니다.",
+   "translation": "(1) 연기되었다 → postponed",
+   "vocabulary": [
+    {
+     "word": "postpone",
+     "meaning": "연기하다",
+     "example": "The move was postponed until July."
+    },
+    {
+     "word": "renovated",
+     "meaning": "새로 단장한",
+     "example": "The renovated office looks bright."
+    }
+   ],
+   "group_id": "g6-01"
+  },
+  {
+   "id": "p6-02",
+   "part": 6,
+   "type": "장문빈칸-문법",
+   "difficulty": 2,
+   "prompt": "빈칸 (2)에 들어갈 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "obtained",
+    "obtaining",
+    "obtain",
+    "obtainable"
+   ],
+   "answer": 0,
+   "explanation": "조동사 can 뒤에는 동사원형이 와야 하지만, 여기서는 '상자는 ~에서 얻어질 수 있다'는 수동 의미이므로 can be + 과거분사 형태인 obtained가 필요합니다. 빈칸 앞에 이미 be동사가 생략된 구조가 아니라 'can be obtained' 전체가 답이 되어야 합니다.",
+   "translation": "(2) 얻을 수 있다 → can be obtained",
+   "vocabulary": [
+    {
+     "word": "obtain",
+     "meaning": "얻다, 구하다",
+     "example": "You can obtain a form at the desk."
+    },
+    {
+     "word": "supply room",
+     "meaning": "비품실",
+     "example": "Extra chairs are in the supply room."
+    }
+   ],
+   "group_id": "g6-01"
+  },
+  {
+   "id": "p6-03",
+   "part": 6,
+   "type": "장문빈칸-접속사",
+   "difficulty": 2,
+   "prompt": "빈칸 (3)에 들어갈 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "In addition,",
+    "In contrast,",
+    "As a result,",
+    "Otherwise,"
+   ],
+   "answer": 0,
+   "explanation": "앞에서 포장과 컴퓨터 연결 해제를 안내한 뒤, 오리엔테이션 일정을 '추가로' 알려 주는 흐름이므로 In addition이 맞습니다. In contrast(대조), As a result(결과), Otherwise(그렇지 않으면)는 문맥과 맞지 않습니다.",
+   "translation": "(3) 또한 → In addition,",
+   "vocabulary": [
+    {
+     "word": "in addition",
+     "meaning": "게다가, 또한",
+     "example": "In addition, we offer free delivery."
+    },
+    {
+     "word": "orientation",
+     "meaning": "오리엔테이션, 안내 교육",
+     "example": "New staff attend an orientation."
+    }
+   ],
+   "group_id": "g6-01"
+  },
+  {
+   "id": "p6-04",
+   "part": 6,
+   "type": "장문빈칸-문법",
+   "difficulty": 1,
+   "prompt": "빈칸 (1)에 들어갈 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "fit",
+    "fitness",
+    "fitting",
+    "fitly"
+   ],
+   "answer": 0,
+   "explanation": "stay는 2형식 동사로 뒤에 형용사(보어)가 필요합니다. '건강한 상태를 유지하다'는 stay fit이므로 형용사 fit이 정답입니다. fitness는 명사, fitting은 분사·명사, fitly는 부사입니다.",
+   "translation": "(1) 건강한 → fit",
+   "vocabulary": [
+    {
+     "word": "stay fit",
+     "meaning": "건강을 유지하다",
+     "example": "She exercises to stay fit."
+    },
+    {
+     "word": "state-of-the-art",
+     "meaning": "최신식의",
+     "example": "The gym has state-of-the-art equipment."
+    }
+   ],
+   "group_id": "g6-02"
+  },
+  {
+   "id": "p6-05",
+   "part": 6,
+   "type": "장문빈칸-문법",
+   "difficulty": 1,
+   "prompt": "빈칸 (2)에 들어갈 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "enjoy",
+    "enjoying",
+    "enjoyment",
+    "enjoyable"
+   ],
+   "answer": 0,
+   "explanation": "조동사 can 뒤에는 동사원형이 오므로 enjoy가 맞습니다. 'enjoy unlimited access to ~'는 '~을 무제한으로 누리다'라는 표현입니다.",
+   "translation": "(2) 누릴 수 있다 → enjoy",
+   "vocabulary": [
+    {
+     "word": "enjoy access to",
+     "meaning": "~을 누리다, 이용하다",
+     "example": "Members enjoy access to the pool."
+    },
+    {
+     "word": "unlimited",
+     "meaning": "무제한의",
+     "example": "The plan offers unlimited data."
+    }
+   ],
+   "group_id": "g6-02"
+  },
+  {
+   "id": "p6-06",
+   "part": 6,
+   "type": "장문빈칸-문장삽입",
+   "difficulty": 3,
+   "prompt": "빈칸 (3)에 들어갈 문장으로 가장 알맞은 것을 고르세요.",
+   "choices": [
+    "Spaces are limited, so register early today.",
+    "The swimming pool will be closed for repairs in May.",
+    "Membership fees were raised last year.",
+    "Personal training is not available at this location."
+   ],
+   "answer": 0,
+   "explanation": "할인 혜택을 안내한 직후, 가입을 재촉하는 마케팅 흐름이 이어져야 자연스럽습니다. 'Spaces are limited, so register early today'가 그 역할을 하며, 나머지는 광고 문맥과 맞지 않거나 혜택을 약화합니다.",
+   "translation": "(3) 좌석이 한정되어 있으니 오늘 바로 등록하세요.",
+   "vocabulary": [
+    {
+     "word": "limited",
+     "meaning": "한정된",
+     "example": "Tickets are limited."
+    },
+    {
+     "word": "register",
+     "meaning": "등록하다",
+     "example": "Register online before Friday."
+    }
+   ],
+   "group_id": "g6-02"
+  },
+  {
+   "id": "p7-01",
+   "part": 7,
+   "type": "독해-의도파악",
+   "difficulty": 1,
+   "prompt": "What is the purpose of the email?",
+   "choices": [
+    "To announce temporary parking changes.",
+    "To introduce a new accounting policy.",
+    "To advertise a public garage on Third Street.",
+    "To recruit employees for a repaving project."
+   ],
+   "answer": 0,
+   "explanation": "B동 주차장이 공사로 폐쇄된다는 사실과 그동안의 대체 주차 및 환급 절차를 안내하는 메일입니다. 새 회계 정책이나 채용 공고가 아닙니다.",
+   "translation": "이 메일의 목적은 무엇인가? / A. 임시 주차 변경을 안내하기 위해 / B. 새 회계 정책을 소개하기 위해 / C. 3번가 공영 주차장을 홍보하기 위해 / D. 재포장 공사 인력을 모집하기 위해",
+   "vocabulary": [
+    {
+     "word": "maintenance",
+     "meaning": "정비, 유지 보수",
+     "example": "The building is closed for maintenance."
+    },
+    {
+     "word": "temporary",
+     "meaning": "임시의",
+     "example": "We set up a temporary office."
+    }
+   ],
+   "group_id": "g7-01",
+   "evidence_quote": "The employee parking lot behind Building B will be closed from April 20 to April 22 for repaving.",
+   "paraphrase_pair": [
+    {
+     "question": "announce temporary parking changes",
+     "passage": "closed from April 20 to April 22 for repaving"
+    }
+   ]
+  },
+  {
+   "id": "p7-02",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 2,
+   "prompt": "What are employees asked to do with garage receipts?",
+   "choices": [
+    "Submit them to the accounting office.",
+    "Post them on the bulletin board.",
+    "Give them to their team leader.",
+    "Upload them to the company website."
+   ],
+   "answer": 0,
+   "explanation": "\"submit it to the accounting office by April 30 for reimbursement\"에서 영수증을 회계부서에 제출하면 환급받는다는 것을 알 수 있습니다.",
+   "translation": "직원들은 주차 영수증을 어떻게 해야 하는가? / A. 회계부서에 제출한다. / B. 게시판에 붙인다. / C. 팀장에게 준다. / D. 회사 웹사이트에 올린다.",
+   "vocabulary": [
+    {
+     "word": "reimbursement",
+     "meaning": "환급, 상환",
+     "example": "Submit the form for reimbursement."
+    },
+    {
+     "word": "submit",
+     "meaning": "제출하다",
+     "example": "Submit your timesheet by Friday."
+    }
+   ],
+   "group_id": "g7-01",
+   "evidence_quote": "Please keep the receipt from the garage and submit it to the accounting office by April 30 for reimbursement.",
+   "paraphrase_pair": [
+    {
+     "question": "submit",
+     "passage": "submit it to the accounting office"
+    },
+    {
+     "question": "reimbursement",
+     "passage": "for reimbursement"
+    }
+   ]
+  },
+  {
+   "id": "p7-03",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 1,
+   "prompt": "What should carpoolers do by April 17?",
+   "choices": [
+    "Email the names of their group members.",
+    "Pay a fee for temporary parking.",
+    "Move their cars to Building B.",
+    "Apply for a permanent parking pass."
+   ],
+   "answer": 0,
+   "explanation": "\"send the names of your group members to operations@brightoncorp.com by April 17\"이라고 했습니다.",
+   "translation": "카풀하는 직원은 4월 17일까지 무엇을 해야 하는가? / A. 그룹 구성원 이름을 이메일로 보낸다. / B. 임시 주차 요금을 낸다. / C. 차를 B동으로 옮긴다. / D. 영구 주차권을 신청한다.",
+   "vocabulary": [
+    {
+     "word": "carpool",
+     "meaning": "카풀하다",
+     "example": "They carpool to work every day."
+    },
+    {
+     "word": "priority",
+     "meaning": "우선권",
+     "example": "Members have priority access."
+    }
+   ],
+   "group_id": "g7-01",
+   "evidence_quote": "send the names of your group members to operations@brightoncorp.com by April 17",
+   "paraphrase_pair": [
+    {
+     "question": "email the names",
+     "passage": "send the names ... by April 17"
+    }
+   ]
+  },
+  {
+   "id": "p7-04",
+   "part": 7,
+   "type": "독해-추론",
+   "difficulty": 2,
+   "prompt": "What are the speakers mainly discussing?",
+   "choices": [
+    "Revisions to a logo design.",
+    "A problem with the shared folder.",
+    "A change in the company's brand name.",
+    "The schedule for a client visit."
+   ],
+   "answer": 0,
+   "explanation": "고객이 2번 로고 시안의 색을 더 진하게 해 달라고 했고, 제나가 오늘 오후에 수정하겠다고 했으므로 로고 디자인 수정이 중심 주제입니다.",
+   "translation": "두 사람은 주로 무엇을 논의하는가? / A. 로고 디자인 수정 / B. 공유 폴더 문제 / C. 회사 브랜드명 변경 / D. 고객 방문 일정",
+   "vocabulary": [
+    {
+     "word": "feedback",
+     "meaning": "피드백, 의견",
+     "example": "The client gave positive feedback."
+    },
+    {
+     "word": "revise",
+     "meaning": "수정하다",
+     "example": "We revised the proposal."
+    }
+   ],
+   "group_id": "g7-02",
+   "evidence_quote": "they liked option 2 but asked for a darker blue",
+   "paraphrase_pair": [
+    {
+     "question": "asked for",
+     "passage": "asked for a darker blue"
+    }
+   ]
+  },
+  {
+   "id": "p7-05",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 2,
+   "prompt": "What does Marco say about the meeting?",
+   "choices": [
+    "It has been rescheduled.",
+    "It will be held online.",
+    "It was canceled by the client.",
+    "It will take place in the morning."
+   ],
+   "answer": 0,
+   "explanation": "\"the meeting has been moved to Monday at 11\"에서 회의 일정이 변경되었음을 알 수 있습니다. 온라인 진행이나 취소에 대한 언급은 없습니다.",
+   "translation": "마르코는 회의에 대해 무엇이라고 말하는가? / A. 일정이 변경되었다. / B. 온라인으로 열린다. / C. 고객이 취소했다. / D. 오전에 열린다.",
+   "vocabulary": [
+    {
+     "word": "reschedule",
+     "meaning": "일정을 변경하다",
+     "example": "The interview was rescheduled."
+    },
+    {
+     "word": "tagline",
+     "meaning": "캐치프레이즈, 태그라인",
+     "example": "The tagline is short and catchy."
+    }
+   ],
+   "group_id": "g7-02",
+   "evidence_quote": "the meeting has been moved to Monday at 11.",
+   "paraphrase_pair": [
+    {
+     "question": "rescheduled",
+     "passage": "has been moved to"
+    }
+   ]
+  },
+  {
+   "id": "p7-06",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 1,
+   "prompt": "What will Jenna do?",
+   "choices": [
+    "Upload the file to the shared folder.",
+    "Call the client for approval.",
+    "Print the logo in several sizes.",
+    "Move the meeting to Sunday."
+   ],
+   "answer": 0,
+   "explanation": "\"Sure, I'll upload it to the shared folder\"라고 했으므로 공유 폴더에 파일을 올릴 것입니다.",
+   "translation": "제나는 무엇을 할 것인가? / A. 공유 폴더에 파일을 올린다. / B. 승인을 위해 고객에게 전화한다. / C. 로고를 여러 크기로 인쇄한다. / D. 회의를 일요일로 옮긴다.",
+   "vocabulary": [
+    {
+     "word": "upload",
+     "meaning": "업로드하다",
+     "example": "Upload the photos to the drive."
+    },
+    {
+     "word": "shared folder",
+     "meaning": "공유 폴더",
+     "example": "Save the draft in the shared folder."
+    }
+   ],
+   "group_id": "g7-02",
+   "evidence_quote": "Sure, I'll upload it to the shared folder.",
+   "paraphrase_pair": [
+    {
+     "question": "upload",
+     "passage": "upload it to the shared folder"
+    }
+   ]
+  },
+  {
+   "id": "p7-07",
+   "part": 7,
+   "type": "독해-주제",
+   "difficulty": 1,
+   "prompt": "What event is being announced?",
+   "choices": [
+    "A job fair at a community center.",
+    "A workshop for local business owners.",
+    "A fundraising dinner for a hospital.",
+    "A technology conference for students."
+   ],
+   "answer": 0,
+   "explanation": "첫 문장에서 'annual Job Fair'를 연다고 밝히고 있습니다. 워크숍은 박람회의 부대 프로그램이고, 병원·기술 기업은 참가 기업일 뿐입니다.",
+   "translation": "어떤 행사가 안내되고 있는가? / A. 커뮤니티 센터의 취업 박람회 / B. 지역 사업주 대상 워크숍 / C. 병원 기금 마련 만찬 / D. 학생 대상 기술 컨퍼런스",
+   "vocabulary": [
+    {
+     "word": "job fair",
+     "meaning": "취업 박람회",
+     "example": "She found a job at the fair."
+    },
+    {
+     "word": "annual",
+     "meaning": "연례의",
+     "example": "The annual event draws many visitors."
+    }
+   ],
+   "group_id": "g7-03",
+   "evidence_quote": "The community center will hold its annual Job Fair on Saturday, September 14",
+   "paraphrase_pair": [
+    {
+     "question": "hold",
+     "passage": "will hold its annual Job Fair"
+    }
+   ]
+  },
+  {
+   "id": "p7-08",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 2,
+   "prompt": "What is required to attend the workshops?",
+   "choices": [
+    "Advance registration.",
+    "A copy of a company ID.",
+    "Payment of a small fee.",
+    "A recommendation letter."
+   ],
+   "answer": 0,
+   "explanation": "\"Advance registration for the workshops is required\"라고 명시되어 있습니다. 참가비나 추천서에 대한 언급은 없습니다.",
+   "translation": "워크숍에 참석하려면 무엇이 필요한가? / A. 사전 등록 / B. 회사 신분증 사본 / C. 소정의 참가비 / D. 추천서",
+   "vocabulary": [
+    {
+     "word": "advance registration",
+     "meaning": "사전 등록",
+     "example": "Advance registration closes on Friday."
+    },
+    {
+     "word": "participant",
+     "meaning": "참가자",
+     "example": "Thirty participants joined the class."
+    }
+   ],
+   "group_id": "g7-03",
+   "evidence_quote": "Advance registration for the workshops is required",
+   "paraphrase_pair": [
+    {
+     "question": "sign up in advance",
+     "passage": "Advance registration ... is required"
+    }
+   ]
+  },
+  {
+   "id": "p7-09",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 1,
+   "prompt": "Where can attendees park?",
+   "choices": [
+    "In the lot on Willow Avenue.",
+    "In the main hall.",
+    "In Room 205.",
+    "At a nearby hospital."
+   ],
+   "answer": 0,
+   "explanation": "\"Parking is available in the lot on Willow Avenue\"에서 윌로우 애비뉴 주차장을 이용할 수 있음을 알 수 있습니다.",
+   "translation": "참석자들은 어디에 주차할 수 있는가? / A. 윌로우 애비뉴 주차장 / B. 대강당 / C. 205호 / D. 인근 병원",
+   "vocabulary": [
+    {
+     "word": "lot",
+     "meaning": "주차장, 부지",
+     "example": "The parking lot is full."
+    },
+    {
+     "word": "available",
+     "meaning": "이용 가능한",
+     "example": "Seats are still available."
+    }
+   ],
+   "group_id": "g7-03",
+   "evidence_quote": "Parking is available in the lot on Willow Avenue.",
+   "paraphrase_pair": [
+    {
+     "question": "available",
+     "passage": "Parking is available in the lot"
+    }
+   ]
+  },
+  {
+   "id": "p7-10",
+   "part": 7,
+   "type": "독해-주제",
+   "difficulty": 1,
+   "prompt": "What is the article mainly about?",
+   "choices": [
+    "A bakery's plan to expand its business.",
+    "A bank's new loan program for small businesses.",
+    "The closing of a shopping complex.",
+    "A change in a café's menu."
+   ],
+   "answer": 0,
+   "explanation": "하버 베이커리가 두 번째 매장을 열고 도매 사업에 진출한다는 내용이 기사의 중심입니다. 은행 대출은 확장의 수단으로 언급되었을 뿐입니다.",
+   "translation": "이 기사의 주된 내용은 무엇인가? / A. 한 빵집의 사업 확장 계획 / B. 은행의 새 소상공인 대출 프로그램 / C. 쇼핑 단지의 폐쇄 / D. 한 카페의 메뉴 변경",
+   "vocabulary": [
+    {
+     "word": "expand",
+     "meaning": "확장하다",
+     "example": "The company plans to expand overseas."
+    },
+    {
+     "word": "location",
+     "meaning": "지점, 위치",
+     "example": "They opened a second location."
+    }
+   ],
+   "group_id": "g7-04",
+   "evidence_quote": "announced plans to open a second location in the Northgate shopping complex next spring",
+   "paraphrase_pair": [
+    {
+     "question": "expand",
+     "passage": "open a second location"
+    }
+   ]
+  },
+  {
+   "id": "p7-11",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 2,
+   "prompt": "What will the new store focus on?",
+   "choices": [
+    "Wholesale orders for cafés and hotels.",
+    "Walk-in customers from the coastal district.",
+    "Selling baking equipment.",
+    "Training new bakery owners."
+   ],
+   "answer": 0,
+   "explanation": "\"the new store will focus on wholesale orders for local cafés and hotels\"라고 했습니다. 기존 매장이 일반 고객을 계속 응대합니다.",
+   "translation": "새 매장은 무엇에 집중할 것인가? / A. 카페와 호텔을 위한 도매 주문 / B. 해안 지역의 일반 고객 / C. 제빵 장비 판매 / D. 신규 제빵 사업자 교육",
+   "vocabulary": [
+    {
+     "word": "wholesale",
+     "meaning": "도매의",
+     "example": "They sell wholesale to restaurants."
+    },
+    {
+     "word": "walk-in customer",
+     "meaning": "예약 없이 방문한 고객",
+     "example": "The shop serves walk-in customers."
+    }
+   ],
+   "group_id": "g7-04",
+   "evidence_quote": "the new store will focus on wholesale orders for local cafés and hotels",
+   "paraphrase_pair": [
+    {
+     "question": "focus on",
+     "passage": "focus on wholesale orders"
+    }
+   ]
+  },
+  {
+   "id": "p7-12",
+   "part": 7,
+   "type": "독해-세부사항",
+   "difficulty": 2,
+   "prompt": "How was the expansion funded?",
+   "choices": [
+    "With a bank loan.",
+    "By raising menu prices.",
+    "Through a government grant.",
+    "By selling the original shop."
+   ],
+   "answer": 0,
+   "explanation": "\"the bakery secured a small-business loan from Coastal Bank\"에서 은행 대출로 확장 자금을 마련했음을 알 수 있습니다.",
+   "translation": "확장 자금은 어떻게 마련되었는가? / A. 은행 대출로 / B. 메뉴 가격 인상으로 / C. 정부 보조금으로 / D. 기존 매장 매각으로",
+   "vocabulary": [
+    {
+     "word": "secure a loan",
+     "meaning": "대출을 받다",
+     "example": "They secured a loan for the new building."
+    },
+    {
+     "word": "grant",
+     "meaning": "보조금",
+     "example": "The project received a government grant."
+    }
+   ],
+   "group_id": "g7-04",
+   "evidence_quote": "The expansion became possible after the bakery secured a small-business loan from Coastal Bank last month.",
+   "paraphrase_pair": [
+    {
+     "question": "secured a loan",
+     "passage": "secured a small-business loan"
+    }
+   ]
+  },
+  {
+   "id": "p7-13",
+   "part": 7,
+   "type": "독해-의도파악",
+   "difficulty": 2,
+   "prompt": "Why did the organizer send the email?",
+   "choices": [
+    "To confirm a registration and explain a workshop fee.",
+    "To request a change to the event schedule.",
+    "To invite Mr. Cho to join the registration team.",
+    "To cancel the opening keynote session."
+   ],
+   "answer": 0,
+   "explanation": "등록 사실을 확인해 주고, 워크숍은 추가 요금이 필요하다는 점과 참석 시 회신 기한을 안내하는 메일입니다. 일정 변경 요청이나 취소 안내가 아닙니다.",
+   "translation": "주최 측이 이 메일을 보낸 이유는 무엇인가? / A. 등록을 확인하고 워크숍 요금을 안내하기 위해 / B. 행사 일정 변경을 요청하기 위해 / C. 등록팀 참여를 권유하기 위해 / D. 개회 기조 강연을 취소하기 위해",
+   "vocabulary": [
+    {
+     "word": "separate fee",
+     "meaning": "별도 요금",
+     "example": "There is a separate fee for materials."
+    },
+    {
+     "word": "hands-on workshop",
+     "meaning": "실습 워크숍",
+     "example": "The hands-on workshop is limited to 20 people."
+    }
+   ],
+   "group_id": "g7-05",
+   "evidence_quote": "the hands-on workshop \"Data Visualization Basics\" requires a separate fee of $45",
+   "paraphrase_pair": [
+    {
+     "question": "additional charge",
+     "passage": "requires a separate fee of $45"
+    }
+   ]
+  },
+  {
+   "id": "p7-14",
+   "part": 7,
+   "type": "독해-이중지문",
+   "difficulty": 3,
+   "prompt": "What must Mr. Cho do to attend the workshop?",
+   "choices": [
+    "Reply by October 3 and pay $45.",
+    "Register again in the lobby at 8 a.m.",
+    "Choose Session 2 instead of Session 1.",
+    "Bring a printed copy of the schedule."
+   ],
+   "answer": 0,
+   "explanation": "지문 A에서 워크숍은 45달러가 별도로 필요하며 참석하려면 10월 3일까지 회신해야 한다고 했고, 지문 B 일정표에서도 305호 워크숍에 45달러가 표시되어 있습니다.",
+   "translation": "조 씨가 워크숍에 참석하려면 어떻게 해야 하는가? / A. 10월 3일까지 회신하고 45달러를 낸다. / B. 오전 8시 로비에서 다시 등록한다. / C. 세션 1 대신 세션 2를 선택한다. / D. 일정표를 인쇄해 가져간다.",
+   "vocabulary": [
+    {
+     "word": "attend",
+     "meaning": "참석하다",
+     "example": "Will you attend the workshop?"
+    },
+    {
+     "word": "reply",
+     "meaning": "회신하다",
+     "example": "Please reply to my message."
+    }
+   ],
+   "group_id": "g7-05",
+   "evidence_quote": "If you wish to attend, reply to this email by October 3.",
+   "paraphrase_pair": [
+    {
+     "question": "respond",
+     "passage": "reply to this email"
+    },
+    {
+     "question": "attend",
+     "passage": "wish to attend"
+    }
+   ]
+  },
+  {
+   "id": "p7-15",
+   "part": 7,
+   "type": "독해-이중지문",
+   "difficulty": 2,
+   "prompt": "Where is the closing panel held?",
+   "choices": [
+    "In Hall A.",
+    "In Hall B.",
+    "In Room 201.",
+    "On the terrace."
+   ],
+   "answer": 0,
+   "explanation": "지문 B 일정표에 '3:00 Closing Panel (Hall A)'로 표시되어 있습니다. Hall B는 세션 2, 201호는 클라우드 보안 세션, 테라스는 점심 장소입니다.",
+   "translation": "폐회 패널은 어디에서 열리는가? / A. A홀 / B. B홀 / C. 201호 / D. 테라스",
+   "vocabulary": [
+    {
+     "word": "panel",
+     "meaning": "패널 토론",
+     "example": "The panel starts at three."
+    },
+    {
+     "word": "closing",
+     "meaning": "폐회의, 마무리",
+     "example": "The closing ceremony is at five."
+    }
+   ],
+   "group_id": "g7-05",
+   "evidence_quote": "3:00  Closing Panel (Hall A)",
+   "paraphrase_pair": [
+    {
+     "question": "final discussion",
+     "passage": "Closing Panel (Hall A)"
+    }
+   ]
+  }
+ ]
+}
