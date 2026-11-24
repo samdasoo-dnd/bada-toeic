@@ -72,40 +72,61 @@ jobs:
           set -e
           ls -l android/app/build/outputs/apk/debug/
           mkdir -p out
-          cp android/app/build/outputs/apk/debug/app-debug.apk out/bada-toeic-v1.0.0.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk out/bada-toeic-v1.0.1.apk
           ls -l out
           python3 - <<'PY'
           import zipfile
-          p = "out/bada-toeic-v1.0.0.apk"
+          p = "out/bada-toeic-v1.0.1.apk"
           z = zipfile.ZipFile(p)
           names = z.namelist()
           print("entries:", len(names))
           print("has AndroidManifest.xml:", "AndroidManifest.xml" in names)
           print("has classes.dex:", any(n.startswith("classes") and n.endswith(".dex") for n in names))
           assert "AndroidManifest.xml" in names, "APK 안에 AndroidManifest.xml 이 없습니다"
+          dex = b"".join(z.read(n) for n in names if n.startswith("classes") and n.endswith(".dex"))
+          for needle in (b"saveStore", b"loadStore", b"bada_toeic_store"):
+              print(needle.decode(), needle in dex)
+              assert needle in dex, "dex 안에 %s 문자열이 없습니다" % needle.decode()
+          print("dex save-store bridge: OK")
+          PY
+
+      - name: 버전·브리지 검증 (aapt)
+        run: |
+          set -e
+          AAPT="$(ls "$ANDROID_HOME"/build-tools/*/aapt2 2>/dev/null | head -1)"
+          AAPT1="$(ls "$ANDROID_HOME"/build-tools/*/aapt 2>/dev/null | head -1)"
+          echo "aapt2: ${AAPT:-none} / aapt: ${AAPT1:-none}"
+          if [ -n "$AAPT1" ]; then
+            "$AAPT1" dump badging out/bada-toeic-v1.0.1.apk | grep -E "package:|application-label" || true
+          fi
+          python3 - <<'PY'
+          import re, zipfile
+          data = zipfile.ZipFile("out/bada-toeic-v1.0.1.apk").read("AndroidManifest.xml")
+          assert b"1.0.1" in data or "1.0.1".encode("utf-16-le") in data, "AndroidManifest 에 versionName 1.0.1 이 없습니다"
+          print("versionName 1.0.1: OK")
           PY
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bada-toeic-v1.0.0-apk
-          path: out/bada-toeic-v1.0.0.apk
+          name: bada-toeic-v1.0.1-apk
+          path: out/bada-toeic-v1.0.1.apk
           if-no-files-found: error
           retention-days: 90
 
-      - name: Attach APK to GitHub Release (v1.0.0)
+      - name: Attach APK to GitHub Release (v1.0.1)
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release view v1.0.0 > /dev/null 2>&1 || \
-            gh release create v1.0.0 \
-              --title "바다토익 v1.0.0 (Android APK)" \
+          gh release view v1.0.1 > /dev/null 2>&1 || \
+            gh release create v1.0.1 \
+              --title "바다토익 v1.0.1 (Android APK)" \
               --notes "바다토익 웹앱(https://bada-toeic.onrender.com)을 감싼 안드로이드 WebView APK입니다.
 
           - 앱 이름: 바다토익 / applicationId: com.donsik.badatoeic
           - minSdk 24 (Android 7.0) · targetSdk 34
           - 디버그 서명 빌드(assembleDebug) — 설치 시 '출처를 알 수 없는 앱' 허용 필요
 
-          설치: 아래 bada-toeic-v1.0.0.apk 를 내려받아 폰에서 열면 됩니다."
-          gh release upload v1.0.0 out/bada-toeic-v1.0.0.apk --clobber
+          설치: 아래 bada-toeic-v1.0.1.apk 를 내려받아 폰에서 열면 됩니다."
+          gh release upload v1.0.1 out/bada-toeic-v1.0.1.apk --clobber
