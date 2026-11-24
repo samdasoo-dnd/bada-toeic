@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+data/audio/*.mp3
+data/audio/*.part
+.DS_Store
+
+# Android 빌드 산출물
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+*.iml
+*.apk
+!documents/*.apk
