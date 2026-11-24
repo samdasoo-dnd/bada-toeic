@@ -11,8 +11,9 @@
 | 앱 이름 | 바다토익 |
 | applicationId | `com.donsik.badatoeic` |
 | minSdk / targetSdk / compileSdk | 24 / 34 / 34 |
-| versionCode / versionName | 2 / `1.0.1` |
+| versionCode / versionName | 3 / `1.0.2` |
 | 빌드 | Gradle 8.7 · AGP 8.5.1 · Kotlin 1.9.24 · JDK 17 |
+| 서명 | 고정 릴리스 키 (CN=BadaToeic, O=Donsik, C=KR) · 키 없으면 debug 폴백 |
 
 ## 동작
 
@@ -34,9 +35,38 @@
 GitHub Actions 가 `.github/workflows/build-apk.yml` 로 자동 빌드합니다.
 (Actions 탭 → **Build Android APK** → Run workflow, 또는 `android/**` 변경 push)
 
-산출물: `bada-toeic-v1.0.1.apk`
-- Actions 실행의 Artifacts(`bada-toeic-v1.0.1-apk`)
-- Release 태그 `v1.0.1` 에도 첨부
+산출물: `bada-toeic-v1.0.2.apk`
+- Actions 실행의 Artifacts(`bada-toeic-v1.0.2-apk`)
+- Release 태그 `v1.0.2` 에도 첨부
+
+## 서명 (고정 키)
+
+Repository Secret 4개가 있으면 워크플로우가 `$RUNNER_TEMP/bada-toeic-release.p12` 로
+키스토어를 복원하고 **release** 빌드를 그 키로 서명합니다.
+
+| Secret | 값 |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | `bada-toeic-release.p12` 를 base64 로 인코딩한 한 줄 |
+| `ANDROID_KEYSTORE_PASSWORD` | 키스토어 비밀번호 |
+| `ANDROID_KEY_ALIAS` | `badatoeic` |
+| `ANDROID_KEY_PASSWORD` | 키 비밀번호 |
+
+로컬에서 같은 키로 빌드하려면:
+
+```bash
+export ANDROID_KEYSTORE_PATH=/경로/bada-toeic-release.p12
+export ANDROID_KEYSTORE_PASSWORD=...
+export ANDROID_KEY_ALIAS=badatoeic
+export ANDROID_KEY_PASSWORD=...
+cd android && ./gradlew assembleRelease
+# → android/app/build/outputs/apk/release/app-release.apk
+```
+
+키스토어 원본은 저장소에 커밋하지 않습니다(백업: 워크스페이스 `work/bada_toeic_keystore/`).
+키를 잃으면 이후 업데이트를 같은 서명으로 배포할 수 없어, 설치된 앱 위에 덮어쓰기가 불가능해집니다.
+
+> 1.0.1 은 debug 키로 서명되어 있어 1.0.2(고정 키)를 덮어쓰려면 한 번 삭제 후 설치해야 합니다.
+> 1.0.2 이후 업데이트부터는 삭제 없이 덮어쓰기 설치가 됩니다.
 
 로컬 빌드:
 
