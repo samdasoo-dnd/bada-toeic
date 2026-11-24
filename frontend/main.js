@@ -1907,8 +1907,10 @@
         var st = $("#keyStatus");
         st.textContent = "키를 확인하고 있어요…";
         api("/api/ai/test", { api_key: key }).then(function (r) {
-          st.textContent = "✅ 사용 가능한 키입니다. 예: " + (r.info.models || []).slice(0, 3).join(", ");
-          toast("Gemini 키가 정상입니다.");
+          D.settings.geminiKey = key;
+          save();
+          st.textContent = "✅ 확인 및 저장 완료! (이 기기에만 저장됨) 예: " + (r.info.models || []).slice(0, 3).join(", ");
+          toast("Gemini 키를 확인하고 저장했습니다.");
         }).catch(function (e) { st.textContent = "❌ " + e.message; });
         return;
       }
