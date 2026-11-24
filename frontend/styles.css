@@ -480,11 +480,6 @@ body.is-splashing { overflow: hidden; }
   margin: 8px 0 0; font-size: clamp(11px, 2.8vw, 14px); letter-spacing: 0.44em;
   color: rgba(175, 220, 240, 0.9); font-weight: 700;
 }
-.splash-hint {
-  display: block; margin-top: 22px; font-size: 12px; color: rgba(200, 225, 240, 0.75);
-  opacity: 0; animation: hintIn 0.7s ease 0.9s forwards;
-}
-@keyframes hintIn { to { opacity: 1; } }
 
 /* 감상 모드(애니메이션 일시정지) */
 .splash.hold .splash-logo { animation-play-state: paused; }
@@ -697,7 +692,6 @@ img, svg { max-width: 100%; }
 @media (max-height: 460px) and (orientation: landscape) {
   .splash-waves { height: 34vh; }
   .splash-logo h1 { font-size: 34px; }
-  .splash-hint { display: none; }
 }
 
 /* 접근성: 모션 최소화 */
