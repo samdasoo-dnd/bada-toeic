@@ -32,7 +32,7 @@ FALLBACK_MODELS = [
     "gemini-2.5-flash-lite",
 ]
 TIMEOUT = 55
-KEY_RE = re.compile(r"^AIza[0-9A-Za-z_\-]{30,}$")
+KEY_RE = re.compile(r"^(?:AIza[0-9A-Za-z_\-]{30,}|AQ\.[0-9A-Za-z_.\-]{25,})$")
 
 PART_LABEL = {
     2: "질의응답(Part 2)",
@@ -89,7 +89,7 @@ def _request(url: str, payload: dict | None = None, api_key: str = "", timeout: 
 def check_key_format(api_key: str) -> str:
     key = str(api_key or "").strip()
     if not KEY_RE.match(key):
-        raise AIError("Gemini API 키 형식이 올바르지 않습니다(AIza... 로 시작).", 400)
+        raise AIError("Gemini API 키 형식이 올바르지 않습니다(AIza... 또는 AQ....).", 400)
     return key
 
 
