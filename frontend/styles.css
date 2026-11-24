@@ -163,6 +163,12 @@ b { font-weight: 800; }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 .link { background: none; border: 0; color: var(--blue); font-size: 13px; font-weight: 700; padding: 6px; }
 .file-btn { position: relative; cursor: pointer; }
+a.btn { text-decoration: none; color: var(--ink); }
+a.btn:hover { color: var(--ink); }
+
+/* ---------- API 키 발급 안내 ---------- */
+.key-help { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 2px 0 14px; }
+.key-help p { margin: 0; }
 
 /* ---------- 통계 카드 ---------- */
 .stat { padding: 16px; display: flex; flex-direction: column; gap: 2px; }
