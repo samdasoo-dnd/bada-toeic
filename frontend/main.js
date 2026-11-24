@@ -77,17 +77,68 @@
     d.vocab = raw.vocab && typeof raw.vocab === "object" ? raw.vocab : {};
     d.generated = Array.isArray(raw.generated) ? raw.generated.filter(function (g) { return g && g.id; }) : [];
     d.vocabExams = Array.isArray(raw.vocabExams) ? raw.vocabExams : [];
+    if (raw.updatedAt) { d.updatedAt = raw.updatedAt; }
     if (raw.createdAt) { d.createdAt = raw.createdAt; }
     return d;
   }
+  /* 안드로이드 앱(WebView)은 앱을 지웠다 깔거나 WebView 저장소가 비워져도
+     기록이 남도록 SharedPreferences 네이티브 저장소를 함께 쓴다. */
+  function nativeStore() {
+    var b = window.BadaToeicAndroid;
+    return b && typeof b.saveStore === "function" ? b : null;
+  }
+  function parseStoreRaw(raw) {
+    try {
+      var obj = JSON.parse(raw);
+      return obj && typeof obj === "object" ? normalize(obj) : null;
+    } catch (e) { return null; }
+  }
+  function readNativeStore() {
+    try {
+      var b = window.BadaToeicAndroid;
+      if (!b || typeof b.loadStore !== "function") { return null; }
+      var raw = b.loadStore();
+      return raw && typeof raw === "string" ? parseStoreRaw(raw) : null;
+    } catch (e) {
+      console.warn("네이티브 저장 기록을 읽지 못했습니다.", e);
+      return null;
+    }
+  }
+  function storeTime(d) {
+    var t = d && d.updatedAt ? Date.parse(d.updatedAt) : NaN;
+    return isNaN(t) ? 0 : t;
+  }
+  function storeIsEmpty(d) {
+    return !d || (
+      d.records.length === 0 && d.sessions.length === 0 && d.history.length === 0 &&
+      Object.keys(d.wrong).length === 0 && Object.keys(d.vocab).length === 0 &&
+      d.generated.length === 0 && d.vocabExams.length === 0 && !d.settings.geminiKey
+    );
+  }
   function loadStore() {
+    var local = null;
     try {
       var raw = localStorage.getItem(KEY);
-      return raw ? normalize(JSON.parse(raw)) : defaultStore();
+      local = raw ? parseStoreRaw(raw) : null;
     } catch (e) {
       console.warn("저장된 학습 기록을 읽지 못했습니다.", e);
-      return defaultStore();
     }
+    var native = readNativeStore();
+    var chosen = local || defaultStore();
+    var fromNative = false;
+    if (native) {
+      if (!local) {
+        chosen = native; fromNative = true;               // localStorage 가 비었을 때
+      } else if (storeIsEmpty(local) && !storeIsEmpty(native)) {
+        chosen = native; fromNative = true;               // 기본 상태 + 네이티브에 기록 있음
+      } else if (storeTime(native) > storeTime(local)) {
+        chosen = native; fromNative = true;               // 더 최근 기록
+      }
+    }
+    if (fromNative) {
+      try { localStorage.setItem(KEY, JSON.stringify(chosen)); } catch (e) {}
+    }
+    return chosen;
   }
   var D = loadStore();
   function save() {
@@ -96,8 +147,16 @@
     if (D.history.length > 120) { D.history = D.history.slice(-120); }
     if (D.sessions.length > 120) { D.sessions = D.sessions.slice(0, 120); }
     if (D.vocabExams.length > 40) { D.vocabExams = D.vocabExams.slice(0, 40); }
-    try { localStorage.setItem(KEY, JSON.stringify(D)); }
+    var serialized = null;
+    try { serialized = JSON.stringify(D); } catch (e) {}
+    if (!serialized) { return; }
+    try { localStorage.setItem(KEY, serialized); }
     catch (e) { toast("브라우저 저장 공간이 부족합니다. 기록을 내보낸 뒤 정리해 주세요."); }
+    var b = nativeStore();
+    if (b) {
+      try { b.saveStore(serialized); }   // SharedPreferences 에 동기 저장
+      catch (e) { console.warn("네이티브 저장에 실패했습니다.", e); }
+    }
   }
 
   /* ------------------------------------------------------------
