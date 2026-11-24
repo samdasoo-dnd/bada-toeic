@@ -372,17 +372,17 @@ class MainActivity : Activity() {
 
     /** 상태 확인: 200 이면 깨어난 것, -1 이면 네트워크 자체가 끊긴 것. */
     private fun probeHealth(): Int {
-        var conn: HttpURLConnection? = null
+        var opened: HttpURLConnection? = null
         return try {
-            conn = (URL(HEALTH_URL).openConnection() as HttpURLConnection).apply {
-                connectTimeout = HEALTH_CONNECT_TIMEOUT_MS
-                readTimeout = HEALTH_READ_TIMEOUT_MS
-                instanceFollowRedirects = true
-                requestMethod = "GET"
-                setRequestProperty("User-Agent", USER_AGENT)
-                setRequestProperty("Cache-Control", "no-cache")
-                setRequestProperty("Accept", "application/json")
-            }
+            val conn = URL(HEALTH_URL).openConnection() as HttpURLConnection
+            opened = conn
+            conn.connectTimeout = HEALTH_CONNECT_TIMEOUT_MS
+            conn.readTimeout = HEALTH_READ_TIMEOUT_MS
+            conn.instanceFollowRedirects = true
+            conn.requestMethod = "GET"
+            conn.setRequestProperty("User-Agent", USER_AGENT)
+            conn.setRequestProperty("Cache-Control", "no-cache")
+            conn.setRequestProperty("Accept", "application/json")
             val code = conn.responseCode
             runCatching {
                 val stream = if (code in 200..299) conn.inputStream else conn.errorStream
@@ -400,7 +400,7 @@ class MainActivity : Activity() {
             Log.w(TAG, "health failed: ${e.message}")
             HEALTH_NETWORK_ERROR
         } finally {
-            runCatching { conn?.disconnect() }
+            runCatching { opened?.disconnect() }
         }
     }
 
