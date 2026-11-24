@@ -11,7 +11,7 @@
 | 앱 이름 | 바다토익 |
 | applicationId | `com.donsik.badatoeic` |
 | minSdk / targetSdk / compileSdk | 24 / 34 / 34 |
-| versionCode / versionName | 4 / `1.0.3` |
+| versionCode / versionName | 5 / `1.0.4` |
 | 빌드 | Gradle 8.7 · AGP 8.5.1 · Kotlin 1.9.24 · JDK 17 |
 | 서명 | 고정 릴리스 키 (CN=BadaToeic, O=Donsik, C=KR) · 키 없으면 debug 폴백 |
 
@@ -25,11 +25,15 @@
   - 문구 아래 **출렁이는 파도 로딩바**: 캡슐 트랙 안의 물결이 실시간으로 일렁이며 왼쪽→오른쪽으로 차오른다
     (서버가 깨어나기 전 약 45초 기준 92%까지, `window.finishLoading()` 호출 시 0.4초 만에 100%)
 - Render 무료 플랜 콜드 스타트 동안 메인 페이지를 바로 열지 않고,
-  백그라운드 스레드에서 `GET /api/health` 를 **2초 간격·최대 70초** 두드린다
+  백그라운드 스레드에서 `GET /api/health` 를 **2초 간격·최대 90초** 두드린다
+  - health 는 **200 이면서 본문에 `"ok":true`** 가 있어야 "깨어남"으로 판정한다(반쯤 뜬 응답 무시)
   - 502/503/타임아웃은 Render 가 깨어나는 중이므로 오류 화면 없이 계속 재시도
-  - 200 이 오면 그때 `https://bada-toeic.onrender.com` 을 메인 WebView 로 연다
+  - 200(+`ok:true`) 이 오면 그때 `https://bada-toeic.onrender.com` 을 메인 WebView 로 연다
+  - 메인 페이지가 503/타임아웃으로 실패해도 인트로가 떠 있는 동안(총 90초 이내)에는
+    로딩 오버레이·파도바를 **그대로 둔 채**(0% 리셋 없음) 2초 뒤 health 부터 다시 확인한다
+  - 503 페이지의 `onPageFinished` 는 `attemptFailed` 플래그로 걸러 "다 그려짐"으로 처리하지 않는다
   - 메인 페이지 `onPageFinished` 후(인트로 최소 1.5초 노출) 파도를 100%로 채우고 오버레이를 페이드아웃
-  - 오류 화면은 네트워크가 계속 끊겨 있을 때(연속 6회 실패≈12초) 또는 70초를 넘겼을 때만
+  - 오류 화면은 네트워크가 계속 끊겨 있을 때(연속 6회 실패≈12초) 또는 인트로를 띄운 지 90초를 넘겼을 때만
 - `localStorage`(`domStorageEnabled`), 쿠키, 혼합 콘텐츠 허용
 - 학습 기록·API 키를 `SharedPreferences`(`bada_toeic_store`)에도 `commit()` 동기 저장
   (`BadaToeicAndroid.saveStore`/`loadStore`) — 앱을 껐다 켜도 유지
@@ -46,9 +50,9 @@
 GitHub Actions 가 `.github/workflows/build-apk.yml` 로 자동 빌드합니다.
 (Actions 탭 → **Build Android APK** → Run workflow, 또는 `android/**` 변경 push)
 
-산출물: `bada-toeic-v1.0.3.apk`
-- Actions 실행의 Artifacts(`bada-toeic-v1.0.3-apk`)
-- Release 태그 `v1.0.3` 에도 첨부
+산출물: `bada-toeic-v1.0.4.apk`
+- Actions 실행의 Artifacts(`bada-toeic-v1.0.4-apk`)
+- Release 태그 `v1.0.4` 에도 첨부
 
 ## 서명 (고정 키)
 
@@ -77,7 +81,7 @@ cd android && ./gradlew assembleRelease
 키를 잃으면 이후 업데이트를 같은 서명으로 배포할 수 없어, 설치된 앱 위에 덮어쓰기가 불가능해집니다.
 
 > 1.0.1 은 debug 키로 서명되어 있어 1.0.2(고정 키)를 덮어쓰려면 한 번 삭제 후 설치해야 합니다.
-> 1.0.2 이후 업데이트(1.0.3 포함)부터는 고정 키 서명이 같아 삭제 없이 덮어쓰기 설치가 됩니다.
+> 1.0.2 이후 업데이트(1.0.3·1.0.4 포함)부터는 고정 키 서명이 같아 삭제 없이 덮어쓰기 설치가 됩니다.
 
 로컬 빌드:
 
