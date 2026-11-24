@@ -1,0 +1,111 @@
+name: Build Android APK
+
+# 바다토익 WebView 앱(android/) 디버그 APK 빌드
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'android/**'
+      - '.github/workflows/build-apk.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: assembleDebug
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Android SDK 준비 (platform 34 / build-tools 34.0.0)
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+          SDKMANAGER="$(command -v sdkmanager || true)"
+          if [ -z "$SDKMANAGER" ]; then
+            for c in "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager \
+                     /usr/local/lib/android/sdk/cmdline-tools/*/bin/sdkmanager; do
+              [ -x "$c" ] && SDKMANAGER="$c" && break
+            done
+          fi
+          echo "sdkmanager: ${SDKMANAGER:-none}"
+          if [ -n "$SDKMANAGER" ]; then
+            yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+            "$SDKMANAGER" "platforms;android-34" "build-tools;34.0.0" "platform-tools" > /dev/null 2>&1 || true
+          fi
+          java -version
+          gradle --version
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x ./gradlew || true
+          if [ -x ./gradlew ] && [ -f gradle/wrapper/gradle-wrapper.jar ]; then
+            echo "Building with ./gradlew (wrapper)"
+            ./gradlew assembleDebug --no-daemon --stacktrace
+          else
+            echo "Building with gradle on PATH"
+            gradle assembleDebug --no-daemon --stacktrace
+          fi
+
+      - name: APK 확인 · 이름 정리
+        run: |
+          set -e
+          ls -l android/app/build/outputs/apk/debug/
+          mkdir -p out
+          cp android/app/build/outputs/apk/debug/app-debug.apk out/bada-toeic-v1.0.0.apk
+          ls -l out
+          python3 - <<'PY'
+          import zipfile
+          p = "out/bada-toeic-v1.0.0.apk"
+          z = zipfile.ZipFile(p)
+          names = z.namelist()
+          print("entries:", len(names))
+          print("has AndroidManifest.xml:", "AndroidManifest.xml" in names)
+          print("has classes.dex:", any(n.startswith("classes") and n.endswith(".dex") for n in names))
+          assert "AndroidManifest.xml" in names, "APK 안에 AndroidManifest.xml 이 없습니다"
+          PY
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bada-toeic-v1.0.0-apk
+          path: out/bada-toeic-v1.0.0.apk
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Attach APK to GitHub Release (v1.0.0)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view v1.0.0 > /dev/null 2>&1 || \
+            gh release create v1.0.0 \
+              --title "바다토익 v1.0.0 (Android APK)" \
+              --notes "바다토익 웹앱(https://bada-toeic.onrender.com)을 감싼 안드로이드 WebView APK입니다.
+
+          - 앱 이름: 바다토익 / applicationId: com.donsik.badatoeic
+          - minSdk 24 (Android 7.0) · targetSdk 34
+          - 디버그 서명 빌드(assembleDebug) — 설치 시 '출처를 알 수 없는 앱' 허용 필요
+
+          설치: 아래 bada-toeic-v1.0.0.apk 를 내려받아 폰에서 열면 됩니다."
+          gh release upload v1.0.0 out/bada-toeic-v1.0.0.apk --clobber
