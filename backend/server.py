@@ -46,7 +46,7 @@ import qr as qr_mod  # noqa: E402
 import toeic_engine as engine  # noqa: E402
 
 APP_NAME = "바다토익 (BADA TOEIC)"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 APP_ID = "bada-toeic"
 
 DEFAULT_PORT = 8768
