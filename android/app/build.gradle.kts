@@ -3,6 +3,14 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+// ── 고정 서명 키 설정 ─────────────────────────────────────────────
+// ANDROID_KEYSTORE_PATH 가 실제 파일로 존재할 때만 고정 키 서명을 씁니다.
+// (GitHub Actions 에서는 Secret ANDROID_KEYSTORE_BASE64 를 디코딩해 이 경로를 지정합니다.)
+// 환경변수가 없으면 예전처럼 디버그 서명으로 폴백합니다.
+val releaseKeystorePath: String? = System.getenv("ANDROID_KEYSTORE_PATH")
+val hasReleaseKeystore: Boolean =
+    !releaseKeystorePath.isNullOrBlank() && project.file(releaseKeystorePath).exists()
+
 android {
     namespace = "com.donsik.badatoeic"
     compileSdk = 34
@@ -11,17 +19,34 @@ android {
         applicationId = "com.donsik.badatoeic"
         minSdk = 24
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
 
         // 딥 블루 로딩 오버레이 / 재시도 화면에 쓸 색을 한 곳에서 관리
         resValue("string", "app_url", "https://bada-toeic.onrender.com")
+    }
+
+    signingConfigs {
+        if (hasReleaseKeystore) {
+            create("badaRelease") {
+                storeFile = project.file(releaseKeystorePath!!)
+                storeType = "PKCS12"
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ANDROID_KEY_ALIAS") ?: "badatoeic"
+                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+                    ?: System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            }
+        }
     }
 
     buildTypes {
         debug {
             isMinifyEnabled = false
             isDebuggable = true
+            // 고정 키가 준비돼 있으면 디버그 빌드도 같은 키로 서명합니다.
+            if (hasReleaseKeystore) {
+                signingConfig = signingConfigs.getByName("badaRelease")
+            }
         }
         release {
             isMinifyEnabled = false
@@ -29,6 +54,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = if (hasReleaseKeystore) {
+                signingConfigs.getByName("badaRelease")
+            } else {
+                // 키가 없을 때만 예전 방식(디버그 키)으로 폴백합니다.
+                runCatching { signingConfigs.getByName("debug") }.getOrNull()
+            }
         }
     }
 
