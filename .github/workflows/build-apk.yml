@@ -19,8 +19,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  APP_VERSION: '1.0.3'
-  APK_NAME: bada-toeic-v1.0.3.apk
+  APP_VERSION: '1.0.4'
+  APK_NAME: bada-toeic-v1.0.4.apk
 
 jobs:
   build:
@@ -133,6 +133,11 @@ jobs:
               print(needle.decode(), needle in dex)
               assert needle in dex, "dex 안에 %s 문자열이 없습니다" % needle.decode()
           print("dex save-store bridge: OK")
+          # v1.0.4 수정 코드가 실제로 들어갔는지(503 재시도·health 본문 검증·UA)
+          for needle in (b"attemptFailed", b"BadaToeicAndroid/1.0.4", b"api/health"):
+              print(needle.decode(), needle in dex)
+              assert needle in dex, "dex 안에 %s 문자열이 없습니다" % needle.decode()
+          print("dex v1.0.4 retry fix: OK")
           PY
 
       - name: 버전 검증 (aapt / AndroidManifest)
@@ -176,25 +181,25 @@ jobs:
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bada-toeic-v1.0.3-apk
-          path: out/bada-toeic-v1.0.3.apk
+          name: bada-toeic-v1.0.4-apk
+          path: out/bada-toeic-v1.0.4.apk
           if-no-files-found: error
           retention-days: 90
 
-      - name: Attach APK to GitHub Release (v1.0.3)
+      - name: Attach APK to GitHub Release (v1.0.4)
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
-          if gh release view v1.0.3 > /dev/null 2>&1; then
-            gh release upload v1.0.3 "out/$APK_NAME" --clobber
-            gh release edit v1.0.3 \
-              --title "바다토익 v1.0.3 (Android APK)" \
-              --notes-file .github/release-notes-v1.0.3.md
+          if gh release view v1.0.4 > /dev/null 2>&1; then
+            gh release upload v1.0.4 "out/$APK_NAME" --clobber
+            gh release edit v1.0.4 \
+              --title "바다토익 v1.0.4 (Android APK)" \
+              --notes-file .github/release-notes-v1.0.4.md
           else
-            gh release create v1.0.3 \
-              --title "바다토익 v1.0.3 (Android APK)" \
-              --notes-file .github/release-notes-v1.0.3.md
-            gh release upload v1.0.3 "out/$APK_NAME" --clobber
+            gh release create v1.0.4 \
+              --title "바다토익 v1.0.4 (Android APK)" \
+              --notes-file .github/release-notes-v1.0.4.md
+            gh release upload v1.0.4 "out/$APK_NAME" --clobber
           fi
