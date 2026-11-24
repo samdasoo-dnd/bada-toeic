@@ -11,6 +11,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -33,11 +35,19 @@ import android.widget.Toast
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.SocketTimeoutException
+import java.net.URL
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * 바다토익(https://bada-toeic.onrender.com) 을 감싸는 WebView 앱.
  *
- * - Render 무료 플랜 콜드 스타트(최대 50초) 동안 딥 블루 네이티브 로딩 화면을 먼저 보여준다.
+ * - 앱을 켜면 곧바로(0.1초) assets/loading.html 의 윤슬 인트로 + 파도 로딩바를 띄운다.
+ * - 그동안 백그라운드에서 /api/health 를 2초 간격·최대 70초 동안 두드려
+ *   Render 무료 플랜의 콜드 스타트(502/503/타임아웃)를 기다린 뒤 메인 페이지를 연다.
+ * - 메인 페이지가 그려지면 파도 로딩바를 100%로 채우고 오버레이를 부드럽게 걷는다.
  * - localStorage(domStorage), LC 음성 자동 재생, 쿠키/혼합 콘텐츠를 허용한다.
  * - 학습 기록 JSON(blob) 내보내기는 파일 저장 화면으로 이어 준다.
  * - 뒤로가기는 웹 히스토리 우선, 히스토리가 없으면 앱 종료.
@@ -48,18 +58,56 @@ class MainActivity : Activity() {
         private const val TAG = "BadaToeic"
         private const val START_URL = "https://bada-toeic.onrender.com"
         private const val BASE_HOST = "bada-toeic.onrender.com"
+        private const val HEALTH_URL = "https://bada-toeic.onrender.com/api/health"
+        private const val USER_AGENT = "BadaToeicAndroid/1.0.3"
+        private const val LOCAL_LOADING_URL = "file:///android_asset/loading.html"
         private const val REQ_SAVE_FILE = 1001
         private const val STORE_PREFS = "bada_toeic_store"
         private const val STORE_KEY = "store_json"
+
+        // 서버 깨우기: 2초 간격 · 최대 70초
+        private const val WAKEUP_INTERVAL_MS = 2_000L
+        private const val WAKEUP_MAX_MS = 70_000L
+        private const val HEALTH_CONNECT_TIMEOUT_MS = 8_000
+        private const val HEALTH_READ_TIMEOUT_MS = 8_000
+
+        // 네트워크가 이만큼 연속으로 끊기면 그때만 오류 화면을 띄운다(약 12초)
+        private const val NETWORK_FAIL_LIMIT = 6
+
+        // 인트로 최소 노출 시간과, 100%까지 차오르는 파도바를 보여 주는 시간
+        private const val INTRO_MIN_MS = 1_500L
+        private const val BAR_FINISH_MS = 420L
+
+        // 서버가 깨어난 뒤 메인 페이지가 한 번 실패하면 조용히 다시 시도하는 횟수
+        private const val MAIN_RETRY_LIMIT = 2
+
+        // probeHealth() 결과: 네트워크 자체가 끊긴 경우
+        private const val HEALTH_NETWORK_ERROR = -1
     }
 
     private lateinit var webView: WebView
+    private lateinit var loadingWebView: WebView
+    private lateinit var loadingFallback: View
     private lateinit var loadingOverlay: View
     private lateinit var loadingText: TextView
     private lateinit var errorView: View
     private lateinit var errorDetail: TextView
 
+    private val uiHandler = Handler(Looper.getMainLooper())
+    private var wakeThread: Thread? = null
+
+    @Volatile
+    private var destroyed = false
+
+    /** 서버 깨우기 스레드 세대 번호 — 새로 시작하면 이전 스레드의 결과는 버린다. */
+    private val wakeGeneration = AtomicInteger(0)
+
     private var mainFrameFailed = false
+    private var contentShown = false
+    private var introFinished = false
+    private var retryScheduled = false
+    private var mainRetryCount = 0
+    private var loadingShownAt = 0L
     private var pendingSave: PendingSave? = null
 
     private data class PendingSave(val name: String, val mime: String, val bytes: ByteArray)
@@ -75,6 +123,8 @@ class MainActivity : Activity() {
         }
 
         webView = findViewById(R.id.web_view)
+        loadingWebView = findViewById(R.id.loading_web_view)
+        loadingFallback = findViewById(R.id.loading_fallback)
         loadingOverlay = findViewById(R.id.loading_overlay)
         loadingText = findViewById(R.id.loading_text)
         errorView = findViewById(R.id.error_view)
@@ -87,6 +137,7 @@ class MainActivity : Activity() {
         }
 
         configureWebView()
+        configureLoadingWebView()
 
         val restored = savedInstanceState?.let { webView.restoreState(it) }
         if (restored == null) {
@@ -117,7 +168,7 @@ class MainActivity : Activity() {
             allowContentAccess = true
             javaScriptCanOpenWindowsAutomatically = true
             setSupportMultipleWindows(false)
-            userAgentString = userAgentString + " BadaToeicAndroid/1.0.1"
+            userAgentString = userAgentString + " " + USER_AGENT
         }
 
         CookieManager.getInstance().apply {
@@ -134,13 +185,70 @@ class MainActivity : Activity() {
         }
     }
 
+    /** 내장 인트로(loading.html) 전용 WebView — 로컬 파일만 읽는다. */
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun configureLoadingWebView() {
+        loadingWebView.setBackgroundColor(0xFF04121C.toInt())
+        loadingWebView.settings.apply {
+            javaScriptEnabled = true
+            // 이 WebView 만 assets/loading.html 을 열 수 있게 파일 접근을 허용한다.
+            allowFileAccess = true
+            allowContentAccess = false
+            allowFileAccessFromFileURLs = false
+            allowUniversalAccessFromFileURLs = false
+            domStorageEnabled = false
+            databaseEnabled = false
+            mediaPlaybackRequiresUserGesture = true
+            cacheMode = WebSettings.LOAD_NO_CACHE
+            useWideViewPort = true
+            loadWithOverviewMode = true
+            setSupportZoom(false)
+            builtInZoomControls = false
+            displayZoomControls = false
+            javaScriptCanOpenWindowsAutomatically = false
+            setSupportMultipleWindows(false)
+            userAgentString = userAgentString + " " + USER_AGENT
+        }
+        loadingWebView.isVerticalScrollBarEnabled = false
+        loadingWebView.isHorizontalScrollBarEnabled = false
+        loadingWebView.setOnLongClickListener { true }
+        loadingWebView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                // 인트로가 정상적으로 그려졌으니 네이티브 대체 화면은 내린다
+                loadingFallback.visibility = View.GONE
+            }
+
+            override fun onReceivedError(
+                view: WebView?,
+                request: WebResourceRequest?,
+                error: WebResourceError?
+            ) {
+                super.onReceivedError(view, request, error)
+                if (request?.isForMainFrame != true) return
+                Log.w(TAG, "loading.html error: ${error?.errorCode} ${error?.description}")
+                loadingFallback.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun loadLocalIntro() {
+        loadingFallback.visibility = View.GONE
+        runCatching { loadingWebView.loadUrl(LOCAL_LOADING_URL) }
+            .onFailure { loadingFallback.visibility = View.VISIBLE }
+    }
+
     private fun loadStart() {
         mainFrameFailed = false
+        contentShown = false
+        introFinished = false
+        retryScheduled = false
         showLoading()
-        webView.loadUrl(START_URL)
+        startServerWakeup()
     }
 
     private fun retry() {
+        mainRetryCount = 0
         errorView.visibility = View.GONE
         loadStart()
     }
@@ -153,24 +261,181 @@ class MainActivity : Activity() {
         loadingOverlay.alpha = 1f
         loadingOverlay.visibility = View.VISIBLE
         errorView.visibility = View.GONE
+        loadingShownAt = System.currentTimeMillis()
+        loadLocalIntro()
     }
 
     private fun hideLoading(immediately: Boolean = false) {
         if (loadingOverlay.visibility != View.VISIBLE) return
         if (immediately) {
+            stopIntroAnimation()
             loadingOverlay.visibility = View.GONE
             return
         }
         loadingOverlay.animate()
             .alpha(0f)
-            .setDuration(260)
-            .withEndAction { loadingOverlay.visibility = View.GONE }
+            .setDuration(280)
+            .withEndAction {
+                loadingOverlay.visibility = View.GONE
+                stopIntroAnimation()
+            }
             .start()
+    }
+
+    /** 오버레이가 사라진 뒤 인트로의 애니메이션 루프를 멈춰 배터리를 아낀다. */
+    private fun stopIntroAnimation() {
+        runCatching {
+            loadingWebView.evaluateJavascript(
+                "window.stopLoadingAnimation && window.stopLoadingAnimation()", null
+            )
+        }
+    }
+
+    // ---------------------------------------------------------------- 서버 깨우기
+
+    /**
+     * Render 무료 플랜은 15분 미사용 시 잠들어 첫 요청에 502/503 또는 타임아웃이 난다.
+     * 메인 페이지를 곧바로 열면 그 오류를 그대로 맞으므로, /api/health 가 200 을 줄 때까지
+     * 2초 간격으로 최대 70초 동안 백그라운드에서 두드린다. 그동안 인트로가 계속 흐른다.
+     */
+    private fun startServerWakeup() {
+        cancelServerWakeup()            // 이전 스레드 정리
+        val gen = wakeGeneration.get()
+
+        val startedAt = System.currentTimeMillis()
+        val thread = Thread {
+            var networkFails = 0
+            wakeup@ while (!destroyed && wakeGeneration.get() == gen) {
+                val elapsed = System.currentTimeMillis() - startedAt
+                if (elapsed >= WAKEUP_MAX_MS) {
+                    Log.w(TAG, "wakeup timeout after ${elapsed}ms")
+                    uiHandler.post {
+                        if (!destroyed && wakeGeneration.get() == gen &&
+                            !contentShown && !mainFrameFailed
+                        ) {
+                            showError(
+                                "서버가 아직 깨어나지 않았어요. (70초 초과)\n" +
+                                    "잠시 뒤 다시 시도해 주세요."
+                            )
+                        }
+                    }
+                    break@wakeup
+                }
+
+                val code = probeHealth()
+                if (code == HttpURLConnection.HTTP_OK) {
+                    Log.i(TAG, "server awake after ${System.currentTimeMillis() - startedAt}ms")
+                    uiHandler.post {
+                        if (!destroyed && wakeGeneration.get() == gen) beginMainLoad()
+                    }
+                    break@wakeup
+                }
+
+                if (code == HEALTH_NETWORK_ERROR) {
+                    networkFails++
+                    if (networkFails >= NETWORK_FAIL_LIMIT) {
+                        Log.w(TAG, "network looks down ($networkFails consecutive failures)")
+                        uiHandler.post {
+                            if (!destroyed && wakeGeneration.get() == gen && !contentSeeded()) {
+                                showError("인터넷 연결을 확인한 뒤 다시 시도해 주세요.")
+                            }
+                        }
+                        break@wakeup
+                    }
+                } else {
+                    // 502/503 등 Render 가 깨어나는 중 — 오류 화면 없이 계속 재시도
+                    networkFails = 0
+                }
+
+                val remaining = (startedAt + WAKEUP_MAX_MS) - System.currentTimeMillis()
+                if (remaining <= 0) continue@wakeup
+                try {
+                    Thread.sleep(minOf(WAKEUP_INTERVAL_MS, remaining))
+                } catch (e: InterruptedException) {
+                    break@wakeup
+                }
+            }
+        }
+        thread.isDaemon = true
+        thread.name = "bada-health-wakeup"
+        wakeThread = thread
+        thread.start()
+    }
+
+    private fun cancelServerWakeup() {
+        wakeGeneration.incrementAndGet()
+        wakeThread?.interrupt()
+        wakeThread = null
+    }
+
+    private fun contentSeeded(): Boolean = contentShown || mainFrameFailed
+
+    /** 상태 확인: 200 이면 깨어난 것, -1 이면 네트워크 자체가 끊긴 것. */
+    private fun probeHealth(): Int {
+        var conn: HttpURLConnection? = null
+        return try {
+            conn = (URL(HEALTH_URL).openConnection() as HttpURLConnection).apply {
+                connectTimeout = HEALTH_CONNECT_TIMEOUT_MS
+                readTimeout = HEALTH_READ_TIMEOUT_MS
+                instanceFollowRedirects = true
+                requestMethod = "GET"
+                setRequestProperty("User-Agent", USER_AGENT)
+                setRequestProperty("Cache-Control", "no-cache")
+                setRequestProperty("Accept", "application/json")
+            }
+            val code = conn.responseCode
+            runCatching {
+                val stream = if (code in 200..299) conn.inputStream else conn.errorStream
+                stream?.use { it.readBytes() }
+            }
+            Log.d(TAG, "health -> $code")
+            code
+        } catch (e: SocketTimeoutException) {
+            Log.d(TAG, "health timeout: ${e.message}")
+            HEALTH_NETWORK_ERROR
+        } catch (e: IOException) {
+            Log.d(TAG, "health io: ${e.message}")
+            HEALTH_NETWORK_ERROR
+        } catch (e: Exception) {
+            Log.w(TAG, "health failed: ${e.message}")
+            HEALTH_NETWORK_ERROR
+        } finally {
+            runCatching { conn?.disconnect() }
+        }
+    }
+
+    private fun beginMainLoad() {
+        if (destroyed || mainFrameFailed || contentShown) return
+        Log.i(TAG, "server awake -> load $START_URL")
+        webView.loadUrl(START_URL)
+    }
+
+    /** 메인 페이지가 다 그려졌다: 인트로를 최소 1.5초 보여 준 뒤 파도를 100%로 채우고 걷는다. */
+    private fun finishIntroWhenReady() {
+        if (introFinished || errorView.visibility == View.VISIBLE) return
+        introFinished = true
+        cancelServerWakeup()
+
+        val shownFor = System.currentTimeMillis() - loadingShownAt
+        val wait = (INTRO_MIN_MS - shownFor).coerceAtLeast(0L)
+        uiHandler.postDelayed({
+            if (destroyed || errorView.visibility == View.VISIBLE) return@postDelayed
+            runCatching {
+                loadingWebView.evaluateJavascript(
+                    "window.finishLoading && window.finishLoading()", null
+                )
+            }
+            uiHandler.postDelayed({
+                if (!destroyed) hideLoading()
+            }, BAR_FINISH_MS)
+        }, wait)
     }
 
     private fun showError(detail: String?) {
         if (mainFrameFailed) return
         mainFrameFailed = true
+        cancelServerWakeup()
+        stopIntroAnimation()
         loadingOverlay.animate().cancel()
         loadingOverlay.visibility = View.GONE
         errorDetail.text = detail?.takeIf { it.isNotBlank() }
@@ -202,7 +467,14 @@ class MainActivity : Activity() {
 
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
-            if (errorView.visibility != View.VISIBLE) hideLoading()
+            if (errorView.visibility != View.VISIBLE) {
+                if (url != null && url.contains(BASE_HOST)) {
+                    contentShown = true
+                    finishIntroWhenReady()
+                } else {
+                    hideLoading()
+                }
+            }
             injectDownloadShim(view)
         }
 
@@ -218,7 +490,9 @@ class MainActivity : Activity() {
             if (code == WebViewClient.ERROR_UNKNOWN || code == -1) return
             val desc = error?.description?.toString()
             Log.w(TAG, "main frame error code=$code desc=$desc url=${request.url}")
-            showError(describeError(code, desc))
+            val detail = describeError(code, desc)
+            if (scheduleMainRetry()) return
+            showError(detail)
         }
 
         override fun onReceivedHttpError(
@@ -231,6 +505,7 @@ class MainActivity : Activity() {
             val status = errorResponse?.statusCode ?: 0
             if (status >= 500) {
                 Log.w(TAG, "main frame http error status=$status")
+                if (scheduleMainRetry()) return
                 showError("서버가 잠시 응답하지 않아요. (HTTP $status)\n잠시 뒤 다시 시도해 주세요.")
             }
         }
@@ -253,6 +528,27 @@ class MainActivity : Activity() {
             else -> desc?.takeIf { it.isNotBlank() }
                 ?: getString(R.string.error_default_detail)
         }
+    }
+
+    // ---------------------------------------------------------------- 오류 / 재시도
+
+    /**
+     * 서버가 깨어난 뒤 메인 페이지가 실패하면, 오류 화면 대신 인트로로 돌아가
+     * 잠시 뒤 다시 서버부터 확인한다(Render 기동 직후 한두 번 튈 수 있음).
+     */
+    private fun scheduleMainRetry(): Boolean {
+        if (destroyed || contentShown) return false
+        if (mainRetryCount >= MAIN_RETRY_LIMIT) return false
+        if (retryScheduled) return true
+        retryScheduled = true
+        mainRetryCount++
+        Log.i(TAG, "quiet retry #$mainRetryCount in 1200ms")
+        uiHandler.postDelayed({
+            if (destroyed) return@postDelayed
+            retryScheduled = false
+            loadStart()
+        }, 1_200)
+        return true
     }
 
     // ---------------------------------------------------------------- WebChromeClient
@@ -609,16 +905,17 @@ class MainActivity : Activity() {
             super.onBackPressed()
         }
     }
-
     override fun onPause() {
         super.onPause()
         webView.onPause()
+        runCatching { loadingWebView.onPause() }
         CookieManager.getInstance().flush()
     }
 
     override fun onResume() {
         super.onResume()
         webView.onResume()
+        runCatching { loadingWebView.onResume() }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -627,6 +924,16 @@ class MainActivity : Activity() {
     }
 
     override fun onDestroy() {
+        destroyed = true
+        cancelServerWakeup()
+        uiHandler.removeCallbacksAndMessages(null)
+        try {
+            (loadingWebView.parent as? android.view.ViewGroup)?.removeView(loadingWebView)
+            loadingWebView.stopLoading()
+            loadingWebView.destroy()
+        } catch (e: Exception) {
+            Log.w(TAG, "loading webview destroy: ${e.message}")
+        }
         try {
             // loadUrl("about:blank") 는 종료 직전 페이지가 저장을 다시 시도하면서
             // WebView 스토리지 flush 와 충돌하므로 호출하지 않는다.
