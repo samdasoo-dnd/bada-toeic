@@ -49,6 +49,8 @@ class MainActivity : Activity() {
         private const val START_URL = "https://bada-toeic.onrender.com"
         private const val BASE_HOST = "bada-toeic.onrender.com"
         private const val REQ_SAVE_FILE = 1001
+        private const val STORE_PREFS = "bada_toeic_store"
+        private const val STORE_KEY = "store_json"
     }
 
     private lateinit var webView: WebView
@@ -115,7 +117,7 @@ class MainActivity : Activity() {
             allowContentAccess = true
             javaScriptCanOpenWindowsAutomatically = true
             setSupportMultipleWindows(false)
-            userAgentString = userAgentString + " BadaToeicAndroid/1.0.0"
+            userAgentString = userAgentString + " BadaToeicAndroid/1.0.1"
         }
 
         CookieManager.getInstance().apply {
@@ -481,8 +483,36 @@ class MainActivity : Activity() {
         view?.evaluateJavascript(js, null)
     }
 
-    /** JS → 네이티브 파일 저장 브리지 */
+    /** JS → 네이티브 파일 저장 브리지 · 학습 기록 영구 저장 */
     inner class SaveBridge {
+
+        /** 학습 기록 JSON 을 앱 전용 SharedPreferences 에 동기(commit) 저장한다. */
+        @JavascriptInterface
+        fun saveStore(json: String?): Boolean {
+            if (json.isNullOrEmpty()) return false
+            return try {
+                getSharedPreferences(STORE_PREFS, Context.MODE_PRIVATE)
+                    .edit()
+                    .putString(STORE_KEY, json)
+                    .commit()          // 비동기 apply 가 아니라 디스크 기록 완료까지 보장
+            } catch (e: Exception) {
+                Log.w(TAG, "saveStore failed: ${e.message}")
+                false
+            }
+        }
+
+        /** 앱 전용 SharedPreferences 에 저장된 학습 기록 JSON 을 돌려준다. 없으면 빈 문자열. */
+        @JavascriptInterface
+        fun loadStore(): String {
+            return try {
+                getSharedPreferences(STORE_PREFS, Context.MODE_PRIVATE)
+                    .getString(STORE_KEY, "") ?: ""
+            } catch (e: Exception) {
+                Log.w(TAG, "loadStore failed: ${e.message}")
+                ""
+            }
+        }
+
         @JavascriptInterface
         fun saveBase64(name: String?, mime: String?, base64: String?) {
             val safeName = sanitizeFileName(name)
@@ -598,7 +628,8 @@ class MainActivity : Activity() {
 
     override fun onDestroy() {
         try {
-            webView.loadUrl("about:blank")
+            // loadUrl("about:blank") 는 종료 직전 페이지가 저장을 다시 시도하면서
+            // WebView 스토리지 flush 와 충돌하므로 호출하지 않는다.
             webView.removeJavascriptInterface("BadaToeicAndroid")
             webView.stopLoading()
             (webView.parent as? android.view.ViewGroup)?.removeView(webView)
