@@ -19,8 +19,8 @@ android {
         applicationId = "com.donsik.badatoeic"
         minSdk = 24
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.0.3"
+        versionCode = 5
+        versionName = "1.0.4"
 
         // 딥 블루 로딩 오버레이 / 재시도 화면에 쓸 색을 한 곳에서 관리
         resValue("string", "app_url", "https://bada-toeic.onrender.com")
