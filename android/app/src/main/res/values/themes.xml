@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.BadaToeic" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bada_deep</item>
+        <item name="android:colorBackground">@color/bada_deep</item>
+        <item name="android:statusBarColor">@color/bada_deep</item>
+        <item name="android:navigationBarColor">@color/bada_deep</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/bada_teal</item>
+        <item name="android:textColorPrimary">@color/bada_text</item>
+        <item name="android:textColorSecondary">@color/bada_text_dim</item>
+    </style>
+</resources>

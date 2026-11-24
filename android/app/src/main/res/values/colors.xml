@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bada_deep">#061124</color>
+    <color name="bada_deep_2">#0B2340</color>
+    <color name="bada_teal">#39E6D0</color>
+    <color name="bada_teal_soft">#7EF0E2</color>
+    <color name="bada_blue">#38B6FF</color>
+    <color name="bada_text">#EAF6FF</color>
+    <color name="bada_text_dim">#8FB6CE</color>
+</resources>
