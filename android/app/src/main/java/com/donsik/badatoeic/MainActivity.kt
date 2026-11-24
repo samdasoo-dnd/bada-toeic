@@ -45,8 +45,11 @@ import java.util.concurrent.atomic.AtomicInteger
  * 바다토익(https://bada-toeic.onrender.com) 을 감싸는 WebView 앱.
  *
  * - 앱을 켜면 곧바로(0.1초) assets/loading.html 의 윤슬 인트로 + 파도 로딩바를 띄운다.
- * - 그동안 백그라운드에서 /api/health 를 2초 간격·최대 70초 동안 두드려
+ * - 그동안 백그라운드에서 /api/health 를 2초 간격·최대 90초 동안 두드려
  *   Render 무료 플랜의 콜드 스타트(502/503/타임아웃)를 기다린 뒤 메인 페이지를 연다.
+ *   health 는 200 이면서 본문에 "ok":true 가 있어야 "깨어남"으로 판정한다.
+ * - 메인 페이지가 503/타임아웃으로 실패해도 인트로가 떠 있는 동안(총 90초 이내)에는
+ *   오류 화면을 띄우지 않고 인트로·파도바 그대로 둔 채 2초 뒤 다시 health 부터 확인한다.
  * - 메인 페이지가 그려지면 파도 로딩바를 100%로 채우고 오버레이를 부드럽게 걷는다.
  * - localStorage(domStorage), LC 음성 자동 재생, 쿠키/혼합 콘텐츠를 허용한다.
  * - 학습 기록 JSON(blob) 내보내기는 파일 저장 화면으로 이어 준다.
@@ -59,15 +62,15 @@ class MainActivity : Activity() {
         private const val START_URL = "https://bada-toeic.onrender.com"
         private const val BASE_HOST = "bada-toeic.onrender.com"
         private const val HEALTH_URL = "https://bada-toeic.onrender.com/api/health"
-        private const val USER_AGENT = "BadaToeicAndroid/1.0.3"
+        private const val USER_AGENT = "BadaToeicAndroid/1.0.4"
         private const val LOCAL_LOADING_URL = "file:///android_asset/loading.html"
         private const val REQ_SAVE_FILE = 1001
         private const val STORE_PREFS = "bada_toeic_store"
         private const val STORE_KEY = "store_json"
 
-        // 서버 깨우기: 2초 간격 · 최대 70초
+        // 서버 깨우기: 2초 간격 · 최대 90초 (인트로가 떠 있는 총 시간 기준)
         private const val WAKEUP_INTERVAL_MS = 2_000L
-        private const val WAKEUP_MAX_MS = 70_000L
+        private const val WAKEUP_MAX_MS = 90_000L
         private const val HEALTH_CONNECT_TIMEOUT_MS = 8_000
         private const val HEALTH_READ_TIMEOUT_MS = 8_000
 
@@ -78,11 +81,14 @@ class MainActivity : Activity() {
         private const val INTRO_MIN_MS = 1_500L
         private const val BAR_FINISH_MS = 420L
 
-        // 서버가 깨어난 뒤 메인 페이지가 한 번 실패하면 조용히 다시 시도하는 횟수
-        private const val MAIN_RETRY_LIMIT = 2
+        // 메인 페이지가 실패(503·타임아웃)하면 인트로를 유지한 채 이만큼 뒤 health 부터 다시 확인한다
+        private const val MAIN_RETRY_DELAY_MS = 2_000L
 
         // probeHealth() 결과: 네트워크 자체가 끊긴 경우
         private const val HEALTH_NETWORK_ERROR = -1
+
+        // probeHealth() 결과: 200 이지만 본문이 아직 준비되지 않은 경우
+        private const val HEALTH_NOT_READY = -2
     }
 
     private lateinit var webView: WebView
@@ -105,8 +111,14 @@ class MainActivity : Activity() {
     private var mainFrameFailed = false
     private var contentShown = false
     private var introFinished = false
-    private var retryScheduled = false
-    private var mainRetryCount = 0
+    private var retryWakeupScheduled = false
+
+    /** 이번 페이지 로드 시도가 실패했는지 — onPageStarted 에서 false, 오류 콜백에서 true. */
+    @Volatile
+    private var attemptFailed = false
+
+    /** 인트로(첫 화면)를 띄운 시각 — 90초 총 경과 시간을 재는 기준점. 재시도해도 리셋하지 않는다. */
+    private var introStartedAt = 0L
     private var loadingShownAt = 0L
     private var pendingSave: PendingSave? = null
 
@@ -242,13 +254,13 @@ class MainActivity : Activity() {
         mainFrameFailed = false
         contentShown = false
         introFinished = false
-        retryScheduled = false
+        retryWakeupScheduled = false
+        attemptFailed = false
         showLoading()
-        startServerWakeup()
+        startServerWakeup(resetTimer = true)
     }
 
     private fun retry() {
-        mainRetryCount = 0
         errorView.visibility = View.GONE
         loadStart()
     }
@@ -295,14 +307,18 @@ class MainActivity : Activity() {
 
     /**
      * Render 무료 플랜은 15분 미사용 시 잠들어 첫 요청에 502/503 또는 타임아웃이 난다.
-     * 메인 페이지를 곧바로 열면 그 오류를 그대로 맞으므로, /api/health 가 200 을 줄 때까지
-     * 2초 간격으로 최대 70초 동안 백그라운드에서 두드린다. 그동안 인트로가 계속 흐른다.
+     * 메인 페이지를 곧바로 열면 그 오류를 그대로 맞으므로, /api/health 가 200(+ok:true) 을 줄 때까지
+     * 2초 간격으로 최대 90초 동안 백그라운드에서 두드린다. 그동안 인트로가 계속 흐른다.
+     *
+     * resetTimer=false 는 메인 페이지가 503·타임아웃으로 실패한 뒤의 재확인이다.
+     * 이때는 인트로를 띄운 시각(introStartedAt)을 그대로 이어 받아 90초를 새로 주지 않는다.
      */
-    private fun startServerWakeup() {
+    private fun startServerWakeup(resetTimer: Boolean = true) {
         cancelServerWakeup()            // 이전 스레드 정리
+        if (resetTimer || introStartedAt <= 0L) introStartedAt = System.currentTimeMillis()
         val gen = wakeGeneration.get()
 
-        val startedAt = System.currentTimeMillis()
+        val startedAt = introStartedAt
         val thread = Thread {
             var networkFails = 0
             wakeup@ while (!destroyed && wakeGeneration.get() == gen) {
@@ -314,7 +330,7 @@ class MainActivity : Activity() {
                             !contentShown && !mainFrameFailed
                         ) {
                             showError(
-                                "서버가 아직 깨어나지 않았어요. (70초 초과)\n" +
+                                "서버가 아직 깨어나지 않았어요. (90초 초과)\n" +
                                     "잠시 뒤 다시 시도해 주세요."
                             )
                         }
@@ -370,7 +386,10 @@ class MainActivity : Activity() {
 
     private fun contentSeeded(): Boolean = contentShown || mainFrameFailed
 
-    /** 상태 확인: 200 이면 깨어난 것, -1 이면 네트워크 자체가 끊긴 것. */
+    /**
+     * 상태 확인. 200 이고 본문에 "ok":true 가 있어야만 깨어난 것(200)으로 본다.
+     * 200 이어도 본문이 아직 준비되지 않았으면 -2, 네트워크 자체가 끊겼으면 -1.
+     */
     private fun probeHealth(): Int {
         var opened: HttpURLConnection? = null
         return try {
@@ -384,12 +403,16 @@ class MainActivity : Activity() {
             conn.setRequestProperty("Cache-Control", "no-cache")
             conn.setRequestProperty("Accept", "application/json")
             val code = conn.responseCode
-            runCatching {
+            val body = runCatching {
                 val stream = if (code in 200..299) conn.inputStream else conn.errorStream
-                stream?.use { it.readBytes() }
+                stream?.bufferedReader()?.use { it.readText() }
+            }.getOrNull()
+            Log.d(TAG, "health -> $code body=${body?.take(80)}")
+            if (code == HttpURLConnection.HTTP_OK) {
+                if (isHealthOk(body)) HttpURLConnection.HTTP_OK else HEALTH_NOT_READY
+            } else {
+                code
             }
-            Log.d(TAG, "health -> $code")
-            code
         } catch (e: SocketTimeoutException) {
             Log.d(TAG, "health timeout: ${e.message}")
             HEALTH_NETWORK_ERROR
@@ -402,6 +425,16 @@ class MainActivity : Activity() {
         } finally {
             runCatching { opened?.disconnect() }
         }
+    }
+
+    /** health 응답 본문이 실제로 준비된 서버("ok":true)를 가리키는지. */
+    private fun isHealthOk(body: String?): Boolean {
+        val text = body ?: return false
+        if (text.isBlank()) return false
+        val parsed = runCatching { JSONObject(text).optBoolean("ok", false) }.getOrDefault(false)
+        if (parsed) return true
+        // JSON 이 아니거나 감싸진 형태여도 "ok" : true 가 있으면 깨어난 것으로 본다(공백 무시)
+        return Regex("\"ok\"\\s*:\\s*true").containsMatchIn(text)
     }
 
     private fun beginMainLoad() {
@@ -462,12 +495,18 @@ class MainActivity : Activity() {
 
         override fun onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?) {
             super.onPageStarted(view, url, favicon)
-            if (url != null && url.startsWith("http")) mainFrameFailed = false
+            if (url != null && url.startsWith("http")) {
+                mainFrameFailed = false
+                // 새 시도 시작 — 이전 시도의 실패 표시를 지운다
+                attemptFailed = false
+            }
         }
 
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
-            if (errorView.visibility != View.VISIBLE) {
+            // 503/타임아웃 페이지도 onPageFinished 를 부르므로, 실패한 시도는
+            // 절대 "다 그려졌다"로 처리하지 않는다(인트로 유지 → 재시도).
+            if (errorView.visibility != View.VISIBLE && !attemptFailed) {
                 if (url != null && url.contains(BASE_HOST)) {
                     contentShown = true
                     finishIntroWhenReady()
@@ -490,8 +529,9 @@ class MainActivity : Activity() {
             if (code == WebViewClient.ERROR_UNKNOWN || code == -1) return
             val desc = error?.description?.toString()
             Log.w(TAG, "main frame error code=$code desc=$desc url=${request.url}")
+            attemptFailed = true
             val detail = describeError(code, desc)
-            if (scheduleMainRetry()) return
+            if (scheduleWakeupRetry()) return
             showError(detail)
         }
 
@@ -503,10 +543,18 @@ class MainActivity : Activity() {
             super.onReceivedHttpError(view, request, errorResponse)
             if (request?.isForMainFrame != true) return
             val status = errorResponse?.statusCode ?: 0
-            if (status >= 500) {
+            if (status >= 400) {
+                // 이 시도는 실패했다 — onPageFinished 가 인트로를 걷지 않게 한다
+                attemptFailed = true
                 Log.w(TAG, "main frame http error status=$status")
-                if (scheduleMainRetry()) return
+            }
+            if (status >= 500) {
+                // Render 콜드 스타트의 502/503: 인트로·파도바 그대로 두고 2초 뒤 다시 확인
+                if (scheduleWakeupRetry()) return
                 showError("서버가 잠시 응답하지 않아요. (HTTP $status)\n잠시 뒤 다시 시도해 주세요.")
+            } else if (status >= 400) {
+                // 4xx 는 다시 기다린다고 풀리지 않으므로 바로 안내한다
+                showError("페이지를 찾지 못했어요. (HTTP $status)\n잠시 뒤 다시 시도해 주세요.")
             }
         }
 
@@ -533,21 +581,25 @@ class MainActivity : Activity() {
     // ---------------------------------------------------------------- 오류 / 재시도
 
     /**
-     * 서버가 깨어난 뒤 메인 페이지가 실패하면, 오류 화면 대신 인트로로 돌아가
-     * 잠시 뒤 다시 서버부터 확인한다(Render 기동 직후 한두 번 튈 수 있음).
+     * 메인 페이지가 503·타임아웃으로 실패했을 때, 인트로가 떠 있는 동안(총 90초 이내)에는
+     * 오류 화면을 띄우지 않고 **로딩 오버레이·인트로를 그대로 둔 채**
+     * 2초 뒤 /api/health 부터 다시 확인한다. (윤슬·파도바가 0%로 리셋되지 않는다)
+     *
+     * @return true = 재시도로 넘겼다(오류 화면을 띄우지 않는다), false = 90초를 넘겨 오류 화면으로 간다
      */
-    private fun scheduleMainRetry(): Boolean {
+    private fun scheduleWakeupRetry(): Boolean {
         if (destroyed || contentShown) return false
-        if (mainRetryCount >= MAIN_RETRY_LIMIT) return false
-        if (retryScheduled) return true
-        retryScheduled = true
-        mainRetryCount++
-        Log.i(TAG, "quiet retry #$mainRetryCount in 1200ms")
+        val elapsed = System.currentTimeMillis() - introStartedAt
+        if (introStartedAt <= 0L || elapsed >= WAKEUP_MAX_MS) return false
+        if (retryWakeupScheduled) return true
+        retryWakeupScheduled = true
+        Log.i(TAG, "main frame failed during intro (${elapsed}ms) -> health re-check in 2s")
         uiHandler.postDelayed({
             if (destroyed) return@postDelayed
-            retryScheduled = false
-            loadStart()
-        }, 1_200)
+            retryWakeupScheduled = false
+            if (contentShown || errorView.visibility == View.VISIBLE) return@postDelayed
+            startServerWakeup(resetTimer = false)
+        }, MAIN_RETRY_DELAY_MS)
         return true
     }
 
@@ -557,7 +609,8 @@ class MainActivity : Activity() {
 
         override fun onProgressChanged(view: WebView?, newProgress: Int) {
             super.onProgressChanged(view, newProgress)
-            if (loadingOverlay.visibility == View.VISIBLE) {
+            // 실패한 시도의 진행률(503 페이지 100% 등)은 표시하지 않는다
+            if (loadingOverlay.visibility == View.VISIBLE && !attemptFailed) {
                 loadingText.text = if (newProgress in 1..99) {
                     "바다토익 연결 중… $newProgress%"
                 } else {
