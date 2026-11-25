@@ -20,18 +20,29 @@ import json
 import os
 import random
 import re
+import socket
+import time
 import urllib.error
 import urllib.request
 
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
-FALLBACK_MODELS = [
+
+# 2026-11-26 실측: 살아 있고 응답이 빠른(200 OK, 1초 내외) 순서.
+# 폐기된 gemini-2.5-*(404)와 과부하가 잦은 gemini-3.1-flash-lite-preview(503)는 후보에서 제외.
+MODEL_CANDIDATES = [
     "gemini-3.5-flash-lite",
-    "gemini-3.8-flash",
+    "gemini-flash-lite-latest",
+    "gemini-3.5-flash",
     "gemini-3.6-flash",
-    "gemini-2.5-flash-lite",
+    "gemini-flash-latest",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
 ]
-TIMEOUT = 55
+DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "").strip() or MODEL_CANDIDATES[0]
+# 한 모델에 오래 붙잡히지 않도록: 요청 1회 25초, 전체 시도 예산 50초.
+# (Render 게이트웨이가 요청을 끊기 전에 다음 후보로 넘어가고, 끝내 실패하면 짧게 안내한다)
+REQUEST_TIMEOUT = 25
+TOTAL_BUDGET = 50
 KEY_RE = re.compile(r"^(?:AIza[0-9A-Za-z_\-]{30,}|AQ\.[0-9A-Za-z_.\-]{25,})$")
 
 PART_LABEL = {
@@ -45,12 +56,23 @@ PART_LABEL = {
 
 
 class AIError(RuntimeError):
-    def __init__(self, message: str, status: int = 502):
+    """AI 호출 오류.
+
+    retryable=True 면 같은 모델을 붙잡고 재시도하지 않고 곧바로 다음 후보 모델로 넘어간다.
+    busy=True 는 과부하·한도(503/429)라 최종 안내 문구에서 우선한다.
+    """
+
+    def __init__(self, message: str, status: int = 502, code: int = 0,
+                 retryable: bool = False, busy: bool = False):
         super().__init__(message)
-        self.status = status
+        self.status = status        # 클라이언트에 돌려줄 HTTP 상태
+        self.code = code            # Gemini가 준 HTTP 상태(없으면 0)
+        self.retryable = retryable
+        self.busy = busy
 
 
-def _request(url: str, payload: dict | None = None, api_key: str = "", timeout: int = TIMEOUT) -> dict:
+def _request(url: str, payload: dict | None = None, api_key: str = "",
+             timeout: float = REQUEST_TIMEOUT) -> dict:
     data = None if payload is None else json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, method="GET" if payload is None else "POST")
     req.add_header("x-goog-api-key", api_key)
@@ -69,21 +91,40 @@ def _request(url: str, payload: dict | None = None, api_key: str = "", timeout: 
             msg = json.loads(body.decode("utf-8")).get("error", {}).get("message", "")
         except Exception:
             msg = body.decode("utf-8", "replace")[:200]
-        if exc.code in (400, 401, 403):
-            raise AIError("Gemini 키가 올바르지 않거나 권한이 없습니다. %s" % msg, 401) from exc
-        if exc.code == 404:
-            raise AIError("사용할 수 없는 모델입니다. %s" % msg, 404) from exc
-        if exc.code == 429:
-            raise AIError("Gemini 사용 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.", 429) from exc
-        raise AIError("Gemini 호출 실패(%d): %s" % (exc.code, msg or "알 수 없는 오류"), 502) from exc
+        if exc.code in (401, 403):
+            raise AIError("Gemini 키가 올바르지 않거나 권한이 없습니다. %s" % msg, 401,
+                          code=exc.code) from exc
+        if exc.code == 400:
+            bad_key = "api key" in msg.lower() or "API_KEY" in msg.upper()
+            raise AIError("Gemini 키가 올바르지 않거나 권한이 없습니다. %s" % msg if bad_key
+                          else "AI 요청이 거부되었습니다. %s" % msg,
+                          401 if bad_key else 502, code=400, retryable=not bad_key) from exc
+        if exc.code == 404:      # 폐기·미지원 모델 → 다음 후보
+            raise AIError("사용할 수 없는 모델입니다. %s" % msg, 404, code=404,
+                          retryable=True) from exc
+        if exc.code == 429:      # 한도 초과 → 다음 후보(다른 모델은 여유가 있을 수 있음)
+            raise AIError("Gemini 사용 한도를 초과했습니다. 잠시 후 다시 시도해 주세요.", 429,
+                          code=429, retryable=True, busy=True) from exc
+        if exc.code >= 500:      # 503 high demand 등 → 다음 후보
+            raise AIError("AI 사용량이 몰리고 있습니다. 잠시 후 다시 시도해 주세요.", 503,
+                          code=exc.code, retryable=True, busy=True) from exc
+        raise AIError("Gemini 호출 실패(%d): %s" % (exc.code, msg or "알 수 없는 오류"),
+                      502, code=exc.code) from exc
     except urllib.error.URLError as exc:
-        raise AIError("Gemini 서버에 연결하지 못했습니다. 네트워크를 확인해 주세요.", 503) from exc
+        # 타임아웃은 URLError(reason=socket.timeout)으로도 올라온다
+        if isinstance(getattr(exc, "reason", None), (TimeoutError, socket.timeout)):
+            raise AIError("Gemini 응답이 너무 늦습니다. 잠시 후 다시 시도해 주세요.", 504,
+                          retryable=True) from exc
+        raise AIError("Gemini 서버에 연결하지 못했습니다. 네트워크를 확인해 주세요.", 503,
+                      retryable=True) from exc
     except TimeoutError as exc:
-        raise AIError("Gemini 응답이 너무 늦습니다. 잠시 후 다시 시도해 주세요.", 504) from exc
+        raise AIError("Gemini 응답이 너무 늦습니다. 잠시 후 다시 시도해 주세요.", 504,
+                      retryable=True) from exc
     except AIError:
         raise
     except Exception as exc:  # SSL/연결 끊김 등 → 500 대신 503으로 안내
-        raise AIError("Gemini 연결 중 문제가 생겼습니다. 잠시 후 다시 시도해 주세요.", 503) from exc
+        raise AIError("Gemini 연결 중 문제가 생겼습니다. 잠시 후 다시 시도해 주세요.", 503,
+                      retryable=True) from exc
 
 
 def check_key_format(api_key: str) -> str:
@@ -105,26 +146,97 @@ def list_models(api_key: str) -> list[str]:
     return out
 
 
-def _pick_models(api_key: str, preferred: str | None) -> list[str]:
-    names = []
-    for cand in [preferred or "", DEFAULT_MODEL] + FALLBACK_MODELS:
-        if cand and cand not in names:
-            names.append(cand)
+def _model_order(preferred: str | None = None) -> list[str]:
+    """시도할 모델 목록(앞이 우선). GEMINI_MODEL·호출 지정 모델이 있으면 맨 앞에 둔다.
+
+    핫패스에서 모델 목록 API를 부르지 않는다(왕복 1회·지연·그 자체의 503 위험 제거).
+    """
+    order: list[str] = []
+    for cand in [preferred or "", DEFAULT_MODEL] + MODEL_CANDIDATES:
+        cand = str(cand or "").strip()
+        if cand and cand not in order:
+            order.append(cand)
+    return order
+
+
+def _discover_models(api_key: str, exclude: list[str]) -> list[str]:
+    """후보가 전부 404(모델명이 바뀐 경우)일 때만 계정에서 쓸 수 있는 flash 계열을 조회해 보충한다."""
     try:
         available = list_models(api_key)
     except AIError:
-        available = []
-    if available:
-        ranked = [m for m in available if "flash" in m and not m.endswith(("-tts", "-image", "-live"))]
-        ranked.sort(key=lambda m: (0 if "lite" in m else 1, -len(m)))
-        names = [m for m in names if m in available] + ranked
-    seen = set()
-    ordered = []
-    for m in names:
-        if m not in seen:
-            seen.add(m)
-            ordered.append(m)
-    return ordered[:4]
+        return []
+    skip = ("-tts", "-image", "-live")
+    lite = [m for m in available if "flash" in m and "lite" in m and not m.endswith(skip)]
+    other = [m for m in available if "flash" in m and not m.endswith(skip) and m not in lite]
+    return [m for m in lite + other if m not in exclude][:3]
+
+
+def _text_of(data: dict) -> str:
+    out = []
+    for cand in data.get("candidates") or []:
+        for part_obj in (cand.get("content") or {}).get("parts") or []:
+            out.append(part_obj.get("text", ""))
+    return "".join(out).strip()
+
+
+def _truncated(data: dict) -> bool:
+    """출력 한도에서 잘렸는지(생각 토큰이 한도를 다 쓴 경우 포함) — 잘린 답은 쓰지 않고 다음 모델로 간다."""
+    for cand in data.get("candidates") or []:
+        if cand.get("finishReason") == "MAX_TOKENS":
+            return True
+    return False
+
+
+def _final_error(errors: list[AIError]) -> AIError:
+    """모든 후보가 실패했을 때의 안내. 404가 503(과부하)을 덮어쓰지 않게 한다."""
+    if not errors:
+        return AIError("AI 호출 시간이 초과되었습니다. 잠시 후 다시 시도해 주세요.", 504, busy=True)
+    if any(e.busy for e in errors):
+        return AIError("AI 사용량이 몰리고 있습니다. 잠시 후 다시 시도해 주세요.", 503, busy=True)
+    if all(e.code == 404 for e in errors):
+        return AIError("사용할 수 있는 AI 모델을 찾지 못했습니다. 잠시 후 다시 시도해 주세요.", 502)
+    if all(e.status == 504 for e in errors):
+        return AIError("AI 응답이 너무 늦습니다. 잠시 후 다시 시도해 주세요.", 504)
+    return AIError(str(errors[-1]), errors[-1].status, code=errors[-1].code)
+
+
+def _run(payload: dict, api_key: str, parse=None, preferred: str | None = None,
+         timeout: float = REQUEST_TIMEOUT, budget: int = TOTAL_BUDGET):
+    """후보 모델을 순서대로 호출하고 (결과, 사용한 모델)을 돌려준다.
+
+    - 404·429·5xx·타임아웃·네트워크 오류면 같은 모델을 재시도하지 않고 즉시 다음 후보로 간다.
+    - 응답이 비었거나 JSON 해석·정규화에 실패해도 다음 후보로 간다.
+    - 전체 시도는 budget(초) 안에서 끝내 Render 요청 타임아웃에 걸리지 않게 한다.
+    """
+    deadline = time.monotonic() + max(5, int(budget))
+    queue = _model_order(preferred)
+    tried: list[str] = []
+    errors: list[AIError] = []
+    discovered = False
+    while queue:
+        candidate = queue.pop(0)
+        tried.append(candidate)
+        left = deadline - time.monotonic()
+        if left < 2.5:
+            break
+        try:
+            data = _request("%s/models/%s:generateContent" % (API_BASE, candidate),
+                            payload=payload, api_key=api_key,
+                            timeout=min(timeout, max(2.5, left)))
+            text = _text_of(data)
+            if not text:
+                raise AIError("AI 응답이 비어 있습니다.", 502, retryable=True)
+            if _truncated(data):
+                raise AIError("AI 응답이 길어 잘렸습니다.", 502, retryable=True)
+            return (parse(text) if parse else text), candidate
+        except AIError as exc:
+            if not exc.retryable:
+                raise
+            errors.append(exc)
+        if not queue and not discovered and errors and all(e.code == 404 for e in errors):
+            discovered = True
+            queue.extend(_discover_models(api_key, tried))
+    raise _final_error(errors)
 
 
 PROMPT_TEMPLATE = """당신은 한국의 토익(TOEIC) 전문 강사입니다. 실제 기출과 같은 품질의 **새로운** 문제를 만듭니다.
@@ -178,11 +290,11 @@ def _extract_json(text: str) -> dict:
     start = text.find("{")
     end = text.rfind("}")
     if start < 0 or end <= start:
-        raise AIError("AI 응답에서 JSON을 찾지 못했습니다.", 502)
+        raise AIError("AI 응답에서 JSON을 찾지 못했습니다.", 502, retryable=True)
     try:
         return json.loads(text[start:end + 1])
     except json.JSONDecodeError as exc:
-        raise AIError("AI 응답 형식을 해석하지 못했습니다.", 502) from exc
+        raise AIError("AI 응답 형식을 해석하지 못했습니다.", 502, retryable=True) from exc
 
 
 def _normalize(raw: dict, part: int, count: int) -> dict:
@@ -268,7 +380,7 @@ def _normalize(raw: dict, part: int, count: int) -> dict:
         if total >= count:
             break
     if not sets_out:
-        raise AIError("AI가 유효한 문제를 만들지 못했습니다. 다시 시도해 주세요.", 502)
+        raise AIError("AI가 유효한 문제를 만들지 못했습니다. 다시 시도해 주세요.", 502, retryable=True)
     return {"sets": sets_out, "count": total, "model": None}
 
 
@@ -287,30 +399,15 @@ def generate_questions(api_key: str, part: int = 5, count: int = 5,
     )
     payload = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.9, "maxOutputTokens": 4096,
+        "generationConfig": {"temperature": 0.9, "maxOutputTokens": 6144,
                              "responseMimeType": "application/json"},
     }
-    last_error: AIError | None = None
-    for candidate in _pick_models(key, model):
-        try:
-            data = _request("%s/models/%s:generateContent" % (API_BASE, candidate),
-                            payload=payload, api_key=key)
-        except AIError as exc:
-            last_error = exc
-            if exc.status in (404, 400):
-                continue
-            raise
-        text = ""
-        for cand in data.get("candidates", []):
-            for part_obj in (cand.get("content") or {}).get("parts", []):
-                text += part_obj.get("text", "")
-        if not text.strip():
-            last_error = AIError("AI 응답이 비어 있습니다.", 502)
-            continue
-        result = _normalize(_extract_json(text), part, count)
-        result["model"] = candidate
-        return result
-    raise last_error or AIError("AI 문제 생성에 실패했습니다.", 502)
+    def parse(text: str) -> dict:
+        return _normalize(_extract_json(text), part, count)
+
+    result, model_name = _run(payload, key, parse, preferred=model)
+    result["model"] = model_name
+    return result
 
 
 def test_key(api_key: str) -> dict:
@@ -346,23 +443,12 @@ def explain_grammar(api_key: str, topic: str, level: str = "더 쉽게 설명해
                                    question=str(question or "")[:300])
     payload = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.6, "maxOutputTokens": 1200},
+        # Gemini 3 계열은 생각(thinking) 토큰도 이 한도에서 깎이므로 여유를 둔다(짧으면 설명이 잘린다)
+        "generationConfig": {"temperature": 0.6, "maxOutputTokens": 3000},
     }
-    last_error = None
-    for candidate in _pick_models(key, None):
-        try:
-            data = _request("%s/models/%s:generateContent" % (API_BASE, candidate),
-                            payload=payload, api_key=key)
-        except AIError as exc:
-            last_error = exc
-            if exc.status in (404, 400):
-                continue
-            raise
-        text = ""
-        for cand in data.get("candidates", []):
-            for part_obj in (cand.get("content") or {}).get("parts", []):
-                text += part_obj.get("text", "")
-        if text.strip():
-            return {"text": text.strip()[:4000], "model": candidate}
-        last_error = AIError("AI 응답이 비어 있습니다.", 502)
-    raise last_error or AIError("AI 설명을 만들지 못했습니다.", 502)
+    def parse(text: str) -> dict:
+        return {"text": text.strip()[:4000]}
+
+    result, model_name = _run(payload, key, parse)
+    result["model"] = model_name
+    return result
